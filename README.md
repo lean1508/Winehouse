@@ -18,7 +18,7 @@ Se ha elegido a estos dos grupos de consumidores principalmente porque son los q
 
 ### Wireframe
 ---
-[Enlace al Wireframe de WineHouse](https://www.figma.com/file/LOazZ1JOGAdL02zFhnFJSU/WineHouse?node-id=0%3A1)
+[Enlace al Wireframe de WineHouse](https://www.figma.com/file/QTqtMPVuMGjnYD7sJGFl0c/WineHouse-(Rev-1)?node-id=0%3A1)
 
 ### Integrantes del Equipo
 ---
@@ -33,6 +33,15 @@ Leandro Caorsi Empleado de deposito, 30 años, interesado en programación con g
 *Martín Luzuriaga*
 
 Licenciado en Relaciones Internacionales y Posgrado en Business Marketing. 32 años. Apasionado por la cultura de internet. Interesado en siempre seguir aprendiendo e incursionar en nuevos ámbitos y experiencias. Melomano.
+
+### Paleta de Colores
+---
+[Paleta de colores seleccionada](https://coolors.co/050705-fffffd-b3b5af-401233-8a0804)
+
+
+### Logotipo
+---
+[Logo de WineHouse](https://drive.google.com/file/d/1BrRTmsEncf1EJv9IIZ0Nc9-ttRJnj7Kq/view?usp=sharing)
 
 ### Páginas web de Referencia
 ---
