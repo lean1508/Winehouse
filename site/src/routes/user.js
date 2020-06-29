@@ -5,5 +5,5 @@ const path = require('path');
 const userController = require(path.resolve(__dirname, '..', 'controllers', 'userController'));
 
 router.get('/registro', userController.index);
-router.get('/carrito', userController.carrito);
-router.get('/cargarProducto', userController.add)
+
+module.exports = router;

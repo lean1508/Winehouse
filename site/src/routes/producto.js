@@ -4,6 +4,6 @@ const path = require('path');
 
 const productoController = require(path.resolve(__dirname, '..', 'controllers', 'productoController'));
 
-router.get('/productos/detalle', productoController.detail);
+router.get('/productos/detalle', productoController.show);
 
 module.exports = router;
