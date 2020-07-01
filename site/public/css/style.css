@@ -1,0 +1,258 @@
+*{
+    box-sizing: border-box;
+}
+
+nav{
+    background-color: #8a0804;
+}
+
+.navbar {
+    justify-content: space-between;
+}
+
+.navbar-brand{
+    margin: 0px;
+    padding: 0rem 0.3125rem;
+}
+
+nav a img#logo {
+    max-width: 30vw;
+    max-height: 10vh;
+}
+
+.navbar-dark .navbar-toggler {
+    color: #fffffd;
+    border: 0px solid rgba(255,255, 253, 1);
+}
+
+/*Clases para Menú Ppal Modal*/
+
+div#menu_ppal {
+    margin-left: 0px;
+    margin-top: 0px;
+    background-color: #fffffd;
+}
+
+div#menu_ppal div div.modal-header{
+    border-bottom: 1px solid #8a0804;
+}
+
+div#menu_ppal div div.modal-header img {
+    width: 240px;
+}
+
+div#menu_ppal div div.modal-header button span {
+    color: #8a0804;
+}
+
+ul.menu {
+    padding: 0px 14px;
+}
+
+ul.menu li {
+    list-style-type: none;
+    padding: 10px 0px;
+}
+
+ul.menu li a{
+    color: #8a0804;
+}
+
+/*Fin de clases para menu Ppal Modal*/
+
+div.iconos-nav {
+    display: flex;
+}
+
+img#lupa {
+    max-height: 4vh;
+}
+
+div.iconos-nav form button.btn {
+    padding: 0px;
+    margin: 0px;
+}
+
+div.iconos-nav form.form-inline {
+    flex-flow: nowrap;
+}
+
+div.iconos-nav a img#usuario{
+   max-height: 5vh;
+}
+
+div.iconos-nav a img#barrica{
+    max-height: 5vh;
+}
+
+.carousel{
+    display: flex;
+    width: 100%;
+}
+
+#categorias{
+    padding-left: 1rem;
+    font-weight: bold;
+    color: #050705;
+}
+
+#menu{
+    padding: 2rem 2rem 4rem 2rem;
+}
+
+article.card a:hover{
+    text-decoration: none;
+}
+
+.card{
+    box-sizing: border-box;
+    padding-top: 1rem;
+    border: 1px solid #050705;
+}
+
+.card-title{
+    text-align: center;
+    color: #050705;
+}
+
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    color: #401233;
+    font-weight: bolder;
+    background-color: #fffffd;
+    border-color: #401233 #401233 #fffffd;
+    border-width: 3px;
+}
+
+.nav-tabs {
+    border-bottom: 1px solid #401233;
+}
+
+.nav-tabs .nav-link {
+    margin-right: 2px;
+}
+
+a.tab {
+    color: #fffffd;
+    background-color: rgb(64, 18, 51, 0.8);
+}
+
+.tab-content>.active {
+    display: flex;
+}
+
+section.tab-pane {
+    margin: 15px 0px;
+}
+
+section.tab-pane article div {
+    text-align: center;
+    border: 1px solid #401233;
+    border-radius: 15px;
+    margin: 5px 0px;
+    padding-bottom: 5px;
+}
+
+.btn-primary#comprar{
+    color: #fffffd;
+    background-color: #8a0804;
+    border-color: #8a0804;
+}
+
+.btn-primary#verMas{
+    color: #050705;
+    background-color: #b3b5af;
+    border-color: #b3b5af;
+}
+
+.btn{
+    border-radius: 1rem;
+    padding: .375rem 1.5rem;
+    margin: 0px 5px;
+}
+#pie{
+    box-sizing: border-box;
+    padding: 1rem;
+    background-color: #8a0804;
+    border: 1px double #050705;
+    justify-content: space-around;
+    align-items: flex-start;
+    
+}
+.btn-primary#contacto{
+    color: #fffffd;
+    background-color: #8a0804;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: 2px solid #b3b5af;
+    border-radius: 0;
+    width: 50%;
+    align-self: center;
+}
+.btn-primary#contacto:hover{
+    border-color: black;
+}
+.modal-title{
+    font-weight: bold;
+    color: #401233;
+    font-size: 2rem;
+}
+.contacto{
+    font-size: 1.5rem;
+    text-decoration: underline;
+    color: #401233;
+}
+.btn-secondary#cerrar{
+    color: #050705;
+    background-color: #b3b5af;
+    border-color: #b3b5af;
+}
+.btn-primary#enviar{
+    color: #fffffd;
+    background-color: #8a0804;
+    border-color: #8a0804;
+}
+.lista ul{
+    list-style: none;
+    padding-inline-start: 10px;
+}
+ul h3{
+    font-weight: bold;
+    text-decoration: underline;
+    color: #fffffd;
+}
+.lista li a{
+    color: #fffffd;
+}
+@media screen and (max-width: 576px){
+  
+    .navbar {
+        padding: 0.5rem 0rem;
+    }
+
+    nav a img#logo {
+        height: 40px;
+        max-width: 60vw;
+    }
+
+    .navbar-brand{
+        padding: 0.25rem 0rem;
+    }
+
+    .navbar-toggler{
+        padding: 0rem;
+    }
+    
+    #pie{
+        flex-flow: column wrap;
+        align-items: center;
+        padding: 0;
+    }
+    #contacto{
+        margin: 1rem;
+    }
+    .lista#redes ul{
+        padding-inline-end: 40px;
+    }
+    
+}
+
