@@ -1,5 +1,6 @@
 *{
     box-sizing: border-box;
+    font-family: 'Noto Sans', sans-serif;
 }
 
 nav{
@@ -77,13 +78,37 @@ div.iconos-nav form.form-inline {
     flex-flow: nowrap;
 }
 
-div.iconos-nav a img#usuario{
+img#usuario{
    max-height: 5vh;
 }
 
 div.iconos-nav a img#barrica{
-    max-height: 5vh;
+    max-height: 6vh;
 }
+/*clases para menu login*/
+div#menu-login {
+    margin-right: 0px;
+    margin-top: 0px;
+    background-color: #fffffd;
+}
+
+div#menu-login div div.modal-header{
+    border-bottom: 1px solid #8a0804;
+}
+div.modal-footer{
+    border-top: 1px solid #8a0804;
+}
+div form#login div label{
+    color: #8a0804;
+}
+div#pieModal{
+    justify-content: space-between;
+}
+div.modal-footer p{
+    color: #8a0804;
+}
+
+/*Fin de clases para menu-login Modal*/
 
 .carousel{
     display: flex;
@@ -91,9 +116,10 @@ div.iconos-nav a img#barrica{
 }
 
 #categorias{
-    padding-left: 1rem;
+    text-decoration: underline;
+    padding-left: 2rem;
     font-weight: bold;
-    color: #050705;
+    color: #401233;
 }
 
 #menu{
@@ -197,16 +223,15 @@ section.tab-pane article div {
     font-size: 2rem;
 }
 .contacto{
-    font-size: 1.5rem;
     text-decoration: underline;
-    color: #401233;
+    color: #8a0804;
 }
 .btn-secondary#cerrar{
     color: #050705;
     background-color: #b3b5af;
     border-color: #b3b5af;
 }
-.btn-primary#enviar{
+.btn-primary#confirmar{
     color: #fffffd;
     background-color: #8a0804;
     border-color: #8a0804;
@@ -222,6 +247,12 @@ ul h3{
 }
 .lista li a{
     color: #fffffd;
+}
+#terminos-condiciones{
+    color: #fffffd;
+}
+#terminos-condiciones:hover{
+    text-decoration: underline;
 }
 @media screen and (max-width: 576px){
   
