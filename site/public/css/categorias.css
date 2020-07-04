@@ -1,0 +1,22 @@
+#main{
+    position: relative;
+    margin: 15px 0px;
+}
+#titulo{
+    text-decoration: underline;
+    color: #fffffd;
+    background-color: #401233;
+    font-size: 4rem;
+}
+#vinos{
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
+
+section article div{
+    text-align: center;
+    border: 1px solid #401233;
+    border-radius: 15px;
+    margin: 5px 0px;
+    padding-bottom: 5px
+}

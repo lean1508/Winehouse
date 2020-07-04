@@ -111,6 +111,7 @@ div.modal-footer p{
 /*Fin de clases para menu-login Modal*/
 
 .carousel{
+    top:54px;
     display: flex;
     width: 100%;
 }
@@ -120,6 +121,7 @@ div.modal-footer p{
     padding-left: 2rem;
     font-weight: bold;
     color: #401233;
+    margin-top: 2rem;
 }
 
 #menu{
@@ -272,6 +274,9 @@ ul h3{
     .navbar-toggler{
         padding: 0rem;
     }
+    .nav-tabs{
+        margin-top: 2rem;
+    }
     
     #pie{
         flex-flow: column wrap;
@@ -286,4 +291,3 @@ ul h3{
     }
     
 }
-
