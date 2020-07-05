@@ -1,0 +1,61 @@
+main {
+    margin-top: 80px;
+}
+
+
+figure img {
+    width: 100%;
+    padding-top: 100px;
+}
+
+div.producto {
+    display: flex;
+}
+
+#titulo_valor{
+    text-align: center;
+}
+
+span#precio {
+    font-weight: 400;
+    font-size: 28px;
+}
+
+form#comprar {
+    text-align: center;
+}
+
+input#cantidad {
+    width: 30px;
+}
+
+
+div.info {
+    margin-top: 40px;
+}
+
+p.descripcion {
+    text-align: justify;
+    padding-top: 20px;
+}
+
+div.accordion div.card {
+    border-width: 0px;
+}
+
+div.accordion div.card div.card-header {
+    background-color: #b3b5af;
+    border-bottom: 1px solid #b3b5af;
+}
+
+h2 button.btn-link {
+   color: #401233;
+}
+
+#titulo{
+    text-align: center;
+    text-decoration: underline;
+    color: #fffffd;
+    background-color: #401233;
+    font-size: 2rem;
+}
