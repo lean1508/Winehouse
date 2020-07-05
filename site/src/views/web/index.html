@@ -66,7 +66,7 @@
                     </div>
             </div>
             <div class="modal-footer" id="pieModal">
-                <p>Aun no poseo cuenta. <a href="/registro">Registrarme</a></p>
+                <p>Aun no poseo cuenta. <a href="/register.html">Registrarme</a></p>
                 <button type="submit" class="btn btn-primary" id="confirmar">Iniciar Sesion</button>
             </form>
             </div>
@@ -412,11 +412,66 @@
         <div class="lista" id="faq">
             <ul>
                 <h3>Ayuda</h3>
-                <li><a href="">Envios</a></li>
-                <li><a href="">Preguntas Frecuentes</a></li>
-                <li type="button" id="terminos-condiciones" data-toggle="modal" data-target="#terminos">
+                <li data-toggle="modal" data-target="#enviosmodal" id="envios">Envios</li>
+                <li data-toggle="modal" data-target="#faqmodal" id="faq">Preguntas Frecuentes</a></li>
+                <li type="modal" id="terminos-condiciones" data-toggle="modal" data-target="#terminos">
                     Términos y Condiciones</li>
             </ul>
+            <!--Modal envios-->
+            <div id="enviosmodal" class="modal fade" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-scrollable">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="staticBackdropLabel">Formas de Envio</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <h5>Lorem ipsum dolor sit amet consectetur adipisicing elit</h5>
+                            <a>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod saepe voluptatum repudiandae non tenetur illo dicta accusamus enim possimus odit, ratione dignissimos ad animi neque quis voluptatibus! Quia, eum odio.</a>
+                            <br>
+                            <br>
+                            <h5>Lorem ipsum dolor sit amet consectetur adipisicing elit</h5>
+                            <a>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod saepe voluptatum repudiandae non tenetur illo dicta accusamus enim possimus odit, ratione dignissimos ad animi neque quis voluptatibus! Quia, eum odio.</a>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                            id="cerrarfaq">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Modal Faq-->
+            <div id="faqmodal" class="modal fade" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-scrollable">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="staticBackdropLabel">Formas de Envio</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <h5>Pregunta 1</h5>
+                            <a>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequuntur cupiditate necessitatibus eligendi beatae dolorem in facilis aliquid assumenda voluptatum alias nemo rerum accusamus neque, saepe ratione ipsum, quam repellendus mollitia.</a>
+                            <br>
+                            <h5>Pregunta 1</h5>
+                            <a>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequuntur cupiditate necessitatibus eligendi beatae dolorem in facilis aliquid assumenda voluptatum alias nemo rerum accusamus neque, saepe ratione ipsum, quam repellendus mollitia.</a>
+                            <br>
+                            <h5>Pregunta 3</h5>
+                            <a>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequuntur cupiditate necessitatibus eligendi beatae dolorem in facilis aliquid assumenda voluptatum alias nemo rerum accusamus neque, saepe ratione ipsum, quam repellendus mollitia.</a>
+                            <br>
+                            <h5>Pregunta 4</h5>
+                            <a>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequuntur cupiditate necessitatibus eligendi beatae dolorem in facilis aliquid assumenda voluptatum alias nemo rerum accusamus neque, saepe ratione ipsum, quam repellendus mollitia.</a>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                            id="cerrarfaq">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <!-- Modal Términos y Condiciones -->
             <div class="modal fade" id="terminos" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
                 aria-hidden="true">
@@ -479,7 +534,7 @@
                                 voluptatum consequatur aspernatur quaerat reprehenderit vel quod eaque hic! Cupiditate
                                 eum quidem ipsam. Consequuntur quaerat dicta quas molestias recusandae, delectus quidem
                                 adipisci officia, omnis est voluptas voluptate, corporis repudiandae obcaecati
-                                consequatur sint facilis animi non? Ullam, commodi? Tempora, accusantium corporis
+                                consequatur sit facilis animi non? Ullam, commodi? Tempora, accusantium corporis
                                 molestiae reiciendis dolore nisi culpa neque unde autem? Obcaecati laborum corporis
                                 sequi id enim alias ex sed, quo officia consectetur commodi nostrum distinctio
                                 perferendis nihil veritatis repudiandae. Sit sint sequi quis ea iste, praesentium minima
@@ -529,7 +584,7 @@
         </div>
         <!-- Boton Contacto -->
         <button type="button" class="btn btn-primary" id="contacto" data-toggle="modal" data-target="#staticBackdrop">
-            Preguntas? Contactenos!
+            Contactenos
         </button>
 
         <!-- Modal Contacto -->
@@ -581,8 +636,6 @@
                     </a></li>
             </ul>
         </div>
-
-
     </footer>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
 integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">

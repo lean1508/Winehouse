@@ -250,6 +250,23 @@ ul h3{
 .lista li a{
     color: #fffffd;
 }
+
+#envios{
+    color: #fffffd;
+}
+
+#faq{
+    color:#fffffd;
+}
+
+#faq:hover{
+    text-decoration: underline;
+}
+
+.modal-body{
+    color: black;
+}
+
 #terminos-condiciones{
     color: #fffffd;
 }
