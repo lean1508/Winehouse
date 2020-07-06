@@ -250,19 +250,21 @@ ul h3{
 .lista li a{
     color: #fffffd;
 }
-
 #envios{
     color: #fffffd;
 }
-
+li#envios:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
 #faq{
     color:#fffffd;
 }
 
-#faq:hover{
+li#faq:hover{
     text-decoration: underline;
+    cursor: pointer;
 }
-
 .modal-body{
     color: black;
 }
@@ -270,8 +272,9 @@ ul h3{
 #terminos-condiciones{
     color: #fffffd;
 }
-#terminos-condiciones:hover{
+li#terminos-condiciones:hover{
     text-decoration: underline;
+    cursor: pointer;
 }
 @media screen and (max-width: 576px){
   

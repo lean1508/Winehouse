@@ -1,0 +1,41 @@
+table#tabla-producto{
+    margin-top: 8rem;
+}
+table thead#linea{
+    background-color: #401233;
+    color: #fffffd;
+}
+.table th{  
+    vertical-align: middle;
+}
+.table td{  
+    vertical-align: middle;
+}
+tbody tr td img{
+    max-width: 7vw;
+}
+#boton{
+    background-color: #b3b5af;
+}
+input#cantidad {
+    width: 40px;
+}
+div#total{
+    max-width: 50vw;
+    background-color: #401233;
+    color: #fffffd;
+    margin: auto;
+}
+table#tabla-total{
+    background-color: #fffffd;
+}
+.btn-primary#seguir{
+    color: #050705;
+    background-color: #b3b5af;
+    border-color: #b3b5af;
+}
+button#finalizar{
+    background-color: #8a0804;
+    border-color: #8a0804;
+    margin: auto;
+}
