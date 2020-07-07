@@ -1,0 +1,77 @@
+main {
+    margin-top: 100px;
+    margin-bottom: 100px;
+    border: 2px solid  #8a0804;
+    border-radius: 20px;
+}
+
+h2.titulo span.badge {
+    margin-left: 20px;
+}
+
+h2.titulo span.badge-primary {
+    background-color: #8a0804;
+    color: #fffffd;
+}
+
+h2.titulo {
+    border-bottom: 1px solid #8a0804;
+    padding-bottom: 5px;
+}
+
+.form-control {
+    background-color: #fffffd;
+    border-color: #b3b5af;
+}
+
+.input-group-text {
+/*    background-color: #b3b5af;*/
+    border-color: #b3b5af;
+}
+
+label {
+    color: #8a0804;
+    font-weight: 500;
+}
+
+.btn-siguiente {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+}
+
+.btn-primary#siguiente{
+    color: #050705;
+    background-color: #b3b5af;
+    border-color: #b3b5af;
+}
+
+div.btn-siguinete .btn{
+    border-radius: 1rem;
+    padding: .375rem 1.5rem;
+    text-align: center;
+}
+
+.btn-finalizar {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0px;
+}
+
+.btn-primary#finalizar{
+    color: #fffffd;
+    background-color: #8a0804;
+    border-color: #8a0804;
+}
+
+div.btn-finalizar .btn{
+    border-radius: 1rem;
+    padding: .375rem 1.5rem;
+    text-align: center;
+}
+
+.custom-control-input:checked~.custom-control-label::before {
+    color: #fffffd;
+    border-color: #8a0804;
+    background-color: #8a0804;
+}

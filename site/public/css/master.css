@@ -59,6 +59,10 @@ ul.menu li a{
     color: #8a0804;
 }
 
+div.footer-menu-ppal {
+    justify-content: start;
+}
+
 /*Fin de clases para menu Ppal Modal*/
 
 div.iconos-nav {

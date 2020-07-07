@@ -1,6 +1,10 @@
 const path = require('path');
 
 module.exports = {
-    add: (req,res)=>{res.sendFile(path.resolve(__dirname, '..', 'views', 'admin', 'productAdd.html'))
+    productAdd1: (req,res)=>{res.sendFile(path.resolve(__dirname, '..', 'views', 'admin', 'productAdd1.html'))
+    },
+    productAdd2: (req,res)=>{res.sendFile(path.resolve(__dirname, '..', 'views', 'admin', 'productAdd2.html'))
+    },
+    productAdd3: (req,res)=>{res.sendFile(path.resolve(__dirname, '..', 'views', 'admin', 'productAdd3.html'))
     }
-}
+};
