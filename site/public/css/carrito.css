@@ -1,0 +1,43 @@
+#carrito{
+    margin-top: 6rem;
+    margin-bottom: 2rem;
+    justify-content: space-around;
+    border: 5px double #401233;
+}
+#titulo{
+    border-bottom: 1px solid #401233;
+    color: #401233;
+}
+.card{
+    border: none;
+}
+div.card-body{
+    margin-top: 4rem;
+}
+div#columna{
+    margin-top: 6.5rem;
+}
+div span input{
+    max-width: 2rem;
+}
+table.table{
+    width: 50%;
+}
+#total{
+    color: #401233;
+}
+
+@media screen and (max-width: 576px){
+    div.card-body{
+        margin-top: 1rem;
+    }
+    div#columna{
+        margin-top: 1rem;
+    }
+    td select{
+        width: 25vw;
+    }
+    img.card-img{
+        max-width: 8rem;
+    }
+}
