@@ -1,41 +1,43 @@
-table#tabla-producto{
-    margin-top: 8rem;
+#carrito{
+    margin-top: 6rem;
+    margin-bottom: 2rem;
+    justify-content: space-around;
+    border: 5px double #401233;
 }
-table thead#linea{
-    background-color: #401233;
-    color: #fffffd;
+#titulo{
+    border-bottom: 1px solid #401233;
+    color: #401233;
 }
-.table th{  
-    vertical-align: middle;
+.card{
+    border: none;
 }
-.table td{  
-    vertical-align: middle;
+div.card-body{
+    margin-top: 4rem;
 }
-tbody tr td img{
-    max-width: 7vw;
+div#columna{
+    margin-top: 6.5rem;
 }
-#boton{
-    background-color: #b3b5af;
+div span input{
+    max-width: 2rem;
 }
-input#cantidad {
-    width: 40px;
+table.table{
+    width: 50%;
 }
-div#total{
-    max-width: 50vw;
-    background-color: #401233;
-    color: #fffffd;
-    margin: auto;
+#total{
+    color: #401233;
 }
-table#tabla-total{
-    background-color: #fffffd;
-}
-.btn-primary#seguir{
-    color: #050705;
-    background-color: #b3b5af;
-    border-color: #b3b5af;
-}
-button#finalizar{
-    background-color: #8a0804;
-    border-color: #8a0804;
-    margin: auto;
+
+@media screen and (max-width: 576px){
+    div.card-body{
+        margin-top: 1rem;
+    }
+    div#columna{
+        margin-top: 1rem;
+    }
+    td select{
+        width: 25vw;
+    }
+    img.card-img{
+        max-width: 8rem;
+    }
 }
