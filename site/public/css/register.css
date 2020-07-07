@@ -1,0 +1,24 @@
+section{
+    font-family: 'Noto Sans', sans-serif;
+}
+
+#title {
+    color: #8a0804;
+}
+
+a{
+    color: #8a0804
+}
+
+.btn-info{
+    background-color: #8a0804;
+    border-radius: 15px;
+    border: none;
+    font-size: 20px;
+}
+
+.btn-primary{
+    background-color: #8a0804;
+    border: none;
+
+}
