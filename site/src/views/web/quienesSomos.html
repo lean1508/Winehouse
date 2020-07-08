@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/master.css">
-    <link rel="stylesheet" href="/css/categorias.css">
+    <link rel="stylesheet" href="/css/quienes.css">
     <title>Bienvenido a Winehouse</title>
 </head>
 <body>
@@ -43,37 +43,37 @@
     <!--Menu Login--> 
     <div class="modal fade" id="loginModal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog" role="document" id="menu-login">
-          <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel">Ingrese a su cuenta</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-                <form method="POST" action="" id="login">
-                    <div class="form-group">
-                      <label for="email">Ingrese su email</label>
-                      <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Ingrese a su cuenta</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form method="POST" action="/login" id="login">
+                        <div class="form-group">
+                            <label for="email">Ingrese su email</label>
+                            <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Ingrese su contraseña</label>
+                            <input type="password" class="form-control" id="password">
+                            <small id="passwordHelp" class="form-text text-muted"><a href="">No recuerdo mi contraseña</a></small>
+                        </div>
+                        <div class="form-group form-check">
+                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                            <label class="form-check-label" for="exampleCheck1">Recordarme</label>
+                        </div>
                     </div>
-                    <div class="form-group">
-                      <label for="password">Ingrese su contraseña</label>
-                      <input type="password" class="form-control" id="password">
-                      <small id="passwordHelp" class="form-text text-muted"><a href="">No recuerdo mi contraseña</a></small>
-                    </div>
-                    <div class="form-group form-check">
-                      <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                      <label class="form-check-label" for="exampleCheck1">Recordarme</label>
-                    </div>
+                    <div class="modal-footer" id="pieModal">
+                        <p>Aun no poseo cuenta. <a href="/register">Registrarme</a></p>
+                        <button type="submit" class="btn btn-primary" id="confirmar">Iniciar Sesion</button>
+                    </form>
+                </div>
             </div>
-            <div class="modal-footer" id="pieModal">
-                <p>Aun no poseo cuenta. <a href="/register">Registrarme</a></p>
-                <button type="submit" class="btn btn-primary" id="confirmar">Iniciar Sesion</button>
-            </form>
-            </div>
-          </div>
         </div>
-      </div>
+    </div>
     <!--Menu Ppal-->  
     <div class="modal" id="navbarSupportedContent" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable modal-sm" id="menu_ppal" role="document">
@@ -126,60 +126,21 @@
             </div>
         </div>
     </div>
-    <!--header y nav bar FIN-->
-    <!--Menu vinos FIN-->
-<main class="container-fluid  py-5" id="main">
-    <article class="col-12">
-        <h1 class="font-weight-bolder w-100 text-center my-5" id="titulo">Recomendados</h1>
-    </article>
-    <section class="d-flex" id="vinos">
-    <article class="col-12 col-md-6 col-lg-3" id="articulo" >
-        <div>
-            <img src="/img/1_small.jpeg" alt="producto">
-            <h6>NICASIA VINEYARDS RED BLEND</h6>
-            <h6>Catena Zapata</h6>
-            <h4>$480</h4>
-            <h6>3 cuotas de $160</h6>
-            <a href="/cart" class="btn btn-primary" id="comprar">Comprar</a>
-            <a href="/producto/detalle" class="btn btn-primary" id="verMas">Ver Más</a>
-        </div>
-    </article>
-    <article class="col-12 col-md-6 col-lg-3" id="articulo">
-        <div>
-            <img src="/img/2_small.jpeg" alt="producto">
-            <h6>EL ENEMIGO MALBEC</h6>
-            <h6>Aleanna</h6>
-            <h4>$1300</h4>
-            <h6>3 cuotas de $433,33</h6>
-            <a href="/cart" class="btn btn-primary" id="comprar">Comprar</a>
-            <a href="/producto/detalle" class="btn btn-primary" id="verMas">Ver Más</a>
-        </div>
-    </article>
-    <article class="col-12 col-md-6 col-lg-3" id="articulo">
-        <div>
-            <img src="/img/3_small.jpeg" alt="producto">
-            <h6>TRUMPETER MALBEC</h6>
-            <h6>Rutini Wines</h6>
-            <h4>$464</h4>
-            <h6>3 cuotas de $154,67</h6>
-            <a href="/cart" class="btn btn-primary" id="comprar">Comprar</a>
-            <a href="/producto/detalle" class="btn btn-primary" id="verMas">Ver Más</a>
-        </div>
-    </article>
-    <article class="col-12 col-md-6 col-lg-3" id="articulo">
-        <div>
-            <img src="/img/4_small.jpeg" alt="producto">
-            <h6>CASA BOHER MALBEC</h6>
-            <h6>Rosell Boher</h6>
-            <h4>$590</h4>
-            <h6>3 cuotas de $196,67</h6>
-            <a href="/cart" class="btn btn-primary" id="comprar">Comprar</a>
-            <a href="/producto/detalle" class="btn btn-primary" id="verMas">Ver Más</a>
-        </div>
-    </article>
-</section>
-</main>
-    <!--Menu Vinos FIN-->
+    
+    <!--header y navBar FIN-->
+    <main class="container-fluid">
+        <h1>Somos Winehouse</h1>
+        <br>
+        <h2>Objetivos y Temática del sitio</h2>
+        <p>La plataforma de E-Commerce WineHouse tiene como objetivo principal convertirse en un nexo entre las principales bodegas de Argentina y potenciales consumidores finales (el esquema de negocios será B2C). Las dos principales metas de la plataforma serán en primer lugar, dar a conocer entre los consumidores la variada oferta de vinos y espumantes existente. En segundo lugar, lograr su fidelización a la plataforma al crear una base de consumidores interesados en los productos que comercializa y a la vez crear una comunidad de consumidores.</p>
+        <br>
+        <h2>Público Objetivo</h2>
+        <p>El público objetivo al que apunta el sitio se divide en dos tipos.</p>
+        <p> <span style="font-weight: bold;">Expertos</span>  Se considera experto en la elección del vino y en responder a toda la experiencia que implica consumirlo. Les gusta recomendar y llevar vinos a las reuniones sociales. Los expertos, según lo explorado en la etapa cuantitativa, son mayoritariamente hombres de los niveles más altos.</p>
+        <p><span style="font-weight: bold;">Pragmáticos</span> Detenta un saber más acotado, suficiente para saber elegir el vino para cada ocasión. El vino no representa una experiencia en sí misma sino el gran articulador de un momento de placer cotidiano o una juntada con amigos. Buscan vinos que puedan satisfacer la ecuación precio-calidad y entienden que no por buen vino tiene que ser caro. El pragmático es una persona “indiferente a las nuevas tendencias”, es decir que no sigue las modas, sino que realiza sus elecciones según su conveniencia, practicidad y gusto. Uno de las principales maneras de clasificar al vino es por rango de precio, ya que de esta manera facilita la elección del mismo.</p>
+        <p>Se ha elegido a estos dos grupos de consumidores principalmente porque son los que se estima que tendrán mayor tendencia a retornar al portal.</p>
+    </main>
+    
     <!--Footer-->
     <footer id="pie" class="container-fluid d-flex">
         <div class="lista" id="faq">
@@ -189,64 +150,64 @@
                 <li data-toggle="modal" data-target="#faqmodal" id="faq">Preguntas Frecuentes</a></li>
                 <li type="modal" id="terminos-condiciones" data-toggle="modal" data-target="#terminos">
                     Términos y Condiciones</li>
-            </ul>
-            <!--Modal envios-->
-            <div id="enviosmodal" class="modal fade" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-scrollable">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="staticBackdropLabel">Formas de Envio</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <h5>Lorem ipsum dolor sit amet consectetur adipisicing elit</h5>
-                            <a>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod saepe voluptatum repudiandae non tenetur illo dicta accusamus enim possimus odit, ratione dignissimos ad animi neque quis voluptatibus! Quia, eum odio.</a>
-                            <br>
-                            <br>
-                            <h5>Lorem ipsum dolor sit amet consectetur adipisicing elit</h5>
-                            <a>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod saepe voluptatum repudiandae non tenetur illo dicta accusamus enim possimus odit, ratione dignissimos ad animi neque quis voluptatibus! Quia, eum odio.</a>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal"
-                            id="cerrarfaq">Cerrar</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--Modal Faq-->
-            <div id="faqmodal" class="modal fade" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-scrollable">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="staticBackdropLabel">Formas de Envio</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <h5>Pregunta 1</h5>
-                            <a>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequuntur cupiditate necessitatibus eligendi beatae dolorem in facilis aliquid assumenda voluptatum alias nemo rerum accusamus neque, saepe ratione ipsum, quam repellendus mollitia.</a>
-                            <br>
-                            <h5>Pregunta 1</h5>
-                            <a>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequuntur cupiditate necessitatibus eligendi beatae dolorem in facilis aliquid assumenda voluptatum alias nemo rerum accusamus neque, saepe ratione ipsum, quam repellendus mollitia.</a>
-                            <br>
-                            <h5>Pregunta 3</h5>
-                            <a>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequuntur cupiditate necessitatibus eligendi beatae dolorem in facilis aliquid assumenda voluptatum alias nemo rerum accusamus neque, saepe ratione ipsum, quam repellendus mollitia.</a>
-                            <br>
-                            <h5>Pregunta 4</h5>
-                            <a>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequuntur cupiditate necessitatibus eligendi beatae dolorem in facilis aliquid assumenda voluptatum alias nemo rerum accusamus neque, saepe ratione ipsum, quam repellendus mollitia.</a>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal"
-                            id="cerrarfaq">Cerrar</button>
+                </ul>
+                <!--Modal envios-->
+                <div id="enviosmodal" class="modal fade" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-scrollable">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="staticBackdropLabel">Formas de Envio</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <h5>Lorem ipsum dolor sit amet consectetur adipisicing elit</h5>
+                                <a>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod saepe voluptatum repudiandae non tenetur illo dicta accusamus enim possimus odit, ratione dignissimos ad animi neque quis voluptatibus! Quia, eum odio.</a>
+                                <br>
+                                <br>
+                                <h5>Lorem ipsum dolor sit amet consectetur adipisicing elit</h5>
+                                <a>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod saepe voluptatum repudiandae non tenetur illo dicta accusamus enim possimus odit, ratione dignissimos ad animi neque quis voluptatibus! Quia, eum odio.</a>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                                id="cerrarfaq">Cerrar</button>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <!-- Modal Términos y Condiciones -->
-            <div class="modal fade" id="terminos" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                <!--Modal Faq-->
+                <div id="faqmodal" class="modal fade" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-scrollable">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="staticBackdropLabel">Formas de Envio</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <h5>Pregunta 1</h5>
+                                <a>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequuntur cupiditate necessitatibus eligendi beatae dolorem in facilis aliquid assumenda voluptatum alias nemo rerum accusamus neque, saepe ratione ipsum, quam repellendus mollitia.</a>
+                                <br>
+                                <h5>Pregunta 1</h5>
+                                <a>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequuntur cupiditate necessitatibus eligendi beatae dolorem in facilis aliquid assumenda voluptatum alias nemo rerum accusamus neque, saepe ratione ipsum, quam repellendus mollitia.</a>
+                                <br>
+                                <h5>Pregunta 3</h5>
+                                <a>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequuntur cupiditate necessitatibus eligendi beatae dolorem in facilis aliquid assumenda voluptatum alias nemo rerum accusamus neque, saepe ratione ipsum, quam repellendus mollitia.</a>
+                                <br>
+                                <h5>Pregunta 4</h5>
+                                <a>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequuntur cupiditate necessitatibus eligendi beatae dolorem in facilis aliquid assumenda voluptatum alias nemo rerum accusamus neque, saepe ratione ipsum, quam repellendus mollitia.</a>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                                id="cerrarfaq">Cerrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Modal Términos y Condiciones -->
+                <div class="modal fade" id="terminos" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
                 aria-hidden="true">
                 <div class="modal-dialog modal-dialog-scrollable">
                     <div class="modal-content">
@@ -346,22 +307,22 @@
                                 iusto nobis fugiat nisi sapiente ullam, animi magnam libero. Autem est dignissimos culpa
                                 iste suscipit similique optio fugiat, magnam a ullam libero repellendus. Temporibus,
                                 libero voluptatem!</p>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal"
                                 id="cerrar">Cerrar</button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- Boton Contacto -->
-        <button type="button" class="btn btn-primary" id="contacto" data-toggle="modal" data-target="#staticBackdrop">
-            Contactenos
-        </button>
-
-        <!-- Modal Contacto -->
-        <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"
+            <!-- Boton Contacto -->
+            <button type="button" class="btn btn-primary" id="contacto" data-toggle="modal" data-target="#staticBackdrop">
+                Contactenos
+            </button>
+            
+            <!-- Modal Contacto -->
+            <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"
             role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -384,12 +345,12 @@
                             <div class="form-group">
                                 <label for="mensaje">Mensaje</label>
                                 <textarea name="mensaje" id="mensaje" cols="30" rows="5"
-                                    class="form-control"></textarea>
+                                class="form-control"></textarea>
                             </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" id="cerrar" data-dismiss="modal">Cerrar</button>
-                        <input type="submit" class="btn btn-primary" id="confirmar"></input>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" id="cerrar" data-dismiss="modal">Cerrar</button>
+                            <input type="submit" class="btn btn-primary" id="confirmar"></input>
                         </form>
                     </div>
                 </div>
@@ -399,19 +360,19 @@
             <ul>
                 <h3>Seguinos</h3>
                 <li><a href="https://www.instagram.com">
-                        <ion-icon name="logo-instagram"></ion-icon>
-                    </a></li>
+                    <ion-icon name="logo-instagram"></ion-icon>
+                </a></li>
                 <li><a href="https://www.facebook.com">
-                        <ion-icon name="logo-facebook"></ion-icon>
-                    </a></li>
+                    <ion-icon name="logo-facebook"></ion-icon>
+                </a></li>
                 <li><a href="https://www.twitter.com">
-                        <ion-icon name="logo-twitter"></ion-icon>
-                    </a></li>
+                    <ion-icon name="logo-twitter"></ion-icon>
+                </a></li>
             </ul>
         </div>
     </footer>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
 </script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
 integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
