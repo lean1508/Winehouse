@@ -64,3 +64,7 @@ Hemos elegido está página debido a la practicidad del diseño de su carro de c
 [Vivino](https://www.vivino.com/)
 
 Comunidad de consumidores en donde los consumidores utilizan los datos generados por los usuarios para recomendaciones personalizadas, mejorando la experiencia a la hora de comprar vino. 
+
+---
+### Tablero de Trabajo
+[Trello](https://trello.com/b/bU5SdYMq/winehouse)
