@@ -2,8 +2,11 @@ const express = require('express');
 const app = express();
 const path = require('path');
 
+app.set('view engine','ejs');
+
 app.use(express.static(path.resolve(__dirname, '..', 'public')));
 
+//Rutas
 const webRoutes = require('./routes/web');
 const productoRoutes = require('./routes/producto');
 const userRoutes = require('./routes/user');
