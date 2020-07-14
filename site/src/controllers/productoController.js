@@ -1,24 +1,24 @@
 const path = require('path');
 
 module.exports = {
-    show: (req,res)=>{res.sendFile(path.resolve(__dirname, '..', 'views', 'producto', 'productDetail.html'))
+    show: (req,res)=>{res.render(path.resolve(__dirname, '..', 'views', 'producto', 'productDetail'))
     },
-    verTintos: (req,res)=>{res.sendFile(path.resolve(__dirname, '..', 'views', 'producto', 'vinosTintos.html'))
+    verTintos: (req,res)=>{res.render(path.resolve(__dirname, '..', 'views', 'producto', 'vinosTintos'))
     },
-    verBlancos: (req,res)=>{res.sendFile(path.resolve(__dirname, '..', 'views', 'producto', 'vinosBlancos.html'))
+    verBlancos: (req,res)=>{res.render(path.resolve(__dirname, '..', 'views', 'producto', 'vinosBlancos'))
     },
-    verRosados: (req,res)=>{res.sendFile(path.resolve(__dirname, '..', 'views', 'producto', 'vinosRosados.html'))
+    verRosados: (req,res)=>{res.render(path.resolve(__dirname, '..', 'views', 'producto', 'vinosRosados'))
     },
-    verEspumantes: (req,res)=>{res.sendFile(path.resolve(__dirname, '..', 'views', 'producto', 'vinosEspumantes.html'))
+    verEspumantes: (req,res)=>{res.render(path.resolve(__dirname, '..', 'views', 'producto', 'vinosEspumantes'))
     },
-    verEspirituosos: (req,res)=>{res.sendFile(path.resolve(__dirname, '..', 'views', 'producto', 'espirituosos.html'))
+    verEspirituosos: (req,res)=>{res.render(path.resolve(__dirname, '..', 'views', 'producto', 'espirituosos'))
     },
-    verParaBrindar: (req,res)=>{res.sendFile(path.resolve(__dirname, '..', 'views', 'producto', 'paraBrindar.html'))
+    verParaBrindar: (req,res)=>{res.render(path.resolve(__dirname, '..', 'views', 'producto', 'paraBrindar'))
     },
-    verMasVendidos: (req,res)=>{res.sendFile(path.resolve(__dirname, '..', 'views', 'producto', 'masVendidos.html'))
+    verMasVendidos: (req,res)=>{res.render(path.resolve(__dirname, '..', 'views', 'producto', 'masVendidos'))
     },
-    verRecomendados: (req,res)=>{res.sendFile(path.resolve(__dirname, '..', 'views', 'producto', 'recomendados.html'))
+    verRecomendados: (req,res)=>{res.render(path.resolve(__dirname, '..', 'views', 'producto', 'recomendados'))
     },
-    verPromos: (req,res)=>{res.sendFile(path.resolve(__dirname, '..', 'views', 'producto', 'promos.html'))
+    verPromos: (req,res)=>{res.render(path.resolve(__dirname, '..', 'views', 'producto', 'promos'))
     }
 }

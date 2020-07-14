@@ -1,4 +1,4 @@
-main {
+main#principal {
     margin-top: 80px;
 }
 
@@ -58,4 +58,5 @@ h2 button.btn-link {
     color: #fffffd;
     background-color: #401233;
     font-size: 2rem;
+    border-radius: 20px;
 }

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <%- include('../partials/head.ejs') %>
+    <link rel="stylesheet" href="/css/agregarProducto.css">
+    </head>
+<body>
+       
+    <%- include('../partials/header.ejs') %>
+        
+    
+    <!--Formulario Carga Producto Parte 2-->
+    
+    <main class="container">
+        <h2 class="titulo">Nuevo Producto<span class="badge badge-primary">Paso 2 de 3</span> </h2>
+        <form action="">
+            <div class="form-group">
+                <label for="bodega">BODEGA</label>
+                <input type="text" class="form-control" name="bodega" required>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-8">
+                    <label for="varietal">VARIETAL</label>
+                    <input type="text" class="form-control" name="varietal" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="cosecha">COSECHA</label>
+                    <select class="form-control" name="cosecha" id="" required>
+                        <option value="2010">2010</option>
+                        <option value="2011">2011</option>
+                        <option value="2012">2012</option>
+                        <option value="2013">2013</option>
+                        <option value="2014">2014</option>
+                        <option value="2015">2015</option>
+                        <option value="2016">2016</option>
+                        <option value="2017">2017</option>
+                        <option value="2018">2018</option>
+                        <option value="2019">2019</option>
+                        <option value="2020">2020</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="corte">CORTE</label>
+                <input type="text" class="form-control" name="corte" required>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-8">
+                    <label for="procedencia">PROCEDENCIA</label>
+                    <input type="text" class="form-control" name="procedencia" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="alcohol">ALCOHOL</label>
+                    <div class="input-group-append">
+                        <input type="text" class="form-control" name="alcohol" placeholder="00.0" required>
+                        <span class="input-group-text">%</span>
+                    </div>
+                </div>
+            </div>
+            <div class="btn-siguiente">
+                <a href="./agregar3"><button type="button" class="btn btn-primary" id="siguiente">SIGUIENTE >></button></a>
+            </div>            
+        </form>
+    </main>
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+</script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+</script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+</script>
+<script src="https://unpkg.com/ionicons@5.1.0/dist/ionicons.js"></script>
+</body>
+</html>

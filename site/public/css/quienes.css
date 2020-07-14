@@ -1,15 +1,15 @@
-main {
+main#somos {
     padding: 100px 0px 50px 0px;
 }
 
-h1 {
+h1#tituloSomos{
     color: #050705;
 }
 
-h2 {
+h2#subtituloSomos{
     color: #8a0804;
 }
 
-p {
+p#parrafoSomos{
     text-align: justify;
 }
