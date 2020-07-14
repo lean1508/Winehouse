@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+
+  <head>
+    <%- include('../partials/head.ejs') %>
+    <link rel="stylesheet" href="/css/carrito.css">
+    </head>
+
+<body>
+
+    <%- include('../partials/header.ejs') %>
+    <!--Carrito-->
+    <main class="container-fluid my-4">
+        <form action="/cart" method="POST">
+        <div class=" d-md-inline-flex col-12 rounded" id="carrito">
+        <div class="flex-column text-center my-4">
+            <h6 class="font-weight-bolder" id="titulo">PRODUCTO</h6>
+            <div class="card mb-3" style="max-width: 540px;">
+                <div class="row no-gutters">
+                  <div class="col-md-4">
+                    <img src="/img/1_small.jpeg" class="card-img" alt="Imagen Producto">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">NICASIA VINEYARDS RED BLEND</h5>
+                      <h6 class="card-title">Catena Zapata</h6>
+                      <h5 class="card-title">$480</h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </div>
+        <div class="flex-column text-center my-4">
+          <h6 class="font-weight-bolder" id="titulo">CANTIDAD</h6>
+          <div id="columna">
+           <span><input type="number" value="1"></span>
+          </div>
+        </div>
+        <div class="flex-column text-center my-4">
+            <h6 class="font-weight-bolder" id="titulo">SUBTOTAL</h6>
+            <div id="columna">
+              <h5 class="card-title">$480</h5>
+            </div>
+          </div>
+        </div>
+        <div class="table-responsive">
+        <table class="table w-50 m-auto">
+            <tbody>
+              <tr>
+                <th scope="row" id="total">SUBTOTAL</th>
+                <td></td>
+                <td colspan="2">$480</td>
+              </tr>
+              <tr>
+                <th scope="row" id="total">ENVIO</th>
+                <td><select id="provincia" >
+                    <option value="1">BUENOS AIRES</option>
+                    <option value="2">CATAMARCA</option>
+                    <option value="5">CHACO</option>
+                    <option value="6">CHUBUT</option>
+                    <option value="50">CIUDAD AUTONOMA DE Bs As</option>
+                    <option value="3">CORDOBA</option>
+                    <option value="4">CORRIENTES</option>
+                    <option value="7">ENTRE RIOS</option>
+                    <option value="8">FORMOSA</option>
+                    <option value="9">JUJUY</option>
+                    <option value="10">LA PAMPA</option>
+                    <option value="11">LA RIOJA</option>
+                    <option value="12">MENDOZA</option>
+                    <option value="13">MISIONES</option>
+                    <option value="14">NEUQUEN</option>
+                    <option value="15">RIO NEGRO</option>
+                    <option value="16">SALTA</option>
+                    <option value="17">SAN LUIS</option>
+                    <option value="19">SANTA CRUZ</option>
+                    <option value="20">SANTA FE</option>
+                    <option value="21">SANTIAGO DEL ESTERO</option>
+                    <option value="22">TIERRA DEL FUEGO</option>
+                    <option disabled="true" selected="true" value="">Seleccionar una Provincia</option>
+                </select></td>
+                <td>$<input type="text" size="1" value="100"></td>
+              </tr>
+              <tr>
+                <th scope="row" class="font-weight-bolder" id="total">TOTAL</th>
+                <td></td>
+                <td>$580</td>
+              </tr>
+            </tbody>
+          </table>
+          </div>
+          <div class="d-inline-flex justify-content-center w-100 my-2">
+            <button type="button" class="btn btn-primary btn-lg" id="verMas"><a href="/" class="text-decoration-none  text-dark"> SEGUIR COMPRANDO</a></button> 
+            <button type="submit" class="btn btn-primary btn-lg" id="confirmar">FINALIZAR COMPRA</button>
+            </div>
+    </form>
+    </main>
+
+    <%- include('../partials/footer.ejs') %>
+</body>
+</html>

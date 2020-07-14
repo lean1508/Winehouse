@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <%- include('../partials/head.ejs') %>
+    <link rel="stylesheet" href="/css/agregarProducto.css">
+    </head>
+<body>
+    
+    <%- include('../partials/header.ejs') %>
+    <!--header y navBar FIN-->
+    
+    <!--Formulario Carga Producto Parte 1-->
+    
+    <main class="container">
+        <h2 class="titulo">Nuevo Producto<span class="badge badge-primary">Paso 1 de 3</span> </h2>
+        <form action="">
+            <div class="form-row">
+                <div class="form-group col-md-8">
+                    <label for="sku">SKU</label>
+                    <input type="text" class="form-control" name="sku" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="tipo">TIPO</label>
+                    <select class="form-control" name="tipo" id="" required>
+                        <option value="tinto">Vino Tinto</option>
+                        <option value="blanco">Vino Blanco</option>
+                        <option value="rosado">Vino Rosado</option>
+                        <option value="espumante">Espumante</option>
+                        <option value="spirit">Espirituoso</option>
+                        <option value="cerveza">Cerveza</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-8">
+                    <label for="nombre">PRODUCTO / MARCA / NOMBRE</label>
+                    <input type="text" class="form-control" name="nombre" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="precio">PRECIO UNITARIO</label>
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">$</span>
+                        <input type="text" class="form-control" name="precio" required>
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="imagenSM">IMAGEN CHICA</label>
+                    <input type="file" class="form-control-file" name="imagenSM">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="imagenLG">IMAGEN GRANDE</label>
+                    <input type="file" class="form-control-file" name="imagenLG">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="volumen">VOLUMEN</label>
+                    <div class="input-group-append">
+                        <input type="text" class="form-control" name="volumen" required>
+                        <span class="input-group-text">ml</span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="descripcion">DESCRIPCIÓN</label>
+                <textarea name="descripcion" rows="3" class="form-control"></textarea>
+            </div>
+            <div class="btn-siguiente">
+                <a href="./agregar2"><button type="button" class="btn btn-primary" id="siguiente">SIGUIENTE >></button></a>
+            </div>            
+        </form>
+    </main>
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+</script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+</script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+</script>
+<script src="https://unpkg.com/ionicons@5.1.0/dist/ionicons.js"></script>
+</body>
+</html>

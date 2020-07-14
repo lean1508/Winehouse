@@ -3,10 +3,11 @@
     margin: 15px 0px;
 }
 #titulo{
+    text-align: center;
     text-decoration: underline;
     color: #fffffd;
     background-color: #401233;
-    font-size: 4rem;
+    font-size: 2rem;
     border-radius: 20px;
 }
 #vinos{
@@ -14,7 +15,7 @@
     justify-content: space-around;
 }
 
-section article div{
+section article div#articulo{
     text-align: center;
     border: 1px solid #401233;
     border-radius: 15px;

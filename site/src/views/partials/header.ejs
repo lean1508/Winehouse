@@ -1,0 +1,117 @@
+ <!--header y nav bar-->
+ <div class="container-fluid fixed-top">
+    <nav class="navbar navbar-dark row">
+        
+        <div>
+            <!--Boton burger-->
+            <button class="navbar-toggler" type="button" data-toggle="modal" data-target="#navbarSupportedContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>                       
+            <a class="navbar-brand" href="/"><img id="logo" src="/img/Logo - WineHouse 4.jpg" alt="WineHouse"></a>
+        </div>
+        
+        <!--Búsqueda / Login / Carrito-->
+        <div class="iconos-nav">
+            <form action="" class="form-inline">
+                <input class="form-control collapse" id="busqueda" type="search" placeholder="Buscar...">
+                <button class="btn" type="button" data-toggle="collapse" data-target="#busqueda" aria-controls="busqueda" aria-expanded="false" aria-label="Toggle navigation">
+                    <img id="lupa" src="/img/585e4ad1cb11b227491c3391.png" alt="busqueda">
+                </button>
+            </form>
+            <!--Boton Login-->
+            <button type="button" class="navbar-toggler" data-toggle="modal" data-target="#loginModal">
+                <img src="/img/usuario.png" id="usuario" alt="Login">
+            </button>  
+            <a href="/cart"><img id="barrica" src="/img/barrica.png" alt="Carrito de Compras"></a>
+        </div>
+        
+    </nav>
+</div>
+<!--Menu Login--> 
+<div class="modal fade" id="loginModal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document" id="menu-login">
+      <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="staticBackdropLabel">Ingrese a su cuenta</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form method="POST" action="/login" id="login">
+                <div class="form-group">
+                  <label for="email">Ingrese su email</label>
+                  <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+                </div>
+                <div class="form-group">
+                  <label for="password">Ingrese su contraseña</label>
+                  <input type="password" class="form-control" id="password">
+                  <small id="passwordHelp" class="form-text text-muted"><a href="">No recuerdo mi contraseña</a></small>
+                </div>
+                <div class="form-group form-check">
+                  <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                  <label class="form-check-label" for="exampleCheck1">Recordarme</label>
+                </div>
+        </div>
+        <div class="modal-footer" id="pieModal">
+            <p>Aun no poseo cuenta. <a href="/register">Registrarme</a></p>
+            <button type="submit" class="btn btn-primary" id="confirmar">Iniciar Sesion</button>
+        </form>
+        </div>
+      </div>
+    </div>
+  </div>
+<!--Menu Ppal-->  
+<div class="modal" id="navbarSupportedContent" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-sm" id="menu_ppal" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <img src="/img/Logo - WineHouse 4.jpg" alt="WineHouse">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <ul class="menu">
+                    <li>
+                        <a href="/vinosTintos">Vinos Tintos</a>
+                    </li>
+                    <li>
+                        <a href="/vinosBlancos">Vinos Blancos</a>
+                    </li>
+                    <li>
+                        <a href="/vinosRosados">Vinos Rosados</a>
+                    </li>
+                    <li>
+                        <a href="/vinosEspumantes">Vinos Espumantes</a>
+                    </li>
+                    <li>
+                        <a href="/espirituosos">Espirituosos</a>
+                    </li>
+                    <li>
+                        <a href="/paraBrindar">Para Brindar</a>
+                    </li>
+                    <li>
+                        <a href="/masVendidos">Más Vendidos</a>
+                    </li>
+                    <li>
+                        <a href="/recomendados">Recomendados</a>
+                    </li>
+                    <li>
+                        <a href="/promos">Ofertas y Promociones</a>
+                    </li>
+                    <li>
+                        <a href="/quienesSomos">Quienes Somos</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="modal-footer footer-menu-ppal">
+                <ul class="menu">
+                    <li><a href="/admin/agregar1">Agregar Nuevo Producto</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--header y navBar FIN-->
