@@ -105,188 +105,70 @@
     </ul>
     <div class="tab-content container-fluid" id="myTabContent">
         <section class="tab-pane fade show active row" id="recomendados" role="tabpanel" aria-labelledby="recomendados-tab">  
-            <article class="col-12 col-md-6 col-lg-3">
-                <div>
-                    <img src="/img/1_small.jpeg" alt="producto">
-                    <h6>NICASIA VINEYARDS RED BLEND</h6>
-                    <h6>Catena Zapata</h6>
-                    <h4>$480</h4>
-                    <h6>3 cuotas de $160</h6>
-                    <a href="/cart" class="btn btn-primary" id="comprar">Comprar</a>
-                    <a href="/producto/detalle" class="btn btn-primary" id="verMas">Ver Más</a>
-                </div>
-            </article>
-            <article class="col-12 col-md-6 col-lg-3">
-                <div>
-                    <img src="/img/2_small.jpeg" alt="producto">
-                    <h6>EL ENEMIGO MALBEC</h6>
-                    <h6>Aleanna</h6>
-                    <h4>$1300</h4>
-                    <h6>3 cuotas de $433,33</h6>
-                    <a href="/cart" class="btn btn-primary" id="comprar">Comprar</a>
-                    <a href="/producto/detalle" class="btn btn-primary" id="verMas">Ver Más</a>
-                </div>
-            </article>
-            <article class="col-12 col-md-6 col-lg-3">
-                <div>
-                    <img src="/img/3_small.jpeg" alt="producto">
-                    <h6>TRUMPETER MALBEC</h6>
-                    <h6>Rutini Wines</h6>
-                    <h4>$464</h4>
-                    <h6>3 cuotas de $154,67</h6>
-                    <a href="/cart" class="btn btn-primary" id="comprar">Comprar</a>
-                    <a href="/producto/detalle" class="btn btn-primary" id="verMas">Ver Más</a>
-                </div>
-            </article>
-            <article class="col-12 col-md-6 col-lg-3">
-                <div>
-                    <img src="/img/4_small.jpeg" alt="producto">
-                    <h6>CASA BOHER MALBEC</h6>
-                    <h6>Rosell Boher</h6>
-                    <h4>$590</h4>
-                    <h6>3 cuotas de $196,67</h6>
-                    <a href="/cart" class="btn btn-primary" id="comprar">Comprar</a>
-                    <a href="/producto/detalle" class="btn btn-primary" id="verMas">Ver Más</a>
-                </div>
-            </article> 
+            <% for( let i = 0; i <= 3; i++ ) { %>
+                <article class="col-12 col-md-6 col-lg-3">
+                    <div>
+                        <img src="/images/productos/<%= productos[i].img_sm %>" alt="producto">
+                        <h6><%= productos[i].nombre %></h6>
+                        <h6><%= productos[i].productor %></h6>
+                        <h4><%= productos[i].precio %></h4>
+                        <h6>3 cuotas de <%= productos[0].precio/3 %></h6>
+                        <a href="/cart" class="btn btn-primary" id="comprar">Comprar</a>
+                        <a href="/producto/detalle/<%= productos[i].id %>" class="btn btn-primary" id="verMas">Ver
+                            Más</a>
+                    </div>
+                </article>
+                <% }; %>
         </section>
         <section class="tab-pane fade row" id="masvendidos" role="tabpanel" aria-labelledby="mas-vendidos-tab">
-            <article class="col-12 col-md-6 col-lg-3">
-                <div>
-                    <img src="/img/1_small.jpeg" alt="producto">
-                    <h6>NICASIA VINEYARDS RED BLEND</h6>
-                    <h6>Catena Zapata</h6>
-                    <h4>$480</h4>
-                    <h6>3 cuotas de $160</h6>
-                    <a href="/cart" class="btn btn-primary" id="comprar">Comprar</a>
-                    <a href="/producto/detalle" class="btn btn-primary" id="verMas">Ver Más</a>
-                </div>
-            </article>
-            <article class="col-12 col-md-6 col-lg-3">
-                <div>
-                    <img src="/img/2_small.jpeg" alt="producto">
-                    <h6>EL ENEMIGO MALBEC</h6>
-                    <h6>Aleanna</h6>
-                    <h4>$1300</h4>
-                    <h6>3 cuotas de $433,33</h6>
-                    <a href="/cart" class="btn btn-primary" id="comprar">Comprar</a>
-                    <a href="/producto/detalle" class="btn btn-primary" id="verMas">Ver Más</a>
-                </div>
-            </article>
-            <article class="col-12 col-md-6 col-lg-3">
-                <div>
-                    <img src="/img/3_small.jpeg" alt="producto">
-                    <h6>TRUMPETER MALBEC</h6>
-                    <h6>Rutini Wines</h6>
-                    <h4>$464</h4>
-                    <h6>3 cuotas de $154,67</h6>
-                    <a href="/cart" class="btn btn-primary" id="comprar">Comprar</a>
-                    <a href="/producto/detalle" class="btn btn-primary" id="verMas">Ver Más</a>
-                </div>
-            </article>
-            <article class="col-12 col-md-6 col-lg-3">
-                <div>
-                    <img src="/img/4_small.jpeg" alt="producto">
-                    <h6>CASA BOHER MALBEC</h6>
-                    <h6>Rosell Boher</h6>
-                    <h4>$590</h4>
-                    <h6>3 cuotas de $196,67</h6>
-                    <a href="/cart" class="btn btn-primary" id="comprar">Comprar</a>
-                    <a href="/producto/detalle" class="btn btn-primary" id="verMas">Ver Más</a>
-                </div>
-            </article> 
+            <% for( let i = 0; i <= 3; i++ ) { %>
+                <article class="col-12 col-md-6 col-lg-3">
+                    <div>
+                        <img src="/images/productos/<%= productos[i].img_sm %>" alt="producto">
+                        <h6><%= productos[i].nombre %></h6>
+                        <h6><%= productos[i].productor %></h6>
+                        <h4><%= productos[i].precio %></h4>
+                        <h6>3 cuotas de <%= productos[0].precio/3 %></h6>
+                        <a href="/cart" class="btn btn-primary" id="comprar">Comprar</a>
+                        <a href="/producto/detalle/<%= productos[i].id %>" class="btn btn-primary" id="verMas">Ver
+                            Más</a>
+                    </div>
+                </article>
+                <% }; %>
+            
         </section>
         <section class="tab-pane fade row" id="mejorcalificados" role="tabpanel" aria-labelledby="mejor-calificados-tab">
-            <article class="col-12 col-md-6 col-lg-3">
-                <div>
-                    <img src="/img/1_small.jpeg" alt="producto">
-                    <h6>NICASIA VINEYARDS RED BLEND</h6>
-                    <h6>Catena Zapata</h6>
-                    <h4>$480</h4>
-                    <h6>3 cuotas de $160</h6>
-                    <a href="/cart" class="btn btn-primary" id="comprar">Comprar</a>
-                    <a href="/producto/detalle" class="btn btn-primary" id="verMas">Ver Más</a>
-                </div>
-            </article>
-            <article class="col-12 col-md-6 col-lg-3">
-                <div>
-                    <img src="/img/2_small.jpeg" alt="producto">
-                    <h6>EL ENEMIGO MALBEC</h6>
-                    <h6>Aleanna</h6>
-                    <h4>$1300</h4>
-                    <h6>3 cuotas de $433,33</h6>
-                    <a href="/cart" class="btn btn-primary" id="comprar">Comprar</a>
-                    <a href="/producto/detalle" class="btn btn-primary" id="verMas">Ver Más</a>
-                </div>
-            </article>
-            <article class="col-12 col-md-6 col-lg-3">
-                <div>
-                    <img src="/img/3_small.jpeg" alt="producto">
-                    <h6>TRUMPETER MALBEC</h6>
-                    <h6>Rutini Wines</h6>
-                    <h4>$464</h4>
-                    <h6>3 cuotas de $154,67</h6>
-                    <a href="/cart" class="btn btn-primary" id="comprar">Comprar</a>
-                    <a href="/producto/detalle" class="btn btn-primary" id="verMas">Ver Más</a>
-                </div>
-            </article>
-            <article class="col-12 col-md-6 col-lg-3">
-                <div>
-                    <img src="/img/4_small.jpeg" alt="producto">
-                    <h6>CASA BOHER MALBEC</h6>
-                    <h6>Rosell Boher</h6>
-                    <h4>$590</h4>
-                    <h6>3 cuotas de $196,67</h6>
-                    <a href="/cart" class="btn btn-primary" id="comprar">Comprar</a>
-                    <a href="/producto/detalle" class="btn btn-primary" id="verMas">Ver Más</a>
-                </div>
-            </article> 
+            <% for( let i = 0; i <= 3; i++ ) { %>
+                <article class="col-12 col-md-6 col-lg-3">
+                    <div>
+                        <img src="/images/productos/<%= productos[i].img_sm %>" alt="producto">
+                        <h6><%= productos[i].nombre %></h6>
+                        <h6><%= productos[i].productor %></h6>
+                        <h4><%= productos[i].precio %></h4>
+                        <h6>3 cuotas de <%= productos[0].precio/3 %></h6>
+                        <a href="/cart" class="btn btn-primary" id="comprar">Comprar</a>
+                        <a href="/producto/detalle/<%= productos[i].id %>" class="btn btn-primary" id="verMas">Ver
+                            Más</a>
+                    </div>
+                </article>
+                <% }; %>
+           
         </section>
         <section class="tab-pane fade row" id="ofertas" role="tabpanel" aria-labelledby="ofertas-tab">
-            <article class="col-12 col-md-6 col-lg-3">
-                <div>
-                    <img src="/img/1_small.jpeg" alt="producto">
-                    <h6>NICASIA VINEYARDS RED BLEND</h6>
-                    <h6>Catena Zapata</h6>
-                    <h4>$480</h4>
-                    <h6>3 cuotas de $160</h6>
-                    <a href="/cart" class="btn btn-primary" id="comprar">Comprar</a>
-                    <a href="/producto/detalle" class="btn btn-primary" id="verMas">Ver Más</a>
-                </div>
-            </article>
-            <article class="col-12 col-md-6 col-lg-3">
-                <div>
-                    <img src="/img/2_small.jpeg" alt="producto">
-                    <h6>EL ENEMIGO MALBEC</h6>
-                    <h6>Aleanna</h6>
-                    <h4>$1300</h4>
-                    <h6>3 cuotas de $433,33</h6>
-                    <a href="/cart" class="btn btn-primary" id="comprar">Comprar</a>
-                    <a href="/producto/detalle" class="btn btn-primary" id="verMas">Ver Más</a>
-                </div>
-            </article>
-            <article class="col-12 col-md-6 col-lg-3">
-                <div>
-                    <img src="/img/3_small.jpeg" alt="producto">
-                    <h6>TRUMPETER MALBEC</h6>
-                    <h6>Rutini Wines</h6>
-                    <h4>$464</h4>
-                    <h6>3 cuotas de $154,67</h6>
-                    <a href="/cart" class="btn btn-primary" id="comprar">Comprar</a>
-                    <a href="/producto/detalle" class="btn btn-primary" id="verMas">Ver Más</a>
-                </div>
-            </article>
-            <article class="col-12 col-md-6 col-lg-3">
-                <div>
-                    <img src="/img/4_small.jpeg" alt="producto">
-                    <h6>CASA BOHER MALBEC</h6>
-                    <h6>Rosell Boher</h6>
-                    <h4>$590</h4>
-                    <h6>3 cuotas de $196,67</h6>
-                    <a href="/cart" class="btn btn-primary" id="comprar">Comprar</a>
-                    <a href="/producto/detalle" class="btn btn-primary" id="verMas">Ver Más</a>
-                </div>
-            </article> 
+            <% for( let i = 0; i <= 3; i++ ) { %>
+                <article class="col-12 col-md-6 col-lg-3">
+                    <div>
+                        <img src="/images/productos/<%= productos[i].img_sm %>" alt="producto">
+                        <h6><%= productos[i].nombre %></h6>
+                        <h6><%= productos[i].productor %></h6>
+                        <h4><%= productos[i].precio %></h4>
+                        <h6>3 cuotas de <%= productos[0].precio/3 %></h6>
+                        <a href="/cart" class="btn btn-primary" id="comprar">Comprar</a>
+                        <a href="/producto/detalle/<%= productos[i].id %>" class="btn btn-primary" id="verMas">Ver
+                            Más</a>
+                    </div>
+                </article>
+                <% }; %> 
         </section>
     </div>
     <!--Menu Tabs FIN-->

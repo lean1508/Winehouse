@@ -13,12 +13,12 @@
         <div class="row">
             <div class="col-12 col-md-4">
                 <figure>
-                    <img src="/img/1_big.jpeg" alt="Vino">
+                    <img src="/images/productos/<%= producto.img_lg %>" alt="Vino">
                 </figure>
-                <h6 id="titulo_valor">Precio por Unidad <span id="precio">$ 480</span></h6>               
+                <h6 id="titulo_valor">Precio por Unidad <span id="precio">$<%= producto.precio %></span></h6>               
                 <h6 id="titulo_valor">Disponibilidad: En Stock</h6>
-                <h6 id="titulo_valor">Contenido: 750 ml</h6>
-                <form id="comprar" action="" method="">
+                <h6 id="titulo_valor">Contenido:<%= producto.volumen %>ml</h6>
+                <form id="comprar" action="" method="POST">
                     <label for="cantidad">Cantidad:</label>
                     <input id="cantidad" type="text" name="cantidad" value="1">
                     <br>
@@ -26,9 +26,9 @@
                 </form>
             </div>
             <div class="col-12 col-md-8 info">
-                <h1>Nombre del Vino</h1>
-                <h4>VARIETAL</h6>
-                    <p class="descripcion">DESCRIPCIÓN: Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus ipsa tempora labore, recusandae consequatur officiis illum accusamus quidem quaerat quod nostrum facere doloremque facilis architecto ea culpa magni animi reprehenderit quia necessitatibus. Ex eum optio dolore praesentium sit amet debitis non, explicabo exercitationem modi consequatur! Eum dolor quasi dicta suscipit, omnis vitae pariatur similique, labore consequatur magni, possimus debitis unde quae at quidem! Ab, illo ipsum et quisquam explicabo quibusdam nobis mollitia, exercitationem qui dolorem eligendi, esse ducimus illum aliquid.</p>
+                <h1><%= producto.nombre %></h1>
+                <h4><%= producto.varietal %></h6>
+                    <p class="descripcion"><%= producto.descripcion %></p>
                     
                     
                     <div class="accordion" id="accordionExample">
@@ -53,39 +53,39 @@
                                         <tbody>
                                             <tr>
                                                 <th scope="row">BODEGA</th>
-                                                <td>Catena Zapata</td>
+                                                <td><%= producto.productor %></td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">PROCEDENCIA</th>
-                                                <td>Mendoza</td>
+                                                <td><%= producto.procedencia %></td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">TIPO</th>
-                                                <td>Vino Tinto</td>
+                                                <td><%= producto.tipo %></td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">VARIETAL</th>
-                                                <td>Blend</td>
+                                                <td><%= producto.varietal %></td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">CORTE</th>
-                                                <td>90% Malbec / 6% Cabernet Sauvignon / 4% Petit Verdot</td>
+                                                <td><%= producto.corte %></td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">COSECHA</th>
-                                                <td>2019</td>
+                                                <td><%= producto.cosecha %></td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">ALCOHOL</th>
-                                                <td>13%</td>
+                                                <td><%= producto.alcohol %></td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">ELABORACIÓN</th>
-                                                <td>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore quisquam, labore distinctio impedit sit accusantium repudiandae ipsam? Reiciendis, nihil asperiores?</td>
+                                                <td><%= producto.elaboracion %></td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">CRIANZA</th>
-                                                <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo quis ipsum doloremque adipisci rem. Nesciunt incidunt sunt, dolores magnam saepe aperiam eos culpa. Reprehenderit autem molestias quaerat cumque saepe voluptatibus.</td>
+                                                <td><%= producto.crianza %></td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -125,50 +125,20 @@
             </div>
             <section class="tab-pane row">
                 <h2 class="col-12" id="titulo">TAMBIÉN PODRÍAN INTERESARTE</h2>
+                <% for( let i = 0; i <= 3; i++ ) { %>
                 <article class="col-12 col-md-6 col-lg-3">
                     <div>
-                        <img src="/img/1_small.jpeg" alt="producto">
-                        <h6>NICASIA VINEYARDS RED BLEND</h6>
-                        <h6>Catena Zapata</h6>
-                        <h4>$480</h4>
-                        <h6>3 cuotas de $160</h6>
+                        <img src="/images/productos/<%= productos[i].img_sm %>" alt="producto">
+                        <h6><%= productos[i].nombre %></h6>
+                        <h6><%= productos[i].productor %></h6>
+                        <h4><%= productos[i].precio %></h4>
+                        <h6>3 cuotas de <%= productos[0].precio/3 %></h6>
                         <a href="/cart" class="btn btn-primary" id="comprar">Comprar</a>
-                        <a href="/producto/detalle" class="btn btn-primary" id="verMas">Ver Más</a>
+                        <a href="/producto/detalle/<%= productos[i].id %>" class="btn btn-primary" id="verMas">Ver
+                            Más</a>
                     </div>
                 </article>
-                <article class="col-12 col-md-6 col-lg-3">
-                    <div>
-                        <img src="/img/2_small.jpeg" alt="producto">
-                        <h6>EL ENEMIGO MALBEC</h6>
-                        <h6>Aleanna</h6>
-                        <h4>$1300</h4>
-                        <h6>3 cuotas de $433,33</h6>
-                        <a href="/cart" class="btn btn-primary" id="comprar">Comprar</a>
-                        <a href="/producto/detalle" class="btn btn-primary" id="verMas">Ver Más</a>
-                    </div>
-                </article>
-                <article class="col-12 col-md-6 col-lg-3">
-                    <div>
-                        <img src="/img/3_small.jpeg" alt="producto">
-                        <h6>TRUMPETER MALBEC</h6>
-                        <h6>Rutini Wines</h6>
-                        <h4>$464</h4>
-                        <h6>3 cuotas de $154,67</h6>
-                        <a href="/cart" class="btn btn-primary" id="comprar">Comprar</a>
-                        <a href="/producto/detalle" class="btn btn-primary" id="verMas">Ver Más</a>
-                    </div>
-                </article>
-                <article class="col-12 col-md-6 col-lg-3">
-                    <div>
-                        <img src="/img/4_small.jpeg" alt="producto">
-                        <h6>CASA BOHER MALBEC</h6>
-                        <h6>Rosell Boher</h6>
-                        <h4>$590</h4>
-                        <h6>3 cuotas de $196,67</h6>
-                        <a href="/cart" class="btn btn-primary" id="comprar">Comprar</a>
-                        <a href="/producto/detalle" class="btn btn-primary" id="verMas">Ver Más</a>
-                    </div>
-                </article> 
+                <% }; %>
             </section>
         </main>
         

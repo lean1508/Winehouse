@@ -13,50 +13,19 @@
         <h1 class="font-weight-bolder w-100 text-center my-5" id="titulo">Recomendados</h1>
     </article>
     <section class="d-flex" id="vinos">
+        <% vinos.forEach(vino => { %>
     <article class="col-12 col-md-6 col-lg-3">
         <div id="articulo">
-            <img src="/img/1_small.jpeg" alt="producto">
-            <h6>NICASIA VINEYARDS RED BLEND</h6>
-            <h6>Catena Zapata</h6>
-            <h4>$480</h4>
-            <h6>3 cuotas de $160</h6>
+            <img src="/images/productos/<%= vino.img_sm %>" alt="producto">
+            <h6><%= vino.nombre %></h6>
+            <h6><%= vino.productor %></h6>
+            <h4>$<%= vino.precio %></h4>
+            <h6>3 cuotas de $<%= vino.precio/3 %></h6>
             <a href="/cart" class="btn btn-primary" id="comprar">Comprar</a>
-            <a href="/producto/detalle" class="btn btn-primary" id="verMas">Ver Más</a>
+            <a href="/producto/detalle/<%= vino.id %>" class="btn btn-primary" id="verMas">Ver Más</a>
         </div>
     </article>
-    <article class="col-12 col-md-6 col-lg-3">
-        <div id="articulo">
-            <img src="/img/2_small.jpeg" alt="producto">
-            <h6>EL ENEMIGO MALBEC</h6>
-            <h6>Aleanna</h6>
-            <h4>$1300</h4>
-            <h6>3 cuotas de $433,33</h6>
-            <a href="/cart" class="btn btn-primary" id="comprar">Comprar</a>
-            <a href="/producto/detalle" class="btn btn-primary" id="verMas">Ver Más</a>
-        </div>
-    </article>
-    <article class="col-12 col-md-6 col-lg-3">
-        <div id="articulo">
-            <img src="/img/3_small.jpeg" alt="producto">
-            <h6>TRUMPETER MALBEC</h6>
-            <h6>Rutini Wines</h6>
-            <h4>$464</h4>
-            <h6>3 cuotas de $154,67</h6>
-            <a href="/cart" class="btn btn-primary" id="comprar">Comprar</a>
-            <a href="/producto/detalle" class="btn btn-primary" id="verMas">Ver Más</a>
-        </div>
-    </article>
-    <article class="col-12 col-md-6 col-lg-3">
-        <div id="articulo">
-            <img src="/img/4_small.jpeg" alt="producto">
-            <h6>CASA BOHER MALBEC</h6>
-            <h6>Rosell Boher</h6>
-            <h4>$590</h4>
-            <h6>3 cuotas de $196,67</h6>
-            <a href="/cart" class="btn btn-primary" id="comprar">Comprar</a>
-            <a href="/producto/detalle" class="btn btn-primary" id="verMas">Ver Más</a>
-        </div>
-    </article>
+    <% }) %>
 </section>
 </main>
     <!--Menu Vinos FIN-->
