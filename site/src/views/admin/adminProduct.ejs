@@ -13,7 +13,7 @@
           <h2 class="display-4 text-center pt-5">Administrador de Productos</h2>
         </article>
         <article class="col-12">
-          <button type="button" class="btn btn-primary" href="/admin/create">Agregar Productos</button>
+          <a href="/admin/productos/agregar1"><button type="button" class="btn btn-primary">Agregar Nuevo Producto</button></a>
         </article>
         <article class="col-12">
         <table class="table">
@@ -27,19 +27,21 @@
               </tr>
             </thead>
             <tbody>
+              <% productos.forEach(p => { %> 
               <tr>
-                <td>id</td>
-                <td>nombre</td>
-                <td ><a href="/admin/detail/"> <ion-icon name="eye-outline"></ion-icon></a></td>
-                <td ><a href="/admin/edit/"> <ion-icon name="pencil-outline"></ion-icon></a></td>
-                <td ><a href="/admin/delete/"><ion-icon name="trash-outline"></ion-icon></a></td>
-              </tr>  
+                <td><%= p.id %></td>
+                <td><%= p.nombre %></td>
+                <td ><a href="/admin/detail/<%=p.id%>"> <ion-icon name="eye-outline"></ion-icon></a></td>
+                <td ><a href="/admin/edit/<%=p.id%>"> <ion-icon name="pencil-outline"></ion-icon></a></td>
+                <td ><a href="/admin/delete/<%=p.id%>"><ion-icon name="trash-outline"></ion-icon></a></td>
+              </tr>
+              <% }) %>   
             </tbody>
           </table> 
         </article>       
       </section>
-      <%-include('../partials/footer.ejs')%>
     </main>
+    <%-include('../partials/footer.ejs')%>
   </body>
 </html>
 
