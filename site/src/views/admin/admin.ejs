@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <%- include('../partials/head.ejs')%>    
+  <%- include('../partials/header.ejs')%>
+  <link rel="stylesheet" href="/css/admin.css">
+</head>  
+<body>
+    <main class="container-fluid"> 
+      <!--Administrador de productos-->
+      <section class="row mt-5">
+        <article class="col-12">
+          <h2 class="display-4 text-center pt-5">Administrador de Productos</h2>
+        </article>
+        <article class="col-12">
+          <button type="button" class="btn btn-primary" href="/admin/create">Agregar Productos</button>
+        </article>
+        <article class="col-12">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Ver</th>
+                <th scope="col">Editar</th>
+                <th scope="col">Borrar</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>id</td>
+                <td>nombre</td>
+                <td ><a href="/admin/detail/"> <ion-icon name="eye-outline"></ion-icon></a></td>
+                <td ><a href="/admin/edit/"> <ion-icon name="pencil-outline"></ion-icon></a></td>
+                <td ><a href="/admin/delete/"><ion-icon name="trash-outline"></ion-icon></a></td>
+              </tr>  
+            </tbody>
+          </table> 
+        </article>       
+      </section>
+      <%-include('../partials/footer.ejs')%>
+    </main>
+  </body>
+</html>
+
+

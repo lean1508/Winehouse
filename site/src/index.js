@@ -13,6 +13,10 @@ const userRoutes = require('./routes/user');
 const cartRoutes = require('./routes/cart')
 const adminRoutes = require('./routes/admin');
 
+
+
+
+
 app.use(webRoutes);
 app.use(productoRoutes);
 app.use(userRoutes);
