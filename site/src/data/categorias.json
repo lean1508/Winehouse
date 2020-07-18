@@ -1,0 +1,30 @@
+[
+    {
+        "id": 1,
+        "nombre": "Vinos Tintos"
+    },
+    {
+        "id": 2,
+        "nombre":"Vinos Blancos"
+    },
+    {
+        "id": 3,
+        "nombre":"Vinos Rosados"
+    },
+    {
+        "id": 4,
+        "nombre":"Espumantes"
+    },
+    {
+        "id": 5,
+        "nombre":"Whiskies"
+    },
+    {
+        "id": 6,
+        "nombre": "Espirituosos"
+    },
+    {
+        "id": 7,
+        "nombre": "Cervezas"
+    }
+]

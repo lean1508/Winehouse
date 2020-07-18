@@ -105,16 +105,16 @@
     </ul>
     <div class="tab-content container-fluid" id="myTabContent">
         <section class="tab-pane fade show active row" id="recomendados" role="tabpanel" aria-labelledby="recomendados-tab">  
-            <% for( let i = 0; i <= 3; i++ ) { %>
+            <% for( let i = 0; i < recomendados.length; i++ ) { %>
                 <article class="col-12 col-md-6 col-lg-3">
                     <div>
-                        <img src="/images/productos/<%= productos[i].img_sm %>" alt="producto">
-                        <h6><%= productos[i].nombre %></h6>
-                        <h6><%= productos[i].productor %></h6>
-                        <h4><%= productos[i].precio %></h4>
-                        <h6>3 cuotas de <%= productos[0].precio/3 %></h6>
+                        <img src="/images/productos/<%= recomendados[i].img_sm %>" alt="producto">
+                        <h6><%= recomendados[i].nombre %></h6>
+                        <h6><%= recomendados[i].productor %></h6>
+                        <h4><%= recomendados[i].precio %></h4>
+                        <h6>3 cuotas de <%= recomendados[i].precio/3 %></h6>
                         <a href="/cart" class="btn btn-primary" id="comprar">Comprar</a>
-                        <a href="/producto/detalle/<%= productos[i].id %>" class="btn btn-primary" id="verMas">Ver
+                        <a href="/producto/detalle/<%= recomendados[i].id %>" class="btn btn-primary" id="verMas">Ver
                             Más</a>
                     </div>
                 </article>
@@ -128,7 +128,7 @@
                         <h6><%= productos[i].nombre %></h6>
                         <h6><%= productos[i].productor %></h6>
                         <h4><%= productos[i].precio %></h4>
-                        <h6>3 cuotas de <%= productos[0].precio/3 %></h6>
+                        <h6>3 cuotas de <%= productos[i].precio/3 %></h6>
                         <a href="/cart" class="btn btn-primary" id="comprar">Comprar</a>
                         <a href="/producto/detalle/<%= productos[i].id %>" class="btn btn-primary" id="verMas">Ver
                             Más</a>
@@ -145,7 +145,7 @@
                         <h6><%= productos[i].nombre %></h6>
                         <h6><%= productos[i].productor %></h6>
                         <h4><%= productos[i].precio %></h4>
-                        <h6>3 cuotas de <%= productos[0].precio/3 %></h6>
+                        <h6>3 cuotas de <%= productos[i].precio/3 %></h6>
                         <a href="/cart" class="btn btn-primary" id="comprar">Comprar</a>
                         <a href="/producto/detalle/<%= productos[i].id %>" class="btn btn-primary" id="verMas">Ver
                             Más</a>
@@ -155,16 +155,16 @@
            
         </section>
         <section class="tab-pane fade row" id="ofertas" role="tabpanel" aria-labelledby="ofertas-tab">
-            <% for( let i = 0; i <= 3; i++ ) { %>
+            <% for( let i = 0; i < ofertas.length; i++ ) { %>
                 <article class="col-12 col-md-6 col-lg-3">
                     <div>
-                        <img src="/images/productos/<%= productos[i].img_sm %>" alt="producto">
-                        <h6><%= productos[i].nombre %></h6>
-                        <h6><%= productos[i].productor %></h6>
-                        <h4><%= productos[i].precio %></h4>
-                        <h6>3 cuotas de <%= productos[0].precio/3 %></h6>
+                        <img src="/images/productos/<%= ofertas[i].img_sm %>" alt="producto">
+                        <h6><%= ofertas[i].nombre %></h6>
+                        <h6><%= ofertas[i].productor %></h6>
+                        <h4><%= ofertas[i].precio %></h4>
+                        <h6>3 cuotas de <%= ofertas[i].precio/3 %></h6>
                         <a href="/cart" class="btn btn-primary" id="comprar">Comprar</a>
-                        <a href="/producto/detalle/<%= productos[i].id %>" class="btn btn-primary" id="verMas">Ver
+                        <a href="/producto/detalle/<%= ofertas[i].id %>" class="btn btn-primary" id="verMas">Ver
                             Más</a>
                     </div>
                 </article>
