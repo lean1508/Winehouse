@@ -1,0 +1,22 @@
+.display-4 text-center pt-5{
+    color:#8a0804 ;
+}
+
+ion-icon {
+    color: #8a0804;
+  }
+
+  .btn-primary{
+    color: #8a0804;
+    background-color: white;
+    border-radius: 15px;
+    border: 2px solid #8a0804;
+    border-color: #8a0804;
+    font-size: 15px;
+  }
+
+  .btn-primary:focus {
+    background-color:#8a0804;
+    outline: 0 !important;
+    color:white;
+  }
