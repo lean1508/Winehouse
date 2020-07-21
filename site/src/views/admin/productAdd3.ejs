@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
+<head>
     <%- include('../partials/head.ejs') %>
     <link rel="stylesheet" href="/css/agregarProducto.css">
-    </head>
+</head>
 <body>
     
     <%- include('../partials/header.ejs') %>
@@ -20,6 +20,12 @@
             <div class="form-group">
                 <label for="crianza">CRIANZA / BARRICADO</label>
                 <textarea name="crianza" rows="3" class="form-control"></textarea>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-6">
+                    <label for="stock">STOCK INICIAL</label>
+                    <input type="number" class="form-control" name="stock" value="0">
+                </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-7">

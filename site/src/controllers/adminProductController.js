@@ -53,15 +53,58 @@ module.exports = {
             elaboracion: req.body.elaboracion,
             crianza: req.body.crianza,
             recomendados: req.body.recomendados,
-            ofertas: req.body.ofertas
+            ofertas: req.body.ofertas,
+            stock: req.body.stock
         };
 
         productos.push(productoNuevo)
 
         fs.writeFileSync(path.resolve(__dirname, '..', 'data', 'productos.json'), JSON.stringify(productos, null, 2));
 
-        res.redirect('/admin/productos');
+        delete req.session.form1;
+        delete req.session.form2;
+
+        res.redirect('/admin/productos/detalle/'+productoNuevo.id);
     },
+    detail: (req,res)=>{
+        let productos = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'productos.json')));
+        let categorias = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'categorias.json')));
+        let producto = productos.find(p=> req.params.id == p.id);
+        let categoria = categorias.find(cat => producto.categoria_id == cat.id);
+        res.render(path.resolve(__dirname, '..', 'views', 'admin', 'adminProductDetail'), {producto, categoria, categorias});
+    },
+    images: (req,res)=>{
+        res.sendFile(path.resolve(__dirname, '..','..', 'public', 'images','productos', req.params.archivo));
+    },
+    edit: (req,res,next)=>{
+        let productos = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'productos.json')));
+        let producto = productos.find(p=> req.params.id == p.id);
+        let id = req.params.id;
+        let propiedad = req.params.propiedad;
+
+        if(propiedad=="img_sm" || propiedad=="img_lg"){
+            producto[propiedad] = req.files[0].filename;
+        } else {
+            producto[propiedad] = req.body[propiedad];
+        };
+
+        let productosEditados = productos.map(p=>{
+            if (p.id == id) {
+                return p=producto;
+            } else {
+                return p;
+            }
+        });         
+
+        fs.writeFileSync(path.resolve(__dirname, '..', 'data', 'productos.json'), JSON.stringify(productosEditados, null, 2));
+        res.redirect('/admin/productos/detalle/'+id);
+    },
+    delete: (req,res)=>{
+        let productos = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'productos.json')));
+        let productosBorrados = productos.filter(p => p.id != req.params.id);
+        fs.writeFileSync(path.resolve(__dirname, '..', 'data', 'productos.json'), JSON.stringify(productosBorrados, null, 2));
+        res.redirect('/admin/productos');
+    }
 };
 
 

@@ -22,8 +22,6 @@
                 <th scope="col">Id</th>
                 <th scope="col">Nombre</th>
                 <th scope="col">Ver</th>
-                <th scope="col">Editar</th>
-                <th scope="col">Borrar</th>
               </tr>
             </thead>
             <tbody>
@@ -31,9 +29,7 @@
               <tr>
                 <td><%= p.id %></td>
                 <td><%= p.nombre %></td>
-                <td ><a href="/admin/detail/<%=p.id%>"> <ion-icon name="eye-outline"></ion-icon></a></td>
-                <td ><a href="/admin/edit/<%=p.id%>"> <ion-icon name="pencil-outline"></ion-icon></a></td>
-                <td ><a href="/admin/delete/<%=p.id%>"><ion-icon name="trash-outline"></ion-icon></a></td>
+                <td ><a href="/admin/productos/detalle/<%=p.id%>"> <ion-icon name="eye-outline"></ion-icon></a></td>
               </tr>
               <% }) %>   
             </tbody>

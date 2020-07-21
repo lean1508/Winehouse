@@ -1,0 +1,47 @@
+figure img {
+    padding-top: 15px;
+}
+
+div.info{
+    margin: 0px;
+    padding: 15px;;
+}
+
+div.btn-volver{
+    width: 100%;
+    text-align: center;
+}
+
+.btn-primary#volver{
+    width: 80%;
+    color: #050705;
+    background-color: #b3b5af;
+    border-color: #b3b5af;
+}
+
+div.borrar{
+    padding-top: 20px;
+}
+
+.btn-primary#borrar {
+    color: #fffffd;
+    background-color: #8a0804;
+    border-color: #8a0804;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.form-control {
+    background-color: #fffffd;
+    border-color: #b3b5af;
+}
+
+.input-group-text {
+/*    background-color: #b3b5af;*/
+    border-color: #b3b5af;
+}
+
+label {
+    color: #8a0804;
+    font-weight: 500;
+}

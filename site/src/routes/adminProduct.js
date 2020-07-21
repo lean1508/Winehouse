@@ -23,5 +23,9 @@ router.get('/admin/productos/agregar2', adminProductController.productAdd2);
 router.post('/admin/productos/agregar2', adminProductController.create2);
 router.get('/admin/productos/agregar3', adminProductController.productAdd3);
 router.post('/admin/productos/agregar3', adminProductController.create3);
+router.get('/admin/productos/detalle/:id', adminProductController.detail);
+router.get('/admin/productos/imagenes/:archivo', adminProductController.images);
+router.put('/admin/productos/detalle/:id/editar/:propiedad', upload.any(), adminProductController.edit);
+router.get('/admin/productos/detalle/:id/borrar', adminProductController.delete);
 
 module.exports = router;
