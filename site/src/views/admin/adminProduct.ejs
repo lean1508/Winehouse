@@ -2,34 +2,34 @@
 <html lang="es">
 <head>
   <%- include('../partials/head.ejs')%>    
-  <%- include('../partials/header.ejs')%>
   <link rel="stylesheet" href="/css/admin.css">
 </head>  
 <body>
+  <%- include('../partials/header.ejs')%>
     <main class="container-fluid"> 
       <!--Administrador de productos-->
       <section class="row mt-5">
         <article class="col-12">
-          <h2 class="display-4 text-center pt-5">Administrador de Productos</h2>
+          <h2 class="display-4 text-center pt-4">Administrador de Productos</h2>
         </article>
         <article class="col-12">
-          <a href="/admin/productos/agregar1"><button type="button" class="btn btn-primary">Agregar Nuevo Producto</button></a>
+          <a href="/admin/productos/agregar1" id="agregar" class="btn btn-primary mt-2">Agregar Nuevo Producto</a>
         </article>
         <article class="col-12">
-        <table class="table">
+        <table class="table my-5">
             <thead>
-              <tr>
+              <tr class="text-center">
                 <th scope="col">Id</th>
-                <th scope="col">Nombre</th>
-                <th scope="col">Ver</th>
+                <th scope="col">Nombre Producto</th>
+                <th scope="col">Ver Detalle</th>
               </tr>
             </thead>
             <tbody>
               <% productos.forEach(p => { %> 
-              <tr>
+              <tr class="text-center">
                 <td><%= p.id %></td>
                 <td><%= p.nombre %></td>
-                <td ><a href="/admin/productos/detalle/<%=p.id%>"> <ion-icon name="eye-outline"></ion-icon></a></td>
+                <td><a href="/admin/productos/detalle/<%=p.id%>"> <ion-icon name="eye-outline"></ion-icon></a></td>
               </tr>
               <% }) %>   
             </tbody>

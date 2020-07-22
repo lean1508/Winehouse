@@ -17,21 +17,16 @@ module.exports = {
         let titulo = categoria[0].nombre;
         res.render(path.resolve(__dirname, '..', 'views', 'producto', 'categorias'), {titulo, vinos: productosCategoria});
     },
-    verParaBrindar: (req,res)=>{
-        let productos = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'productos.json')));
-        const vinos = productos.filter(producto=> producto.tipo == "para brindar");
-        res.render(path.resolve(__dirname, '..', 'views', 'producto', 'paraBrindar'), {vinos})
-    },
     verMasVendidos: (req,res)=>{res.render(path.resolve(__dirname, '..', 'views', 'producto', 'masVendidos'))
     },
     verRecomendados: (req,res)=>{
         let productos = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'productos.json')));
-        const vinos = productos.filter(producto=> producto.recomendados == 1);
+        const vinos = productos.filter(producto=> producto.recomendados == 'on');
         res.render(path.resolve(__dirname, '..', 'views', 'producto', 'recomendados'), {vinos})
     },
     verOfertas: (req,res)=>{
         let productos = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'productos.json')));
-        const vinos = productos.filter(producto=> producto.ofertas == 1);
+        const vinos = productos.filter(producto=> producto.ofertas == 'on');
         res.render(path.resolve(__dirname, '..', 'views', 'producto', 'ofertas'), {vinos})
     }
 }

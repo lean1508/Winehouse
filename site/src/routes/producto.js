@@ -6,7 +6,6 @@ const productoController = require(path.resolve(__dirname, '..', 'controllers', 
 
 router.get('/producto/detalle/:id', productoController.show);
 router.get('/categoria/:id', productoController.verCategoria);
-router.get('/mejorCalificados', productoController.verParaBrindar);
 router.get('/masVendidos', productoController.verMasVendidos);
 router.get('/recomendados', productoController.verRecomendados);
 router.get('/ofertas', productoController.verOfertas);
