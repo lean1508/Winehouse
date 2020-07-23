@@ -9,7 +9,7 @@ app.set('view engine','ejs');
 app.use(express.static(path.resolve(__dirname, '..', 'public')));
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
-app.use(session({secret: 'winehouse'}));
+app.use(session({secret: 'winehouse', resave: true, saveUninitialized: true}));
 
 //Rutas
 const webRoutes = require('./routes/web');
