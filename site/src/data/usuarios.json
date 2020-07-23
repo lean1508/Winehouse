@@ -1,32 +1,52 @@
 [
-    {
-        "id": 1,
-        "name": "Juan",
-        "surname": "Usuario",
-        "alias": "Juan01",
-        "email": "usuario@winehouse.com.ar",
-        "password": "usuario01",
-        "role": 0,
-        "avatar": "avatar01.jpg"
-    },
-    {
-        "id": 2,
-        "name": "Pedro",
-        "surname": "Vendedor",
-        "alias": "Pedro02",
-        "email": "vendedor@winehouse.com.ar",
-        "password": "vendedor02",
-        "role": 1,
-        "avatar": "avatar02.jpg"
-    },
-    {
-        "id": 3,
-        "name": "Pablo",
-        "surname": "Administrador",
-        "alias": "Pablo03",
-        "email": "administrador@winehouse.com.ar",
-        "password": "administrador03",
-        "role": 9,
-        "avatar": "avatar03.jpg"
-    }
+  {
+    "id": 1,
+    "name": "Juan",
+    "lastName": "Usuario",
+    "alias": "Juan01",
+    "email": "usuario@winehouse.com.ar",
+    "password": "usuario01",
+    "role": 0,
+    "avatar": "avatar01.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Pedro",
+    "lastName": "Vendedor",
+    "alias": "Pedro02",
+    "email": "vendedor@winehouse.com.ar",
+    "password": "vendedor02",
+    "role": 1,
+    "avatar": "avatar02.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Pablo",
+    "lastName": "Administrador",
+    "alias": "Pablo03",
+    "email": "administrador@winehouse.com.ar",
+    "password": "administrador03",
+    "role": 9,
+    "avatar": "avatar03.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Jose",
+    "lastName": "Argento",
+    "alias": "Pepe",
+    "email": "pepe@hotmail.com",
+    "password": "$2b$10$JzAj8j3m8hgauTyla6zLD.a9RMuuEjrDXYu/iO8wxhjeJeQ/6/HQi",
+    "role": 0,
+    "avatar": "usuario-1595539794160.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Carlos",
+    "lastName": "Garcia",
+    "alias": "Cacho",
+    "email": "cacho@hotmail.com",
+    "password": "$2b$10$CCSA5WwHvqkG76EVKeeTMeES/hvp9.qM.ev.OO.WQn8y5Di7iGxqu",
+    "role": 0,
+    "avatar": "usuario-1595539929394.jpg"
+  }
 ]
