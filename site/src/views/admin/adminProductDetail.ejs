@@ -38,8 +38,10 @@
                                     <p>¿Está seguro que desea borrar el producto <%= producto.nombre %>?</p>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-primary" id="verMas" data-dismiss="modal">CERRAR</button>
-                                    <a href="/admin/productos/detalle/<%= producto.id %>/borrar"><button type="button" class="btn btn-primary" id="comprar">GUARDAR CAMBIOS</button></a>
+                                    <button type="button" class="btn btn-primary" id="verMas" data-dismiss="modal">No</button>
+                                    <form method="POST" action="/admin/productos/detalle/<%= producto.id %>/borrar?_method=DELETE">
+                                        <button type="submit" class="btn btn-primary" id="comprar">Si</button>
+                                    </form>
                                 </div>
                             </div>
                         </div>

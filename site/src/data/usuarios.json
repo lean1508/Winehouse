@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "name": "Juan",
+        "surname": "Usuario",
+        "alias": "Juan01",
+        "email": "usuario@winehouse.com.ar",
+        "password": "usuario01",
+        "role": 0,
+        "avatar": "avatar01.jpg"
+    },
+    {
+        "id": 2,
+        "name": "Pedro",
+        "surname": "Vendedor",
+        "alias": "Pedro02",
+        "email": "vendedor@winehouse.com.ar",
+        "password": "vendedor02",
+        "role": 1,
+        "avatar": "avatar02.jpg"
+    },
+    {
+        "id": 3,
+        "name": "Pablo",
+        "surname": "Administrador",
+        "alias": "Pablo03",
+        "email": "administrador@winehouse.com.ar",
+        "password": "administrador03",
+        "role": 9,
+        "avatar": "avatar03.jpg"
+    }
+]
