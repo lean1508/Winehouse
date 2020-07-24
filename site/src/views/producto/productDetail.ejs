@@ -16,7 +16,12 @@
                     <img src="/images/productos/<%= producto.img_lg %>" alt="Vino">
                 </figure>
                 <h6 id="titulo_valor">Precio por Unidad <span id="precio">$<%= producto.precio %></span></h6>               
-                <h6 id="titulo_valor">Disponibilidad: En Stock</h6>
+                <h6 id="titulo_valor">Disponibilidad: <% if (producto.stock > 0) { %>
+                    <span style="color: green">En Stock</span>
+                <% } else {%>
+                    <span style="color: red">Sin Stock</span>
+                <% } %>  
+                </h6>
                 <h6 id="titulo_valor">Contenido:<%= producto.volumen %>ml</h6>
                 <form id="comprar" action="" method="POST">
                     <label for="cantidad">Cantidad:</label>
@@ -51,42 +56,58 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            <% if (producto.productor) { %>
                                             <tr>
                                                 <th scope="row">BODEGA</th>
                                                 <td><%= producto.productor %></td>
                                             </tr>
+                                            <% } %>
+                                            <% if (producto.procedencia) { %> 
                                             <tr>
                                                 <th scope="row">PROCEDENCIA</th>
                                                 <td><%= producto.procedencia %></td>
                                             </tr>
+                                            <% } %>
                                             <tr>
                                                 <th scope="row">CATEGORÍA</th>
                                                 <td><%= categoria.nombre %></td>
                                             </tr>
+                                            <% if (producto.varietal) { %>
                                             <tr>
                                                 <th scope="row">VARIETAL</th>
                                                 <td><%= producto.varietal %></td>
                                             </tr>
+                                            <% } %>
+                                            <% if (producto.corte) { %>
                                             <tr>
                                                 <th scope="row">CORTE</th>
                                                 <td><%= producto.corte %></td>
                                             </tr>
+                                            <% } %>
+                                            <% if (producto.cosecha) { %>
                                             <tr>
                                                 <th scope="row">COSECHA</th>
                                                 <td><%= producto.cosecha %></td>
                                             </tr>
+                                            <% } %>
+                                            <% if (producto.alcohol) { %>
                                             <tr>
                                                 <th scope="row">ALCOHOL</th>
                                                 <td><%= producto.alcohol %></td>
                                             </tr>
+                                            <% } %> 
+                                            <% if (producto.elaboracion) { %> 
                                             <tr>
                                                 <th scope="row">ELABORACIÓN</th>
                                                 <td><%= producto.elaboracion %></td>
                                             </tr>
+                                            <% } %>
+                                            <% if (producto.crianza) { %>  
                                             <tr>
                                                 <th scope="row">CRIANZA</th>
                                                 <td><%= producto.crianza %></td>
                                             </tr>
+                                            <% } %> 
                                         </tbody>
                                     </table>
                                 </div>
