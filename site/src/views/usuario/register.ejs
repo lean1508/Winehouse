@@ -23,28 +23,67 @@
                     <div class="signup-form">
                         <form action="/register" method="POST" enctype="multipart/form-data">
                             <div class="form-group">
-                                <input type="text" class="form-control" name="name" placeholder="Nombre"
+                                <input type="text" class="form-control" name="name" placeholder="Nombre" value="<%= typeof old != 'undefined' ? old.name : '' %>"
                                     required>
+                                    <% if(typeof(errors) != 'undefined' && errors.name){%>
+                                        <span class="text-danger font-weight-bold">
+                                          <%= errors.email.msg %>
+                                        </span>
+                                     <%}%>
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" name="lastName" placeholder="Apellido"
+                                <input type="text" class="form-control" name="lastName" placeholder="Apellido" value="<%= typeof old != 'undefined' ? old.lastName : '' %>"
                                     required>
+                                    <% if(typeof(errors) != 'undefined' && errors.lastName){%>
+                                        <span class="text-danger font-weight-bold">
+                                          <%= errors.lastName.msg %>
+                                        </span>
+                                     <%}%>
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" name="alias" placeholder="Alias"
+                                <input type="text" class="form-control" name="alias" placeholder="Alias" value="<%= typeof old != 'undefined' ? old.alias : '' %>"
                                     required>
+                                    <% if(typeof(errors) != 'undefined' && errors.alias){%>
+                                        <span class="text-danger font-weight-bold">
+                                          <%= errors.alias.msg %>
+                                        </span>
+                                     <%}%>
                             </div>
                             <div class="form-group">
-                                <input type="email" class="form-control" name="email" placeholder="Email"
+                                <input type="email" class="form-control" name="email" placeholder="Email" value="<%= typeof old != 'undefined' ? old.email : '' %>"
                                     required>
+                                    <% if(typeof(errors) != 'undefined' && errors.email){%>
+                                        <span class="text-danger font-weight-bold">
+                                          <%= errors.email.msg %>
+                                        </span>
+                                     <%}%>
                             </div>
                             <div class="form-group">
                                 <input type="password" class="form-control" name="password" placeholder="Contraseña"
                                     required>
+                                    <% if(typeof(errors) != 'undefined' && errors.password){%>
+                                        <span class="text-danger font-weight-bold">
+                                          <%= errors.password.msg %>
+                                        </span>
+                                     <%}%>
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control" name="confirm_password" placeholder="Confirme su contraseña"
+                                    required>
+                                    <% if(typeof(errors) != 'undefined' && errors.confirm_password){%>
+                                        <span class="text-danger font-weight-bold">
+                                          <%= errors.confirm_password.msg %>
+                                        </span>
+                                     <%}%>
                             </div>
                             <div class="custom-file">
                                 <label class="font-weight-bold" for="avatar">Seleccione su Avatar</label>
                                 <input type="file" class="form-control-file" name="avatar">
+                                <% if(typeof(errors) != 'undefined' && errors.avatar){%>
+                                    <span class="text-danger font-weight-bold">
+                                      <%= errors.avatar.msg %>
+                                    </span>
+                                 <%}%>
                             </div>
                             <div class="form-group">
                                 <label class="checkbox-inline"><input type="checkbox" required> Acepto los <a

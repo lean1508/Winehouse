@@ -41,15 +41,25 @@
             <form method="POST" action="/login" id="login">
                 <div class="form-group">
                   <label for="email">Ingrese su email</label>
-                  <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp">
+                  <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp" value="<%= typeof old != 'undefined' ? old.email : '' %>">
+                  <% if(typeof(errors) != 'undefined' && errors.email){%>
+                    <span class="text-danger font-weight-bold">
+                      <%= errors.email.msg %>
+                    </span>
+                 <%}%>
                 </div>
                 <div class="form-group">
                   <label for="password">Ingrese su contraseña</label>
                   <input type="password" class="form-control" id="password" name="password">
+                  <% if(typeof(errors) != 'undefined' && errors.password){%>
+                    <span class="text-danger font-weight-bold">
+                      <%= errors.password.msg %>
+                    </span>
+                 <%}%>
                   <small id="passwordHelp" class="form-text text-muted"><a href="">No recuerdo mi contraseña</a></small>
                 </div>
                 <div class="form-group form-check">
-                  <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                  <input type="checkbox" class="form-check-input" id="exampleCheck1" name="recordarme">
                   <label class="form-check-label" for="exampleCheck1">Recordarme</label>
                 </div>
         </div>

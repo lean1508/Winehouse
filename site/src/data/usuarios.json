@@ -48,5 +48,15 @@
     "password": "$2b$10$CCSA5WwHvqkG76EVKeeTMeES/hvp9.qM.ev.OO.WQn8y5Di7iGxqu",
     "role": 0,
     "avatar": "usuario-1595539929394.jpg"
-  }
+  },
+  {
+    "id": 6,
+    "name": "Leandro",
+    "lastName": "Caorsi",
+    "alias": "Lea",
+    "email": "leacaorsi@hotmail.com",
+    "password": "$2a$10$.CaBBBcbLo1uLuBbijV3x.AUsIneYdCI/S0e9SqvUSZP.l7scMy72",
+    "role": 9,
+    "avatar": "usuario-1596140162492.jpg"
+  } 
 ]
