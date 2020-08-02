@@ -5,6 +5,8 @@ const methodOverride = require('method-override');
 const session = require('express-session');
 const cookies = require('cookie-parser');
 
+const userMiddleware = require('./middlewares/user');
+
 
 app.set('view engine','ejs');
 
@@ -14,13 +16,16 @@ app.use(methodOverride('_method'));
 app.use(session({secret: 'winehouse', resave: true, saveUninitialized: true}));
 app.use(cookies());
 
+//Middleware propio
+
+app.use(userMiddleware);
+
 //Rutas
 const webRoutes = require('./routes/web');
 const productoRoutes = require('./routes/producto');
 const userRoutes = require('./routes/user');
 const cartRoutes = require('./routes/cart')
 const adminProductRoutes = require('./routes/adminProduct');
-
 
 
 

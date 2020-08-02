@@ -123,13 +123,17 @@
                     </li>
                 </ul>
             </div>
+            <% if (usuario != undefined && usuario.role > 0) {%> 
             <div class="modal-footer footer-menu-ppal">
                 <ul class="menu">
                     <h4>Administración</h4>
                     <li><a href="/admin/productos">ABMC Productos</a></li>
+                    <% if (usuario.role == 9) { %> 
                     <li><a href="/admin/usuarios">ABMC Usuarios</a></li>
+                    <% }; %> 
                 </ul>
             </div>
+            <% }; %> 
         </div>
     </div>
 </div>
