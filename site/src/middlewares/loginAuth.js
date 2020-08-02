@@ -1,11 +1,13 @@
 const path = require('path');
 const fs = require('fs');
+const bcrypt = require('bcryptjs');
 
 const {
     check,
     validationResult,
     body
   } = require('express-validator');
+const { nextTick } = require('process');
 
   let users = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'usuarios.json')));
 

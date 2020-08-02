@@ -58,6 +58,15 @@
     "password": "$2a$10$.CaBBBcbLo1uLuBbijV3x.AUsIneYdCI/S0e9SqvUSZP.l7scMy72",
     "role": 9,
     "avatar": "usuario-1596140162492.jpg"
+  },
+  {
+    "id": 7,
+    "name": "Ezequiel",
+    "lastName": "Benedetti",
+    "alias": "Eze",
+    "email": "hebenedetti@gmail.com",
+    "password": "$2a$10$bDJkBApgnGZkLC.C7DAUUemsrqB9Kbz6Bcz.bmsv72c5qfkvK9Fsu",
+    "role": 9,
+    "avatar": "usuario-1596330204806.jpg"
   }
-
 ]
