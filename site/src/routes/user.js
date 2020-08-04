@@ -26,7 +26,9 @@ router.get('/register', userController.index);
 
 router.post('/register', upload.single('avatar'), registerAuth, userController.register);
 
-router.post('/login', loginAuth, userController.login)
+router.get('/login', userController.login)
+
+router.post('/login', loginAuth, userController.ingresar)
 
 
 module.exports = router;

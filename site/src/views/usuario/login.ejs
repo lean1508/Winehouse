@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <%- include('../partials/head.ejs') %>
+        <link rel="stylesheet" href="/css/register.css">
+        </head>
+
+<body>
+    <%- include('../partials/header.ejs')  %>
+
+    <!--formulario de registro-->
+    <section class="row mt-5">
+        <article class="col-12 card pt-5">
+            <div class="card-body">
+                <h1 class="card-title text-center display-6" id="title">Ingrese a WineHouse</h1>
+            </div>
+        </article>
+    </section>
+    <section class="bg-home pt-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-8 mx-auto bg-light ">
+                    <div class="signup-form">
+                        <form method="POST" action="/login" id="login">
+                            <div class="form-group">
+                              <label for="email">Ingrese su email</label>
+                              <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp" value="<%= typeof old != 'undefined' ? old.email : '' %>">
+                              <% if(typeof(errors) != 'undefined' && errors.email){%>
+                                <span class="text-danger font-weight-bold">
+                                  <%= errors.email.msg %>
+                                </span>
+                             <%}%>
+                            </div>
+                            <div class="form-group">
+                              <label for="password">Ingrese su contraseña</label>
+                              <input type="password" class="form-control" id="password" name="password">
+                              <% if(typeof(errors) != 'undefined' && errors.password){%>
+                                <span class="text-danger font-weight-bold">
+                                  <%= errors.password.msg %>
+                                </span>
+                             <%}%>
+                              <small id="passwordHelp" class="form-text text-muted"><a href="">No recuerdo mi contraseña</a></small>
+                            </div>
+                            <div class="form-group form-check">
+                              <input type="checkbox" class="form-check-input" id="exampleCheck1" name="recordarme">
+                              <label class="form-check-label" for="exampleCheck1">Recordarme</label>
+                            </div>
+                    </div>
+                    <div class="modal-footer justify-content-center" id="pieModal">
+                        <button type="submit" class="btn btn-primary" id="confirmar">Iniciar Sesion</button>
+                    </form>
+                    </div>
+                    <p class="text-center my-3">Aun no poseo cuenta. <a href="/register">Registrarme</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+    <!--Modal Terminos y condiciones-->
+    <section>
+        <div id="terminos-condiciones" class="modal fade" id="staticBackdrop" data-backdrop="static"
+            data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">Terminos y Condiciones</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <a>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae aliquid mollitia fuga ab, ea
+                            quo pariatur amet deserunt officia dolorem iure expedita velit dolore. Nobis totam aut
+                            blanditiis autem suscipit.
+
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, quisquam! Quibusdam
+                            doloribus at accusantium, exercitationem sequi, qui eveniet blanditiis sit incidunt quidem
+                            corrupti, voluptatum quia saepe officia velit molestiae possimus!
+
+                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quae voluptatibus odit enim vel,
+                            qui magni omnis tempora vero repudiandae doloribus officia ad eligendi, minus officiis optio
+                            itaque? Provident, rerum repellendus!</a>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                            <button type="button" class="btn btn-primary">Acepto</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+    <!--Modal Politicas de Privacidad-->
+    <section>
+        <div id="politicas-privacidad" class="modal fade" id="staticBackdrop" data-backdrop="static"
+            data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">Políticas de Privacidad</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <a>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae aliquid mollitia fuga ab, ea
+                            quo pariatur amet deserunt officia dolorem iure expedita velit dolore. Nobis totam aut
+                            blanditiis autem suscipit.
+
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, quisquam! Quibusdam
+                            doloribus at accusantium, exercitationem sequi, qui eveniet blanditiis sit incidunt quidem
+                            corrupti, voluptatum quia saepe officia velit molestiae possimus!
+
+                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quae voluptatibus odit enim vel,
+                            qui magni omnis tempora vero repudiandae doloribus officia ad eligendi, minus officiis optio
+                            itaque? Provident, rerum repellendus!</a>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                            <button type="button" class="btn btn-primary">Acepto</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+    <%- include('../partials/footer.ejs')  %>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

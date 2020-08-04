@@ -42,14 +42,16 @@ module.exports = {
     
         }
     },
-    login: (req,res)=>{
+    login: (req,res)=>{res.render(path.resolve(__dirname, '..', 'views', 'usuario', 'login'))
+    },
+    ingresar: (req,res)=>{
         let errors = validationResult(req);
         if (!errors.isEmpty()){
             let productos = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'productos.json')));
             let categorias = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'categorias.json')));
             let recomendados = productos.filter(p => p.recomendados == "on");
             let ofertas = productos.filter(p => p.ofertas == "on");
-            return res.render(path.resolve(__dirname, '..', 'views', 'web', 'index'), {
+            return res.render(path.resolve(__dirname, '..', 'views', 'usuario', 'login'), {
                 errors: errors.mapped(),  old: req.body, productos, recomendados, ofertas});
         } else{
             let users = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'usuarios.json')));
