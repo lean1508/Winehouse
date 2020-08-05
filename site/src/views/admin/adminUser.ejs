@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <%- include('../partials/head.ejs')%>    
+  <link rel="stylesheet" href="/css/admin.css">
+</head>  
+<body>
+  <%- include('../partials/header.ejs')%>
+    <main class="container-fluid"> 
+      <!--Administrador de productos-->
+      <section class="row mt-5">
+        <article class="col-12">
+          <h2 class="display-4 text-center pt-4">Administrador de Usuarios</h2>
+        </article>
+        <article class="col-12">
+        <table class="table my-5">
+            <thead>
+              <tr class="text-center">
+                <th scope="col">Id</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellido</th>
+                <th scope="col">Email</th>
+                <th scope="col">Permisos</th>
+                <th scope="col">Ver Detalle</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% users.forEach(user => { %> 
+              <tr class="text-center">
+                <td><%= user.id %></td>
+                <td><%= user.name %></td>
+                <td><%= user.lastName %></td>
+                <td><%= user.email %></td>
+                <td><%switch (user.role) {
+                    case 0:
+                    %>
+                        Cliente
+                    <%    break;
+                    case 1:
+                    %>
+                        Vendedor
+                    <%    break;
+                    case 9:
+                    %>
+                        Administrador
+                    <%    break;
+                }%>
+                </td>
+                <td><a href= > <ion-icon name="eye-outline"></ion-icon></a></td>
+              </tr>
+              <% }) %>   
+            </tbody>
+          </table> 
+        </article>       
+      </section>
+    </main>
+    <%-include('../partials/footer.ejs')%>
+  </body>
+</html>
+
+
