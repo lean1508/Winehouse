@@ -68,6 +68,31 @@ div.footer-menu-ppal {
 
 /*Fin de clases para menu Ppal Modal*/
 
+/* Menu de usuario en navBar*/
+
+#userImg {
+border-radius: 50%;
+width: 40px;
+height: 40px;
+
+}
+
+#dropdownMenuButton{
+    background-color: #8a0804;
+    border: none;
+}
+
+.dropdown-item{
+   color:#8a0804;
+}
+
+#botonusuario {
+    background-color: #8a0804;
+    border: none;
+}
+
+/* Fin de menu de usuario en navBar*/
+
 div.iconos-nav {
     display: flex;
 }

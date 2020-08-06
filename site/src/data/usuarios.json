@@ -68,5 +68,15 @@
     "password": "$2a$10$bDJkBApgnGZkLC.C7DAUUemsrqB9Kbz6Bcz.bmsv72c5qfkvK9Fsu",
     "role": 9,
     "avatar": "usuario-1596330204806.jpg"
+  },
+  {
+    "id": 8,
+    "name": "martin",
+    "lastName": "luzuriaga",
+    "alias": "mmmmmm",
+    "email": "luzuriagamartin@gmail.com",
+    "password": "$2a$10$pETabY1AlFDERTqJ0sxYCOI0c2jpnGV/o5iuN4cfEN/I8ULOWBYzi",
+    "role": 0,
+    "avatar": "usuario-1596510992764.jpg"
   }
 ]
