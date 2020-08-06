@@ -76,18 +76,12 @@ width: 40px;
 height: 40px;
 
 }
-
-#dropdownMenuButton{
-    background-color: #8a0804;
-    border: none;
-}
-
 .dropdown-item{
-   color:#8a0804;
+    color: #8a0804;
 }
-
-#botonusuario {
+#dropdownMenuLink {
     background-color: #8a0804;
+    border-radius: 0%;
     border: none;
 }
 
