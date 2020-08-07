@@ -71,5 +71,67 @@ module.exports = {
     },
     profile: (req,res)=>{
         res.render(path.resolve(__dirname, '..', 'views', 'usuario', 'userDetail'));
+    },
+    editAvatar: (req,res) =>{
+        let errors = validationResult(req);
+        if (!errors.isEmpty()){
+            fs.unlink(path.resolve(__dirname, '../../public/images/usuarios/'+ req.file.filename),(err) => {
+                if (err){console.log(err)}});
+            return res.render(path.resolve(__dirname, '..', 'views', 'usuario', 'userDetail'), {errors: errors.errors});
+        } else{
+            let users = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'usuarios.json')));
+            let user = users.find(user => user.id == res.locals.usuario.id);
+            user.avatar = req.file.filename;
+            let editUsers = users.map(u =>{
+                if (u.id == res.locals.usuario.id) {
+                    return user;
+                } else {
+                    return u;
+                }
+            });
+            fs.writeFileSync(path.resolve(__dirname, '..', 'data', 'usuarios.json'), JSON.stringify(editUsers, null, 2));
+            req.session.usuario.avatar = user.avatar;
+            res.redirect('/usuario/perfil');
+        };
+    },
+    editAlias: (req,res) =>{
+        let errors = validationResult(req);
+        if (!errors.isEmpty()){
+            return res.render(path.resolve(__dirname, '..', 'views', 'usuario', 'userDetail'), {errors: errors.errors});
+        } else {
+            let users = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'usuarios.json')));
+            let user = users.find(user => user.id == res.locals.usuario.id);
+            user.alias = req.body.alias;
+            let editUsers = users.map(u =>{
+                if (u.id == res.locals.usuario.id) {
+                    return user;
+                } else {
+                    return u;
+                }
+            });
+            fs.writeFileSync(path.resolve(__dirname, '..', 'data', 'usuarios.json'), JSON.stringify(editUsers, null, 2));
+            req.session.usuario.alias = user.alias;
+            res.redirect('/usuario/perfil');
+        };
+    },
+    editPassword: (req,res) =>{
+        let errors = validationResult(req);
+        if (!errors.isEmpty()){
+            return res.render(path.resolve(__dirname, '..', 'views', 'usuario', 'userDetail'), {errors: errors.errors});
+        } else {
+            let users = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'usuarios.json')));
+            let user = users.find(user => user.id == res.locals.usuario.id);
+            user.password = bcrypt.hashSync(req.body.newPassword, 10);
+            let editUsers = users.map(u =>{
+                if (u.id == res.locals.usuario.id) {
+                    return user;
+                } else {
+                    return u;
+                }
+            });
+            fs.writeFileSync(path.resolve(__dirname, '..', 'data', 'usuarios.json'), JSON.stringify(editUsers, null, 2));
+            res.redirect('/usuario/perfil');
+        };
+
     }
 }

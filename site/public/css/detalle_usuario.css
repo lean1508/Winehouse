@@ -19,3 +19,7 @@ ul.opciones {
     margin-left: 20%;
     list-style-type: none;
 }
+
+input.password {
+    margin-bottom: 5px;
+}

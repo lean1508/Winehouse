@@ -16,12 +16,91 @@
                 <figure>
                     <img id="avatar" src="/images/usuarios/<%= usuario.avatar %>" alt="Avatar">
                 </figure>
-                <h4 id="alias"><%= usuario.alias %> </h4>    
+                <h4 id="alias"><%= usuario.alias %> </h4>  
+                <% if(typeof(errors) != 'undefined'){%>
+                    <ul class="opciones">
+                        <% for(var i = 0; i < errors.length; i++) { %>
+                        <li class="text-danger font-weight-bold"> <%= errors[i].msg %> </li>
+                        <% } %>
+                    </ul>
+                 <%}%>  
                 <ul class="opciones">
-                    <li><a href="">Modificar Avatar</a></li>
-                    <li><a href="">Modificar Alias</a></li>
-                    <li><a href="">Cambiar Contraseña</a></li>
-                </ul>                
+                    <li><a href="#" data-toggle="modal" data-target="#avatarModal">Modificar Avatar</a></li>
+                    <li><a  href="#" data-toggle="modal" data-target="#aliasModal">Modificar Alias</a></li>
+                    <li><a  href="#" data-toggle="modal" data-target="#passwordModal">Cambiar Contraseña</a></li>
+                </ul>
+
+                <div class="modal fade" id="avatarModal" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Editar Perfil</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form method="POST" action="/usuario/perfil/editar-avatar?_method=PUT" enctype="multipart/form-data">
+                                    <div class="form-group">
+                                        <label for="avatar">AVATAR</label>
+                                        <input type="file" class="form-control-file" name="avatar">
+                                    </div>
+                                    <button type="button" class="btn btn-primary" id="verMas" data-dismiss="modal">CERRAR</button>
+                                    <button type="submit" class="btn btn-primary" id="comprar">GUARDAR CAMBIOS</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="aliasModal" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Editar Perfil</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form method="POST" action="/usuario/perfil/editar-alias?_method=PUT">
+                                    <div class="form-group">
+                                        <label for="avatar">ALIAS</label>
+                                        <input type="text" class="form-control" name="alias" value="<%= usuario.alias %> ">
+                                    </div>
+                                    <button type="button" class="btn btn-primary" id="verMas" data-dismiss="modal">CERRAR</button>
+                                    <button type="submit" class="btn btn-primary" id="comprar">GUARDAR CAMBIOS</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="passwordModal" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Editar Perfil</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form method="POST" action="/usuario/perfil/editar-password?_method=PUT">
+                                    <div class="form-group">
+                                        <label for="avatar">CAMBIO DE CONTRASEÑA</label>
+                                        <input type="password" class="form-control password" name="password" placeholder="Ingrese su contraseña actual">
+                                        <input type="password" class="form-control password" name="newPassword" placeholder="Ingrese la nueva contraseña">
+                                        <input type="password" class="form-control password" name="newPasswordConfirm" placeholder="Reingrese la nueva contraseña">
+                                    </div>
+                                    <button type="button" class="btn btn-primary" id="verMas" data-dismiss="modal">CERRAR</button>
+                                    <button type="submit" class="btn btn-primary" id="comprar">GUARDAR CAMBIOS</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
             <div class="col-12 col-md-8 info">
                 <h1>Perfil de <%= usuario.name %></h1>
