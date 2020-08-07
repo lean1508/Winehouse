@@ -7,6 +7,7 @@ const adminUserController = require(path.resolve(__dirname, '..', 'controllers',
 const access = require('../middlewares/adminUserAccess');
 
 router.get('/admin/usuarios', access, adminUserController.index);
+router.get('/admin/usuarios/:id', access, adminUserController.show);
 
 
 module.exports = router;
