@@ -8,6 +8,7 @@ const access = require('../middlewares/adminUserAccess');
 
 router.get('/admin/usuarios', access, adminUserController.index);
 router.get('/admin/usuarios/:id', access, adminUserController.show);
+router.put('/admin/usuarios/:id/editar', access, adminUserController.edit);
 
 
 module.exports = router;

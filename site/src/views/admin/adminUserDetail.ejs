@@ -8,7 +8,7 @@
 <body>
     <%- include('../partials/header.ejs') %>
     
-
+    
     
     <main class="container-fluid" id="principal">
         <div class="row">
@@ -21,25 +21,51 @@
                     <%switch (user.role) {
                         case 0:
                         %>
-                            Cliente
+                        Cliente
                         <%    break;
                         case 1:
                         %>
-                            Vendedor
+                        Vendedor
                         <%    break;
                         case 9:
                         %>
-                            Administrador
+                        Administrador
                         <%    break;
                     }%>
                 </h4> 
                 <ul class="opciones">
-                    <li><a href="">Modificar Permisos</a></li>
-                   
-                </ul>                
+                    <li><a href="#" data-toggle="modal" data-target="#roleModal">Modificar Permisos</a></li>  
+                </ul>
+                
+                <div class="modal fade" id="roleModal" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Editar Usuario</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form method="POST" action="/admin/usuarios/<%= user.id %>/editar?_method=PUT">
+                                    <div class="form-group">
+                                        <label for="role">PERMISOS</label>
+                                        <select class="form-control" name="role" id="" required>                             
+                                            <option value="0" <%= user.role == 0 ? "selected" : null %>>Cliente</option>
+                                            <option value="1" <%= user.role == 1 ? "selected" : null %>>Vendedor</option>
+                                            <option value="9" <%= user.role == 9 ? "selected" : null %>>Administrador</option>                                                                                
+                                        </select>
+                                    </div>
+                                    <button type="button" class="btn btn-primary" id="verMas" data-dismiss="modal">CERRAR</button>
+                                    <button type="submit" class="btn btn-primary" id="comprar">GUARDAR CAMBIOS</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="col-12 col-md-8 info">
-                <h1>Perfil de <%= user.name %></h1>
+                <h1>Perfil de Usuario</h1>
                 <h4>Nombre: <%= user.name %></h4>
                 <h4>Apellido: <%= user.lastName %></h4>
                 <h4>Correo: <%= user.email %></h4>
@@ -78,11 +104,9 @@
                 </div>
             </div>
         </div>
-
-        <a href="/admin/usuarios"><< Volver</a>
         
+        <a href="/admin/usuarios"><< Volver</a>    
     </main>
-    
     
     <%- include('../partials/footer.ejs') %>
 </body>
