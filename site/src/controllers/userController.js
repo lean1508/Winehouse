@@ -68,5 +68,8 @@ module.exports = {
         req.session.destroy();
         res.cookie('email',null,{maxAge: -1});
         res.redirect('/')
+    },
+    profile: (req,res)=>{
+        res.render(path.resolve(__dirname, '..', 'views', 'usuario', 'userDetail'));
     }
 }
