@@ -69,20 +69,34 @@ div.footer-menu-ppal {
 /*Fin de clases para menu Ppal Modal*/
 
 /* Menu de usuario en navBar*/
-
-#userImg {
+button#dropdownMenuButton {
+    background-color: #401233;
+    border: 1px solid #fffffd;
+}
+img#userImg {
 border-radius: 50%;
 width: 40px;
 height: 40px;
 
 }
-.dropdown-item{
+div.dropdown-menu{
+    border: 1px solid #401233;
+    border-radius: 15px;
+}
+
+h6.dropdown-header{
+    font-weight: bolder;
+    font-size: 1rem;
+    color: #401233;
+}
+
+a.dropdown-item{
+    background-color: #fffffd;
     color: #8a0804;
 }
-#dropdownMenuLink {
-    background-color: #8a0804;
-    border-radius: 0%;
-    border: none;
+a.dropdown-item:hover{
+    color: #fffffd;
+    background-color: #401233;
 }
 
 /* Fin de menu de usuario en navBar*/
