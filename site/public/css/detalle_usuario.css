@@ -1,0 +1,21 @@
+figure{
+    padding-top: 100px;
+    text-align: center;
+}
+
+img#avatar {
+    padding: 0px;
+    border-radius: 50%;
+    height: 150px;
+    width: 150px;
+}
+
+#alias {
+    text-align: center;
+    font-weight: 700;
+}
+
+ul.opciones {
+    margin-left: 20%;
+    list-style-type: none;
+}
