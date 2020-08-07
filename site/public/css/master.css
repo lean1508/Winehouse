@@ -60,6 +60,13 @@ ul.menu li a{
     color: #8a0804;
 }
 
+ul.menu li a:hover{
+    background-color: #8a0804;
+    text-decoration: none;
+    color: #fffffd;
+    border-radius: 5px;
+}
+
 div.footer-menu-ppal {
     justify-content: start;
     color: #8a0804;
@@ -69,9 +76,11 @@ div.footer-menu-ppal {
 /*Fin de clases para menu Ppal Modal*/
 
 /* Menu de usuario en navBar*/
-button#dropdownMenuButton {
-    background-color: #401233;
-    border: 1px solid #fffffd;
+#dropdownMenuLink {
+    background-color: #8a0804;
+    border-radius: 5%;
+    border: none;
+    padding: 5px;
 }
 img#userImg {
 border-radius: 50%;
@@ -80,27 +89,18 @@ height: 40px;
 
 }
 div.dropdown-menu{
-    border: 1px solid #401233;
+    border: 5px solid #401233;
     border-radius: 15px;
-}
-
-h6.dropdown-header{
-    font-weight: bolder;
-    font-size: 1rem;
-    color: #401233;
 }
 
 a.dropdown-item{
     background-color: #fffffd;
     color: #8a0804;
 }
-#dropdownMenuLink {
+a.dropdown-item:hover{
     background-color: #8a0804;
-    border-radius: 0%;
-    border: none;
-    padding: 0px;
+    color: #fffffd;
 }
-
 h6.bienvenida-usuario {
     color: #8a0804;
     font-weight: 700;
