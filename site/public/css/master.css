@@ -83,6 +83,13 @@ height: 40px;
     background-color: #8a0804;
     border-radius: 0%;
     border: none;
+    padding: 0px;
+}
+
+h6.bienvenida-usuario {
+    color: #8a0804;
+    font-weight: 700;
+    text-align: center;
 }
 
 /* Fin de menu de usuario en navBar*/
