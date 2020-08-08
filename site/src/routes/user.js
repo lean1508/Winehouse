@@ -22,6 +22,8 @@ const registerAuth = require(path.resolve(__dirname,'..','middlewares', 'registe
 
 const loginAuth = require(path.resolve(__dirname,'..','middlewares', 'loginAuth'));
 
+const userAccess = require(path.resolve(__dirname, '..', 'middlewares', 'userAccess'));
+
 const {avatarCheck, aliasCheck, passwordCheck} = require(path.resolve(__dirname,'..','middlewares', 'userEditAuth'));
 
 router.get('/register', userController.index);
@@ -34,7 +36,7 @@ router.post('/login', loginAuth, userController.ingresar);
 
 router.get('/logout', userController.logout);
 
-router.get('/usuario/perfil', userController.profile);
+router.get('/usuario/perfil', userAccess, userController.profile);
 
 router.put('/usuario/perfil/editar-avatar', upload.single('avatar'), avatarCheck, userController.editAvatar);
 
