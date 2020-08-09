@@ -6,7 +6,7 @@ const session = require('express-session');
 const cookies = require('cookie-parser');
 
 const userMiddleware = require('./middlewares/user');
-
+const categoriasMiddleware = require('./middlewares/categorias');
 
 app.set('view engine','ejs');
 
@@ -19,6 +19,7 @@ app.use(cookies());
 //Middleware propio
 
 app.use(userMiddleware);
+app.use(categoriasMiddleware);
 
 //Rutas
 const webRoutes = require('./routes/web');
