@@ -105,28 +105,10 @@
                 </div>
                 <div class="modal-body">
                     <ul class="menu">
-                        <li>
-                            <a href="/categoria/1">Vinos Tintos</a>
-                        </li>
-                        <li>
-                            <a href="/categoria/2">Vinos Blancos</a>
-                        </li>
-                        <li>
-                            <a href="/categoria/3">Vinos Rosados</a>
-                        </li>
-                        <li>
-                            <a href="/categoria/4">Vinos Espumantes</a>
-                        </li>
-                        <li>
-                            <a href="/categoria/5">Espirituosos</a>
-                        </li>
-                        <li>
-                            <a href="/categoria/6">Whiskies</a>
-                        </li>
-                        <li>
-                            <a href="/categoria/7">Cervezas</a>
-                        </li>
-                    </ul>
+                        <% for( let i = 0; i < categorias.length; i++ ) { %>
+                        <li><a href="/categoria/<%=categorias[i].id %>"><%= categorias[i].nombre %></a></li>
+                        <% } %>
+                    </ul>       
                     <ul class="menu">
                         <li>
                             <a href="/mejorCalificados">Mejor Calificados</a>
