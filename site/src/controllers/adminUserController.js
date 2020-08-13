@@ -1,10 +1,13 @@
 const path = require('path');
 const fs = require('fs');
+const db = require('../database/models');
+const User = db.User;
 
 module.exports = {
     index: (req,res) =>{
-        let users = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'usuarios.json')));
-        res.render(path.resolve(__dirname, '..', 'views', 'admin', 'adminUser'), {users});
+        //let users = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'usuarios.json')));
+        User.findAll()
+        .then(users =>{res.render(path.resolve(__dirname, '..', 'views', 'admin', 'adminUser'), {users})})  
     },
     show: (req,res) =>{
         let users = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'usuarios.json')));

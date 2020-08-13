@@ -88,9 +88,9 @@ module.exports = (sequelize, DataTypes) => {
             defaultValue: null
         }
     }
-    let config = {timestamps: false};
+    
 
-    const Product = sequelize.define(alias, cols, config);
+    const Product = sequelize.define(alias, cols);
 
     Product.associate = function(models){
         Product.belongsTo(
