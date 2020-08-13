@@ -60,9 +60,9 @@ CREATE TABLE `cartproduct` (
   `quantity` int(11) NOT NULL DEFAULT '1',
   `subtotal` int(11) NOT NULL,
   `cartId` int(11) NOT NULL,
-  `createdAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `updatedAt` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `deletedAt` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `createdAt` timestamp NULL DEFAULT NULL,
+  `updatedAt` timestamp NULL DEFAULT NULL,
+  `deletedAt` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -88,9 +88,9 @@ CREATE TABLE `carts` (
   `total` int(11) NOT NULL,
   `userId` int(11) NOT NULL,
   `stateId` int(11) NOT NULL,
-  `createdAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `updatedAt` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `deletedAt` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `createdAt` timestamp NULL DEFAULT NULL,
+  `updatedAt` timestamp NULL DEFAULT NULL,
+  `deletedAt` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -144,9 +144,9 @@ CREATE TABLE `orders` (
   `addressId` int(11) DEFAULT NULL,
   `shipmentCost` int(11) NOT NULL DEFAULT '0',
   `totalInvoice` int(11) NOT NULL,
-  `createdAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `updatedAt` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `deletedAt` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `createdAt` timestamp NULL DEFAULT NULL,
+  `updatedAt` timestamp NULL DEFAULT NULL,
+  `deletedAt` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -236,9 +236,9 @@ CREATE TABLE `products` (
   `stock` smallint(6) NOT NULL DEFAULT '0',
   `selection` varchar(2) DEFAULT NULL,
   `sale` varchar(2) DEFAULT NULL,
-  `createdAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `updatedAt` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `deletedAt` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `createdAt` timestamp NULL DEFAULT NULL,
+  `updatedAt` timestamp NULL DEFAULT NULL,
+  `deletedAt` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `unique_sku` (`sku`),
   UNIQUE KEY `unique_imageSm` (`imageSm`),
@@ -269,9 +269,9 @@ CREATE TABLE `rankings` (
   `userId` int(11) NOT NULL,
   `ranking` tinyint(4) NOT NULL,
   `review` varchar(1000) DEFAULT NULL,
-  `createdAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `updatedAt` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `deletedAt` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `createdAt` timestamp NULL DEFAULT NULL,
+  `updatedAt` timestamp NULL DEFAULT NULL,
+  `deletedAt` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -349,9 +349,9 @@ CREATE TABLE `users` (
   `role` tinyint(4) NOT NULL DEFAULT '0',
   `avatar` varchar(50) NOT NULL DEFAULT 'usuario.png',
   `lastConection` date DEFAULT NULL,
-  `createdAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `updatedAt` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `deletedAt` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `createdAt` timestamp NULL DEFAULT NULL,
+  `updatedAt` timestamp NULL DEFAULT NULL,
+  `deletedAt` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `unique_alias` (`alias`),
   UNIQUE KEY `unique_email` (`email`),
@@ -403,4 +403,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-08-13 19:44:36
+-- Dump completed on 2020-08-13 20:52:18
