@@ -100,9 +100,6 @@ module.exports = (sequelize, DataTypes) => {
                 foreingKey: 'categoryId'
             }
         )
-    };
-
-    Product.associate = function(models){
         Product.belongsTo(
             models.Producer,
             {
@@ -110,9 +107,6 @@ module.exports = (sequelize, DataTypes) => {
                 foreingKey: 'producerId'
             }
         )
-    };
-    
-    Product.associate = function(models){
         Product.belongsTo(
             models.Varietal,
             {
