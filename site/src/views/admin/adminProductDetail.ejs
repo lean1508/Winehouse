@@ -15,7 +15,7 @@
             <div class="col-12 col-md-4 info">
                 <div class="btn-volver"><a href="/admin/productos"><button type="button" class="btn btn-primary" id="volver" data-dismiss="modal">VOLVER</button></a></div>
                 <figure>
-                    <img src="/images/productos/<%= producto.img_lg %>" alt="Vino">
+                    <img src="/images/productos/<%= producto.imageLg %>" alt="Vino">
                 </figure>
                 <form id="comprar" action="/admin/productos/detalle/<%= producto.id %>/editar/stock?_method=PUT" method="POST">
                     <label for="stock">Stock:</label>
@@ -49,8 +49,8 @@
                 </div>
             </div>
             <div class="col-12 col-md-8 info">
-                <h1><%= producto.nombre %></h1>
-                <h4><%= producto.varietal %></h6>                  
+                <h1><%= producto.name %></h1>
+                <h4><%= producto.varietal.name %></h6>                  
                     
                     <div class="accordion" id="accordionExample">
                         <div class="card">
@@ -107,7 +107,7 @@
                                             
                                             <tr>
                                                 <th scope="row">NOMBRE</th>
-                                                <td><%= producto.nombre %></td>
+                                                <td><%= producto.name %></td>
                                                 <td><ion-icon style="color:#8a0804" name="pencil-outline" data-toggle="modal" data-target="#nombreModal">
                                                 </td>
                                                 <div class="modal fade" id="nombreModal" tabindex="-1" role="dialog" aria-hidden="true">
@@ -120,10 +120,10 @@
                                                                 </button>
                                                             </div>
                                                             <div class="modal-body">
-                                                                <form method="POST" action="/admin/productos/detalle/<%= producto.id %>/editar/nombre?_method=PUT">
+                                                                <form method="POST" action="/admin/productos/detalle/<%= producto.id %>/editar/name?_method=PUT">
                                                                     <div class="form-group">
-                                                                        <label for="productor">NOMBRE</label>
-                                                                        <input type="text" class="form-control" name="nombre" value="<%= producto.nombre %>">
+                                                                        <label for="name">NOMBRE</label>
+                                                                        <input type="text" class="form-control" name="name" value="<%= producto.name %>">
                                                                     </div>
                                                                     <button type="button" class="btn btn-primary" id="verMas" data-dismiss="modal">CERRAR</button>
                                                                     <button type="submit" class="btn btn-primary" id="comprar">GUARDAR CAMBIOS</button>
@@ -137,7 +137,7 @@
                                             <!--Categoría-->
                                             <tr>
                                                 <th scope="row">CATEGORÍA</th>
-                                                <td><%= categoria.nombre %></td>
+                                                <td><%= producto.category.name %></td>
                                                 <td><ion-icon style="color:#8a0804" name="pencil-outline" data-toggle="modal" data-target="#categoriaModal">
                                                 </td>
                                                 <div class="modal fade" id="categoriaModal" tabindex="-1" role="dialog" aria-hidden="true">
@@ -150,12 +150,12 @@
                                                                 </button>
                                                             </div>
                                                             <div class="modal-body">
-                                                                <form method="POST" action="/admin/productos/detalle/<%= producto.id %>/editar/categoria_id?_method=PUT">
+                                                                <form method="POST" action="/admin/productos/detalle/<%= producto.id %>/editar/categoryId?_method=PUT">
                                                                     <div class="form-group">
-                                                                        <label for="categoria_id">CATEGORIA</label>
-                                                                        <select class="form-control" name="categoria_id" id="" required>
+                                                                        <label for="categoryId">CATEGORIA</label>
+                                                                        <select class="form-control" name="categoryId" id="" required>
                                                                             <% categorias.forEach(cat=>{ %> 
-                                                                                <option value=<%=cat.id%> <%= cat.id == producto.categoria_id ? "selected" : null %>><%=cat.nombre%></option>
+                                                                                <option value=<%=cat.id%> <%= cat.id == producto.category.id ? "selected" : null %>><%=cat.name%></option>
                                                                                 <%})%> 
                                                                             </select>
                                                                         </div>
@@ -172,7 +172,7 @@
                                                 
                                                 <tr>
                                                     <th scope="row">PRECIO</th>
-                                                    <td><%= producto.precio %></td>
+                                                    <td>$ <%= producto.price %></td>
                                                     <td><ion-icon style="color:#8a0804" name="pencil-outline" data-toggle="modal" data-target="#precioModal">
                                                     </td>
                                                     <div class="modal fade" id="precioModal" tabindex="-1" role="dialog" aria-hidden="true">
@@ -185,12 +185,12 @@
                                                                     </button>
                                                                 </div>
                                                                 <div class="modal-body">
-                                                                    <form method="POST" action="/admin/productos/detalle/<%= producto.id %>/editar/precio?_method=PUT">
+                                                                    <form method="POST" action="/admin/productos/detalle/<%= producto.id %>/editar/price?_method=PUT">
                                                                         <div class="form-group">
-                                                                            <label for="precio">PRECIO UNITARIO</label>
+                                                                            <label for="price">PRECIO UNITARIO</label>
                                                                             <div class="input-group-prepend">
                                                                                 <span class="input-group-text">$</span>
-                                                                                <input type="number" class="form-control" name="precio" value="<%= producto.precio %>" required>
+                                                                                <input type="number" class="form-control" name="price" value="<%= producto.price %>" required>
                                                                             </div>
                                                                         </div>
                                                                         <button type="button" class="btn btn-primary" id="verMas" data-dismiss="modal">CERRAR</button>
@@ -206,7 +206,7 @@
                                                 
                                                 <tr>
                                                     <th scope="row">VOLUMEN</th>
-                                                    <td><%= producto.volumen %></td>
+                                                    <td><%= producto.volume %> ml</td>
                                                     <td><ion-icon style="color:#8a0804" name="pencil-outline" data-toggle="modal" data-target="#volumenModal">
                                                     </td>
                                                     <div class="modal fade" id="volumenModal" tabindex="-1" role="dialog" aria-hidden="true">
@@ -219,11 +219,11 @@
                                                                     </button>
                                                                 </div>
                                                                 <div class="modal-body">
-                                                                    <form method="POST" action="/admin/productos/detalle/<%= producto.id %>/editar/volumen?_method=PUT">
+                                                                    <form method="POST" action="/admin/productos/detalle/<%= producto.id %>/editar/volume?_method=PUT">
                                                                         <div class="form-group">
-                                                                            <label for="volumen">VOLUMEN</label>
+                                                                            <label for="volume">VOLUMEN</label>
                                                                             <div class="input-group-append">
-                                                                                <input type="number" class="form-control" name="volumen" value="<%= producto.volumen %>" required>
+                                                                                <input type="number" class="form-control" name="volume" value="<%= producto.volume %>" required>
                                                                                 <span class="input-group-text">ml</span>
                                                                             </div>
                                                                         </div>
@@ -240,7 +240,7 @@
                                                 
                                                 <tr>
                                                     <th scope="row">DESCRIPCIÓN</th>
-                                                    <td><%= producto.descripcion %></td>
+                                                    <td><%= producto.description %></td>
                                                     <td><ion-icon style="color:#8a0804" name="pencil-outline" data-toggle="modal" data-target="#descripcionModal">
                                                     </td>
                                                     <div class="modal fade" id="descripcionModal" tabindex="-1" role="dialog" aria-hidden="true">
@@ -253,10 +253,10 @@
                                                                     </button>
                                                                 </div>
                                                                 <div class="modal-body">
-                                                                    <form method="POST" action="/admin/productos/detalle/<%= producto.id %>/editar/descripcion?_method=PUT">
+                                                                    <form method="POST" action="/admin/productos/detalle/<%= producto.id %>/editar/description?_method=PUT">
                                                                         <div class="form-group">
-                                                                            <label for="descripcion">DESCRIPCIÓN</label>
-                                                                            <textarea name="descripcion" rows="3" class="form-control"><%=producto.descripcion%> </textarea>
+                                                                            <label for="description">DESCRIPCIÓN</label>
+                                                                            <textarea name="description" rows="3" class="form-control"><%=producto.description%> </textarea>
                                                                         </div>
                                                                         <button type="button" class="btn btn-primary" id="verMas" data-dismiss="modal">CERRAR</button>
                                                                         <button type="submit" class="btn btn-primary" id="comprar">GUARDAR CAMBIOS</button>
@@ -270,7 +270,7 @@
                                                 <!--Productor-->
                                                 <tr>
                                                     <th scope="row">PRODUCTOR</th>
-                                                    <td><%= producto.productor %></td>
+                                                    <td><%= producto.producer.name %></td>
                                                     <td><ion-icon style="color:#8a0804" name="pencil-outline" data-toggle="modal" data-target="#productorModal">
                                                     </td>
                                                     <div class="modal fade" id="productorModal" tabindex="-1" role="dialog" aria-hidden="true">
@@ -283,10 +283,14 @@
                                                                     </button>
                                                                 </div>
                                                                 <div class="modal-body">
-                                                                    <form method="POST" action="/admin/productos/detalle/<%= producto.id %>/editar/productor?_method=PUT">
+                                                                    <form method="POST" action="/admin/productos/detalle/<%= producto.id %>/editar/producerId?_method=PUT">
                                                                         <div class="form-group">
-                                                                            <label for="productor">PRODUCTOR</label>
-                                                                            <input type="text" class="form-control" name="productor" value="<%= producto.productor %>">
+                                                                            <label for="producerId">PRODUCTOR</label>
+                                                                            <select class="form-control" name="producerId" id="" required>
+                                                                                <% productores.forEach(p=>{ %> 
+                                                                                    <option value=<%=p.id%> <%= p.id == producto.producer.id ? "selected" : null %>><%=p.name%></option>
+                                                                                <%})%> 
+                                                                            </select>
                                                                         </div>
                                                                         <button type="button" class="btn btn-primary" id="verMas" data-dismiss="modal">CERRAR</button>
                                                                         <button type="submit" class="btn btn-primary" id="comprar">GUARDAR CAMBIOS</button>
@@ -299,7 +303,7 @@
                                                 <!--Procedencia-->    
                                                 <tr>
                                                     <th scope="row">PROCEDENCIA</th>
-                                                    <td><%= producto.procedencia %></td>
+                                                    <td><%= producto.region %></td>
                                                     <td><ion-icon style="color:#8a0804" name="pencil-outline" data-toggle="modal" data-target="#procedenciaModal">
                                                     </td>
                                                     <div class="modal fade" id="procedenciaModal" tabindex="-1" role="dialog" aria-hidden="true">
@@ -312,10 +316,10 @@
                                                                     </button>
                                                                 </div>
                                                                 <div class="modal-body">
-                                                                    <form method="POST" action="/admin/productos/detalle/<%= producto.id %>/editar/procedencia?_method=PUT">
+                                                                    <form method="POST" action="/admin/productos/detalle/<%= producto.id %>/editar/region?_method=PUT">
                                                                         <div class="form-group">
-                                                                            <label for="procedencia">PROCEDENCIA</label>
-                                                                            <input type="text" class="form-control" name="procedencia" value="<%= producto.procedencia %> ">
+                                                                            <label for="region">PROCEDENCIA</label>
+                                                                            <input type="text" class="form-control" name="region" value="<%= producto.region %> ">
                                                                         </div>
                                                                         <button type="button" class="btn btn-primary" id="verMas" data-dismiss="modal">CERRAR</button>
                                                                         <button type="submit" class="btn btn-primary" id="comprar">GUARDAR CAMBIOS</button>
@@ -328,7 +332,7 @@
                                                 <!--Varietal-->
                                                 <tr>
                                                     <th scope="row">VARIETAL</th>
-                                                    <td><%= producto.varietal %></td>
+                                                    <td><%= producto.varietal.name %></td>
                                                     <td><ion-icon style="color:#8a0804" name="pencil-outline" data-toggle="modal" data-target="#varietalModal">
                                                     </td>
                                                     <div class="modal fade" id="varietalModal" tabindex="-1" role="dialog" aria-hidden="true">
@@ -341,10 +345,14 @@
                                                                     </button>
                                                                 </div>
                                                                 <div class="modal-body">
-                                                                    <form method="POST" action="/admin/productos/detalle/<%= producto.id %>/editar/varietal?_method=PUT">
+                                                                    <form method="POST" action="/admin/productos/detalle/<%= producto.id %>/editar/varietalId?_method=PUT">
                                                                         <div class="form-group">
-                                                                            <label for="varietal">VARIETAL</label>
-                                                                            <input type="text" class="form-control" name="varietal" value="<%= producto.varietal %>">
+                                                                            <label for="varietalId">VARIETAL</label>
+                                                                            <select class="form-control" name="varietalId" id="" required>
+                                                                                <% varietales.forEach(v=>{ %> 
+                                                                                    <option value=<%=v.id%> <%= v.id == producto.varietal.id ? "selected" : null %>><%=v.name%></option>
+                                                                                <%})%> 
+                                                                            </select>
                                                                         </div>
                                                                         <button type="button" class="btn btn-primary" id="verMas" data-dismiss="modal">CERRAR</button>
                                                                         <button type="submit" class="btn btn-primary" id="comprar">GUARDAR CAMBIOS</button>
@@ -357,7 +365,7 @@
                                                 <!--Corte-->
                                                 <tr>
                                                     <th scope="row">CORTE</th>
-                                                    <td><%= producto.corte %></td>
+                                                    <td><%= producto.blend %></td>
                                                     <td><ion-icon style="color:#8a0804" name="pencil-outline" data-toggle="modal" data-target="#corteModal">
                                                     </td>
                                                     <div class="modal fade" id="corteModal" tabindex="-1" role="dialog" aria-hidden="true">
@@ -370,10 +378,10 @@
                                                                     </button>
                                                                 </div>
                                                                 <div class="modal-body">
-                                                                    <form method="POST" action="/admin/productos/detalle/<%= producto.id %>/editar/corte?_method=PUT">
+                                                                    <form method="POST" action="/admin/productos/detalle/<%= producto.id %>/editar/blend?_method=PUT">
                                                                         <div class="form-group">
-                                                                            <label for="corte">CORTE</label>
-                                                                            <input type="text" class="form-control" name="corte" value="<%= producto.corte %>">
+                                                                            <label for="blend">CORTE</label>
+                                                                            <input type="text" class="form-control" name="blend" value="<%= producto.blend %>">
                                                                         </div>
                                                                         <button type="button" class="btn btn-primary" id="verMas" data-dismiss="modal">CERRAR</button>
                                                                         <button type="submit" class="btn btn-primary" id="comprar">GUARDAR CAMBIOS</button>
@@ -386,7 +394,7 @@
                                                 <!--Cosecha-->
                                                 <tr>
                                                     <th scope="row">COSECHA</th>
-                                                    <td><%= producto.cosecha %></td>
+                                                    <td><%= producto.vintage %></td>
                                                     <td><ion-icon style="color:#8a0804" name="pencil-outline" data-toggle="modal" data-target="#cosechaModal">
                                                     </td>
                                                     <div class="modal fade" id="cosechaModal" tabindex="-1" role="dialog" aria-hidden="true">
@@ -399,10 +407,10 @@
                                                                     </button>
                                                                 </div>
                                                                 <div class="modal-body">
-                                                                    <form method="POST" action="/admin/productos/detalle/<%= producto.id %>/editar/cosecha?_method=PUT">
+                                                                    <form method="POST" action="/admin/productos/detalle/<%= producto.id %>/editar/vintage?_method=PUT">
                                                                         <div class="form-group">
-                                                                            <label for="cosecha">COSECHA</label>
-                                                                            <input type="number" class="form-control" name="cosecha" value="<%= producto.cosecha %>">
+                                                                            <label for="vintage">COSECHA</label>
+                                                                            <input type="number" class="form-control" name="vintage" value="<%= producto.vintage %>">
                                                                         </div>
                                                                         <button type="button" class="btn btn-primary" id="verMas" data-dismiss="modal">CERRAR</button>
                                                                         <button type="submit" class="btn btn-primary" id="comprar">GUARDAR CAMBIOS</button>
@@ -415,7 +423,7 @@
                                                 <!--Alcohol-->
                                                 <tr>
                                                     <th scope="row">ALCOHOL</th>
-                                                    <td><%= producto.alcohol %></td>
+                                                    <td><%= producto.alcohol %> %</td>
                                                     <td><ion-icon style="color:#8a0804" name="pencil-outline" data-toggle="modal" data-target="#alcoholModal">
                                                     </td>
                                                     <div class="modal fade" id="alcoholModal" tabindex="-1" role="dialog" aria-hidden="true">
@@ -447,7 +455,7 @@
                                                 <!--Elaboración-->
                                                 <tr>
                                                     <th scope="row">ELABORACIÓN</th>
-                                                    <td><%= producto.elaboracion %></td>
+                                                    <td><%= producto.elaboration %></td>
                                                     <td><ion-icon style="color:#8a0804" name="pencil-outline" data-toggle="modal" data-target="#elaboracionModal">
                                                     </td>
                                                     <div class="modal fade" id="elaboracionModal" tabindex="-1" role="dialog" aria-hidden="true">
@@ -460,10 +468,10 @@
                                                                     </button>
                                                                 </div>
                                                                 <div class="modal-body">
-                                                                    <form method="POST" action="/admin/productos/detalle/<%= producto.id %>/editar/elaboracion?_method=PUT">
+                                                                    <form method="POST" action="/admin/productos/detalle/<%= producto.id %>/editar/elaboration?_method=PUT">
                                                                         <div class="form-group">
-                                                                            <label for="elaboracion">ELABORACIÓN</label>
-                                                                            <textarea name="elaboracion" rows="3" class="form-control"><%=producto.elaboracion%></textarea>
+                                                                            <label for="elaboration">ELABORACIÓN</label>
+                                                                            <textarea name="elaboration" rows="3" class="form-control"><%=producto.elaboration%></textarea>
                                                                         </div>
                                                                         <button type="button" class="btn btn-primary" id="verMas" data-dismiss="modal">CERRAR</button>
                                                                         <button type="submit" class="btn btn-primary" id="comprar">GUARDAR CAMBIOS</button>
@@ -476,7 +484,7 @@
                                                 <!--Crianza-->
                                                 <tr>
                                                     <th scope="row">CRIANZA</th>
-                                                    <td><%= producto.crianza %></td>
+                                                    <td><%= producto.aging %></td>
                                                     <td><ion-icon style="color:#8a0804" name="pencil-outline" data-toggle="modal" data-target="#crianzaModal">
                                                     </td>
                                                     <div class="modal fade" id="crianzaModal" tabindex="-1" role="dialog" aria-hidden="true">
@@ -489,10 +497,10 @@
                                                                     </button>
                                                                 </div>
                                                                 <div class="modal-body">
-                                                                    <form method="POST" action="/admin/productos/detalle/<%= producto.id %>/editar/crianza?_method=PUT">
+                                                                    <form method="POST" action="/admin/productos/detalle/<%= producto.id %>/editar/aging?_method=PUT">
                                                                         <div class="form-group">
-                                                                            <label for="crianza">CRIANZA</label>
-                                                                            <textarea name="crianza" rows="3" class="form-control"><%=producto.crianza%> </textarea>
+                                                                            <label for="aging">CRIANZA</label>
+                                                                            <textarea name="aging" rows="3" class="form-control"><%=producto.aging%> </textarea>
                                                                         </div>
                                                                         <button type="button" class="btn btn-primary" id="verMas" data-dismiss="modal">CERRAR</button>
                                                                         <button type="submit" class="btn btn-primary" id="comprar">GUARDAR CAMBIOS</button>
@@ -505,7 +513,7 @@
                                                 <!--Recomendados-->
                                                 <tr>
                                                     <th scope="row">RECOMENDADO</th>
-                                                    <td><%= producto.recomendados == "on"? "Si" : "No" %></td>
+                                                    <td><%= producto.selection == "on"? "Si" : "No" %></td>
                                                     <td><ion-icon style="color:#8a0804" name="pencil-outline" data-toggle="modal" data-target="#recomendadosModal">
                                                     </td>
                                                     <div class="modal fade" id="recomendadosModal" tabindex="-1" role="dialog" aria-hidden="true">
@@ -518,11 +526,11 @@
                                                                     </button>
                                                                 </div>
                                                                 <div class="modal-body">
-                                                                    <form method="POST" action="/admin/productos/detalle/<%= producto.id %>/editar/recomendados?_method=PUT">
+                                                                    <form method="POST" action="/admin/productos/detalle/<%= producto.id %>/editar/selection?_method=PUT">
                                                                         <div class="form-group">
                                                                             <div class="custom-control custom-switch">
-                                                                                <input type="checkbox" class="custom-control-input" id="recomendados" name="recomendados" <%= producto.recomendados == "on"? "checked" : null %>>
-                                                                                <label for="recomendados" class="custom-control-label">RECOMENDADOS</label>
+                                                                                <input type="checkbox" class="custom-control-input" id="selection" name="selection" <%= producto.selection == "on"? "checked" : null %>>
+                                                                                <label for="selection" class="custom-control-label">RECOMENDADOS</label>
                                                                             </div>
                                                                         </div>
                                                                         <button type="button" class="btn btn-primary" id="verMas" data-dismiss="modal">CERRAR</button>
@@ -537,7 +545,7 @@
                                                 <!--Ofertas-->
                                                 <tr>
                                                     <th scope="row">OFERTA</th>
-                                                    <td><%= producto.ofertas == "on"? "Si" : "No" %></td>
+                                                    <td><%= producto.sale == "on"? "Si" : "No" %></td>
                                                     <td><ion-icon style="color:#8a0804" name="pencil-outline" data-toggle="modal" data-target="#ofertasModal">
                                                     </td>
                                                     <div class="modal fade" id="ofertasModal" tabindex="-1" role="dialog" aria-hidden="true">
@@ -550,11 +558,11 @@
                                                                     </button>
                                                                 </div>
                                                                 <div class="modal-body">
-                                                                    <form method="POST" action="/admin/productos/detalle/<%= producto.id %>/editar/ofertas?_method=PUT">
+                                                                    <form method="POST" action="/admin/productos/detalle/<%= producto.id %>/editar/sale?_method=PUT">
                                                                         <div class="form-group">
                                                                             <div class="custom-control custom-switch">
-                                                                                <input type="checkbox" class="custom-control-input" id="ofertas" name="ofertas" <%= producto.ofertas == "on"? "checked" : null %>>
-                                                                                <label for="ofertas" class="custom-control-label">OFERTAS</label>
+                                                                                <input type="checkbox" class="custom-control-input" id="sale" name="sale" <%= producto.sale == "on"? "checked" : null %>>
+                                                                                <label for="sale" class="custom-control-label">OFERTAS</label>
                                                                             </div>
                                                                         </div>
                                                                         <button type="button" class="btn btn-primary" id="verMas" data-dismiss="modal">CERRAR</button>
@@ -569,7 +577,7 @@
                                                 <!--Imagen SM-->
                                                 <tr>
                                                     <th scope="row">IMAGEN CHICA</th>
-                                                    <td><a href="/admin/productos/imagenes/<%= producto.img_sm %>">Ver Imagen</a></td>
+                                                    <td><a href="/admin/productos/imagenes/<%= producto.imageSm %>">Ver Imagen</a></td>
                                                     <td><ion-icon style="color:#8a0804" name="pencil-outline" data-toggle="modal" data-target="#img_smModal">
                                                     </td>
                                                 </tr>
@@ -583,10 +591,10 @@
                                                                 </button>
                                                             </div>
                                                             <div class="modal-body">
-                                                                <form method="POST" action="/admin/productos/detalle/<%= producto.id %>/editar/img_sm?_method=PUT" enctype="multipart/form-data">
+                                                                <form method="POST" action="/admin/productos/detalle/<%= producto.id %>/editar/imageSm?_method=PUT" enctype="multipart/form-data">
                                                                     <div class="form-group">
-                                                                        <label for="img_sm">IMAGEN CHICA</label>
-                                                                        <input type="file" class="form-control-file" name="img_sm">
+                                                                        <label for="imageSm">IMAGEN CHICA</label>
+                                                                        <input type="file" class="form-control-file" name="imageSm">
                                                                     </div>
                                                                     <button type="button" class="btn btn-primary" id="verMas" data-dismiss="modal">CERRAR</button>
                                                                     <button type="submit" class="btn btn-primary" id="comprar">GUARDAR CAMBIOS</button>
@@ -599,7 +607,7 @@
                                                 <!--Imagen LG-->
                                                 <tr>
                                                     <th scope="row">IMAGEN GRANDE</th>
-                                                    <td><a href="/admin/productos/imagenes/<%= producto.img_lg %>">Ver Imagen</a></td>
+                                                    <td><a href="/admin/productos/imagenes/<%= producto.imageLg %>">Ver Imagen</a></td>
                                                     <td><ion-icon style="color:#8a0804" name="pencil-outline" data-toggle="modal" data-target="#img_lgModal">
                                                     </td>
                                                 </tr>
@@ -613,10 +621,10 @@
                                                                 </button>
                                                             </div>
                                                             <div class="modal-body">
-                                                                <form method="POST" action="/admin/productos/detalle/<%= producto.id %>/editar/img_lg?_method=PUT" enctype="multipart/form-data">
+                                                                <form method="POST" action="/admin/productos/detalle/<%= producto.id %>/editar/imageLg?_method=PUT" enctype="multipart/form-data">
                                                                     <div class="form-group">
-                                                                        <label for="img_sm">IMAGEN GRANDE</label>
-                                                                        <input type="file" class="form-control-file" name="img_sm">
+                                                                        <label for="imageLg">IMAGEN GRANDE</label>
+                                                                        <input type="file" class="form-control-file" name="imageLg">
                                                                     </div>
                                                                     <button type="button" class="btn btn-primary" id="verMas" data-dismiss="modal">CERRAR</button>
                                                                     <button type="submit" class="btn btn-primary" id="comprar">GUARDAR CAMBIOS</button>

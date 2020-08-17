@@ -16,31 +16,39 @@
         <form method="POST" action="/admin/productos/agregar2">
             <div class="form-group">
                 <label for="productor">PRODUCTOR</label>
-                <input type="text" class="form-control" name="productor" required>
+                <select class="form-control" name="productor" id="" required>
+                    <% productor.forEach(p=>{ %> 
+                    <option value=<%=p.id%> ><%=p.name%></option>
+               <%})%>    
+                </select>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-8">
                     <label for="varietal">VARIETAL</label>
-                    <input type="text" class="form-control" name="varietal" required>
+                    <select class="form-control" name="varietal" id="" required>
+                        <% varietal.forEach(v=>{ %> 
+                        <option value=<%=v.id%> ><%=v.name%></option>
+                   <%})%>    
+                    </select>
                 </div>
                 <div class="form-group col-md-4">
                     <label for="cosecha">COSECHA</label>
-                    <input type="number" class="form-control" name="cosecha" placeholder="YYYY" required>
+                    <input type="number" class="form-control" name="cosecha" placeholder="YYYY">
                 </div>
             </div>
             <div class="form-group">
                 <label for="corte">CORTE</label>
-                <input type="text" class="form-control" name="corte" required>
+                <input type="text" class="form-control" name="corte">
             </div>
             <div class="form-row">
                 <div class="form-group col-md-8">
                     <label for="procedencia">PROCEDENCIA</label>
-                    <input type="text" class="form-control" name="procedencia" required>
+                    <input type="text" class="form-control" name="procedencia">
                 </div>
                 <div class="form-group col-md-4">
                     <label for="alcohol">ALCOHOL</label>
                     <div class="input-group-append">
-                        <input type="number" class="form-control" name="alcohol" placeholder="00.0" step="0.1" required>
+                        <input type="number" class="form-control" name="alcohol" placeholder="00.0" step="0.1">
                         <span class="input-group-text">%</span>
                     </div>
                 </div>
