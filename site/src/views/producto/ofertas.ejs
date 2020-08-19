@@ -16,11 +16,11 @@
         <% vinos.forEach(vino => { %>
     <article class="col-12 col-md-6 col-lg-3">
         <div id="articulo">
-            <img src="/images/productos/<%= vino.img_sm %>" alt="producto">
-            <h6><%= vino.nombre %></h6>
-            <h6><%= vino.productor %></h6>
-            <h4>$<%= vino.precio %></h4>
-            <h6>3 cuotas de $<%= vino.precio/3 %></h6>
+            <img src="/images/productos/<%= vino.imageSm %>" alt="producto">
+            <h6><%= vino.name %></h6>
+            <h6><%= vino.producer.name %></h6>
+            <h4>$<%= vino.price %></h4>
+            <h6>3 cuotas de $<%= Math.round(vino.price/3) %></h6>
             <a href="/cart" class="btn btn-primary" id="comprar">Comprar</a>
             <a href="/producto/detalle/<%= vino.id %>" class="btn btn-primary" id="verMas">Ver Más</a>
         </div>

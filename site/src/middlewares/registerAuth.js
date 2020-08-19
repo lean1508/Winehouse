@@ -1,5 +1,7 @@
 const path = require('path');
-const fs = require('fs');
+//const fs = require('fs');
+const db = require('../database/models');
+const User = db.User;
 
 const {
     check,
@@ -7,7 +9,8 @@ const {
     body
   } = require('express-validator');
 
-  let users = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'usuarios.json')));
+  //let users = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'usuarios.json')));
+  
 
 module.exports = [
             check('name').isLength({
@@ -22,14 +25,23 @@ module.exports = [
                 min: 1
             }).withMessage('El campo Alias no puede estar vacio.'),
 
-            body('alias').custom((value) => {
-                for (let user of users) {
+            body('alias').custom(async (value) => {
+                /*for (let user of users) {
                     if (user.alias == value) {
                         return false;
                     }
                 }
 
-                return true;
+                return true;*/
+                let user = await User.findOne({
+                    where: {alias: value}
+                })
+                console.log(user);
+                if (user !== null){
+                    return false
+                } 
+                return true
+                
             }).withMessage('Ese alias ya está siendo usado.'),
             check('email').isEmail().withMessage('Ingrese una direccion de correo válida.'),
             body('email').custom((value) => {

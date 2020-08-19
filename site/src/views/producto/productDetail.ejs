@@ -13,16 +13,16 @@
         <div class="row">
             <div class="col-12 col-md-4">
                 <figure>
-                    <img src="/images/productos/<%= producto.img_lg %>" alt="Vino">
+                    <img src="/images/productos/<%= producto.imageLg %>" alt="Vino">
                 </figure>
-                <h6 id="titulo_valor">Precio por Unidad <span id="precio">$<%= producto.precio %></span></h6>               
+                <h6 id="titulo_valor">Precio por Unidad <span id="precio">$<%= producto.price %></span></h6>               
                 <h6 id="titulo_valor">Disponibilidad: <% if (producto.stock > 0) { %>
                     <span style="color: green">En Stock</span>
                 <% } else {%>
                     <span style="color: red">Sin Stock</span>
                 <% } %>  
                 </h6>
-                <h6 id="titulo_valor">Contenido:<%= producto.volumen %>ml</h6>
+                <h6 id="titulo_valor">Contenido:<%= producto.volume %>ml</h6>
                 <form id="comprar" action="" method="POST">
                     <label for="cantidad">Cantidad:</label>
                     <input id="cantidad" type="text" name="cantidad" value="1">
@@ -31,9 +31,9 @@
                 </form>
             </div>
             <div class="col-12 col-md-8 info">
-                <h1><%= producto.nombre %></h1>
-                <h4><%= producto.varietal %></h6>
-                    <p class="descripcion"><%= producto.descripcion %></p>
+                <h1><%= producto.name %></h1>
+                <h4><%= producto.varietal.name %></h6>
+                    <p class="descripcion"><%= producto.description %></p>
                     
                     
                     <div class="accordion" id="accordionExample">
@@ -56,38 +56,38 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <% if (producto.productor) { %>
+                                            <% if (producto.producer) { %>
                                             <tr>
                                                 <th scope="row">BODEGA</th>
-                                                <td><%= producto.productor %></td>
+                                                <td><%= producto.producer.name %></td>
                                             </tr>
                                             <% } %>
-                                            <% if (producto.procedencia) { %> 
+                                            <% if (producto.region) { %> 
                                             <tr>
                                                 <th scope="row">PROCEDENCIA</th>
-                                                <td><%= producto.procedencia %></td>
+                                                <td><%= producto.region %></td>
                                             </tr>
                                             <% } %>
                                             <tr>
                                                 <th scope="row">CATEGORÍA</th>
-                                                <td><%= categoria.nombre %></td>
+                                                <td><%= producto.category.name %></td>
                                             </tr>
                                             <% if (producto.varietal) { %>
                                             <tr>
                                                 <th scope="row">VARIETAL</th>
-                                                <td><%= producto.varietal %></td>
+                                                <td><%= producto.varietal.name %></td>
                                             </tr>
                                             <% } %>
-                                            <% if (producto.corte) { %>
+                                            <% if (producto.blend) { %>
                                             <tr>
                                                 <th scope="row">CORTE</th>
-                                                <td><%= producto.corte %></td>
+                                                <td><%= producto.blend %></td>
                                             </tr>
                                             <% } %>
-                                            <% if (producto.cosecha) { %>
+                                            <% if (producto.vintage) { %>
                                             <tr>
                                                 <th scope="row">COSECHA</th>
-                                                <td><%= producto.cosecha %></td>
+                                                <td><%= producto.vintage %></td>
                                             </tr>
                                             <% } %>
                                             <% if (producto.alcohol) { %>
@@ -96,16 +96,16 @@
                                                 <td><%= producto.alcohol %></td>
                                             </tr>
                                             <% } %> 
-                                            <% if (producto.elaboracion) { %> 
+                                            <% if (producto.elaboration) { %> 
                                             <tr>
                                                 <th scope="row">ELABORACIÓN</th>
-                                                <td><%= producto.elaboracion %></td>
+                                                <td><%= producto.elaboration %></td>
                                             </tr>
                                             <% } %>
-                                            <% if (producto.crianza) { %>  
+                                            <% if (producto.aging) { %>  
                                             <tr>
                                                 <th scope="row">CRIANZA</th>
-                                                <td><%= producto.crianza %></td>
+                                                <td><%= producto.aging %></td>
                                             </tr>
                                             <% } %> 
                                         </tbody>
@@ -146,20 +146,20 @@
             </div>
             <section class="tab-pane row">
                 <h2 class="col-12" id="titulo">TAMBIÉN PODRÍAN INTERESARTE</h2>
-                <% for( let i = 0; i <= 3; i++ ) { %>
+                <% productos.forEach(vinos => { %>
                 <article class="col-12 col-md-6 col-lg-3">
                     <div>
-                        <img src="/images/productos/<%= productos[i].img_sm %>" alt="producto">
-                        <h6><%= productos[i].nombre %></h6>
-                        <h6><%= productos[i].productor %></h6>
-                        <h4><%= productos[i].precio %></h4>
-                        <h6>3 cuotas de <%= productos[0].precio/3 %></h6>
+                        <img src="/images/productos/<%= vinos.imageSm %>" alt="producto">
+                        <h6><%= vinos.name %></h6>
+                        <h6><%= vinos.producer.name %></h6>
+                        <h4>$<%= vinos.price %></h4>
+                        <h6>3 cuotas de $<%= Math.round(vinos.price/3) %></h6>
                         <a href="/cart" class="btn btn-primary" id="comprar">Comprar</a>
-                        <a href="/producto/detalle/<%= productos[i].id %>" class="btn btn-primary" id="verMas">Ver
+                        <a href="/producto/detalle/<%= vinos.id %>" class="btn btn-primary" id="verMas">Ver
                             Más</a>
                     </div>
                 </article>
-                <% }; %>
+                <% }); %>
             </section>
         </main>
         
