@@ -17,8 +17,9 @@ module.exports = {
 
         let errors = validationResult(req);
         if (!errors.isEmpty()){
+            if(req.file){
             fs.unlink(path.resolve(__dirname, '../../public/images/usuarios/'+ req.file.filename),(err) => {
-                if (err){console.log(err)}});
+                if (err){console.log(err)}})};
             return res.render(path.resolve(__dirname, '..', 'views', 'usuario', 'register'), {
                 errors: errors.mapped(),  old: req.body
               });

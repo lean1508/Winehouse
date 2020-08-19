@@ -36,23 +36,24 @@ module.exports = [
                 let user = await User.findOne({
                     where: {alias: value}
                 })
-                console.log(user);
+                //console.log(user);
                 if (user !== null){
-                    return false
+                    return Promise.reject('Ese alias ya está siendo usado.')
                 } 
                 return true
                 
-            }).withMessage('Ese alias ya está siendo usado.'),
+            }),
             check('email').isEmail().withMessage('Ingrese una direccion de correo válida.'),
-            body('email').custom((value) => {
-                for (let user of users) {
-                    if (user.email == value) {
-                        return false;
-                    }
-                }
-
-                return true;
-            }).withMessage('El email ya se encuentra registrado'),
+            body('email').custom( async (value) => {
+                let user = await User.findOne({
+                    where: {email: value}
+                })
+                //console.log(user);
+                if (user !== null){
+                    return Promise.reject('Ese alias ya está siendo usado.')
+                } 
+                return true
+            }),
             check('password').isLength({
                 min: 8
             }).withMessage('La contraseña debe tener un mínimo de 8 caracteres.'),
