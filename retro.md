@@ -1,7 +1,6 @@
 # Retrospectiva de Estrella de Mar
 
-
-## Sprint 4 (07/08/2020)
+## Sprint 5 (19/08/2020)
 
 ### Keep Doing
 
@@ -10,8 +9,31 @@
 -   Comunicación en el dia a dia con los miembros del equipo.
 -   Validación en tiempo real del trabajo de los pares.
 -   Feedback entre los miembros del equipo.
+-   Retroalimentación del trabajo.
 
 ### More of
+
+-   Definir antes del inicio de la reunión de que se va a hablar (Se dificulta debido a motivos laborales o personales)
+-   Definir días y horarios específicos para las reuniones.
+
+
+### Start Doing
+### Stop Doing
+### Less of
+
+---
+
+## Sprint 4 (07/08/2020)
+
+#### Keep Doing
+
+-   Repartirse las tareas a realizar entre los miembros del equipo.
+-   Uso de un tablero de trabajo, en este caso Trello.
+-   Comunicación en el dia a dia con los miembros del equipo.
+-   Validación en tiempo real del trabajo de los pares.
+-   Feedback entre los miembros del equipo.
+
+#### More of
 
 -   Definir antes del inicio de la reunión de que se va a hablar.
 -   Retroalimentación del trabajo.
