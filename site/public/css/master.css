@@ -111,10 +111,15 @@ h6.bienvenida-usuario {
 
 div.iconos-nav {
     display: flex;
+    align-items: center;
 }
 
 img#lupa {
     max-height: 4vh;
+}
+
+.ocultar {
+    display: none;
 }
 
 div.iconos-nav form button.btn {

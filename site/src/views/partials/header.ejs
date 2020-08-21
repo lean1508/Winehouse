@@ -13,10 +13,12 @@
         <!--Búsqueda / Login / Carrito-->
         <div class="iconos-nav">
             <!--Búsqueda-->
-            <form action="" class="form-inline">
-                <input class="form-control collapse" id="busqueda" type="search" placeholder="Buscar...">
-                <button class="btn" type="button" data-toggle="collapse" data-target="#busqueda"
-                aria-controls="busqueda" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="btn" type="button" id="button_toggle_search">
+                <img id="lupa" src="/img/585e4ad1cb11b227491c3391.png" alt="busqueda">
+            </button>
+            <form  id="busqueda" action="" class="form-inline ocultar">
+                <input class="form-control" type="search" placeholder="Buscar...">
+                <button class="btn" type="submit">
                     <img id="lupa" src="/img/585e4ad1cb11b227491c3391.png" alt="busqueda">
                 </button>
             </form>
