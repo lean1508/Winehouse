@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <%- include('../partials/head.ejs') %>
+        <link rel="stylesheet" href="/css/categorias.css">
+        </head>
+<body>
+    
+    <%- include('../partials/header.ejs') %>
+    <!--Menu vinos FIN-->
+<main class="container-fluid  py-5" id="main">
+    <article class="col-12">
+        <h1 class="font-weight-bolder w-100 text-center my-5" id="titulo">Resultados de la Búsqueda</h1>
+    </article>
+    <% if (vinos.length == 0) {%>
+        <h4>NO SE ENCONTRARON PRODUCTOS COINCIDENTES CON LA BÚSQUEDA</h4>
+    <%}%>
+    <section class="d-flex" id="vinos">
+        <% vinos.forEach(vino => { %>
+    <article class="col-12 col-md-6 col-lg-3" >
+        <div id="articulo">
+            <img src="/images/productos/<%= vino.imageSm %>" alt="producto">
+            <h6><%= vino.name %></h6>
+            <h6><%= vino.producer.name %></h6>
+            <h4>$<%= vino.price %></h4>
+            <h6>3 cuotas de $<%= Math.round(vino.price/3) %></h6>
+            <a href="/cart" class="btn btn-primary" id="comprar">Comprar</a>
+            <a href="/producto/detalle" class="btn btn-primary" id="verMas">Ver Más</a>
+        </div>
+    </article>
+    <% }) %>
+</section>
+</main>
+    <!--Menu Vinos FIN-->
+    <%- include('../partials/footer.ejs') %>
+</body>
+</html>

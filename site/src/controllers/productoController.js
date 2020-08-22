@@ -88,5 +88,20 @@ module.exports = {
         })
         .then((vinos)=> res.render(path.resolve(__dirname, '..', 'views', 'producto', 'ofertas'), {vinos}))
         .catch((error)=> res.send(error))
+    },
+    search: (req,res)=>{
+        console.log(req.body.search);
+        Product.findAll({
+            where:{
+                name: {
+                    [Op.like]: `%${req.body.search}%`
+                }
+            },
+            include:[
+                {association:"producer"}
+            ]
+        })
+        .then(vinos => res.render(path.resolve(__dirname, '..', 'views', 'producto', 'resultados'), {vinos}))
+        .catch((error)=> res.send(error))
     }
 }
