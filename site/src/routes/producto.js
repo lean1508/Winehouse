@@ -10,5 +10,6 @@ router.get('/masVendidos', productoController.verMasVendidos);
 router.get('/recomendados', productoController.verRecomendados);
 router.get('/ofertas', productoController.verOfertas);
 router.post('/busqueda', productoController.search);
+router.post('/categoria/filtrar', productoController.verCategoriaFiltro);
 
 module.exports = router;

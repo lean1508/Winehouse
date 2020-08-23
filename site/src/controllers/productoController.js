@@ -4,6 +4,7 @@ const db = require('../database/models');
 const Product = db.Product;
 const Category = db.Category;
 const{ Op } = require('sequelize');
+const filter = require('./filter');
 
 module.exports = {
     show: (req,res)=>{
@@ -46,8 +47,41 @@ module.exports = {
                 {association:"producer"}
             ]
         });
-        Promise.all([titulo, vinos])
-        .then(([titulo, vinos]) => {res.render(path.resolve(__dirname, '..', 'views', 'producto', 'categorias'), {titulo, vinos})})
+        let varietales = filter.varietal(req.params.id);
+        let productores = filter.producer(req.params.id);
+        Promise.all([titulo, vinos, varietales, productores])
+        .then(([titulo, vinos, varietales, productores]) => {res.render(path.resolve(__dirname, '..', 'views', 'producto', 'categorias'), {titulo, vinos, varietales, productores})})
+        .catch(error => res.send(error))
+    },
+    verCategoriaFiltro: (req,res) => {
+        req.body.varietal=req.body.varietal.split(',');
+        req.body.producer=req.body.producer.split(',');
+
+        if (req.body.selection == undefined){
+            req.body.selection=["on",null]; 
+        } else{
+            req.body.selection=req.body.selection.split(' ');
+        };
+        
+        if (req.body.sale == undefined){
+            req.body.sale=["on",null]; 
+        } else{
+            req.body.sale=req.body.sale.split(' ');
+        };
+
+        let productosFiltrados = filter.products(req.body);
+
+        let titulo = Category.findOne({
+            where: {id: req.body.category}
+        });
+
+        let varietales = filter.varietal(req.body.category);
+        let productores = filter.producer(req.body.category);
+        let filtro = req.body;
+        console.log(filtro.varietal.length);
+
+        Promise.all([productosFiltrados, titulo, varietales, productores, filtro])
+        .then(([productosFiltrados, titulo, varietales, productores, filtro]) => {res.render(path.resolve(__dirname, '..', 'views', 'producto', 'categoriasFiltradas'), {vinos: productosFiltrados, titulo, varietales, productores, filtro})})
         .catch(error => res.send(error))
     },
     verMasVendidos: (req,res)=>{

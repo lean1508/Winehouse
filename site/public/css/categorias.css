@@ -29,3 +29,43 @@ section article div#articulo{
     padding-bottom: 5px;
     
 }
+
+/*Clases para formulario de filtros*/
+
+.formulario_filtro{
+    
+    border-bottom: #b3b5af solid 1px;
+}
+
+.form-control {
+    background-color: #fffffd;
+    border-color: #b3b5af;
+}
+
+.input-group-text {
+/*    background-color: #b3b5af;*/
+    border-color: #b3b5af;
+}
+
+label {
+    color: #8a0804;
+    font-weight: 500;
+}
+
+.btn-primary#filtrar{
+    color: #fffffd;
+    background-color: #8a0804;
+    border-color: #8a0804;
+}
+
+.btn-primary#reset{
+    color: #050705;
+    background-color: #b3b5af;
+    border-color: #b3b5af;
+}
+
+.btn{
+    border-radius: 1rem;
+    padding: .375rem 1.5rem;
+    margin: 0px 5px;
+}
