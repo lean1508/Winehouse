@@ -43,7 +43,6 @@ section article div#articulo{
 }
 
 .input-group-text {
-/*    background-color: #b3b5af;*/
     border-color: #b3b5af;
 }
 
@@ -68,4 +67,8 @@ label {
     border-radius: 1rem;
     padding: .375rem 1.5rem;
     margin: 0px 5px;
+}
+
+.custom-checkbox .custom-control-input:checked~.custom-control-label::after {
+    background-color: #8a0804;
 }
