@@ -1,29 +1,44 @@
 .display-4 text-center pt-5{
-    color:#8a0804 ;
+  color:#8a0804 ;
 }
-a#agregar{
-  color: #8a0804;
-  background-color: white;
-  border: 2px solid #8a0804;
-  border-color: #8a0804;
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    color: #8a0804;
+    font-weight: bolder;
+    background-color: #fffffd;
+    border-color: #8a0804 #8a0804 #fffffd;
+    border-width: 3px;
 }
-a#agregar:hover{
+li.nav-item a.nav-link{
   color: #fffffd;
-  background-color: #8a0804;
-  border: 1px solid #050705;
+  background-color: rgb(138, 8, 4, 0.8);
 }
-a#agregar:active{
-  background-color: #8a0804;
+#agregar{
+color: #8a0804;
+background-color: white;
+border: 2px solid #8a0804;
+border-color: #8a0804;
+}
+#agregar:hover{
+color: #fffffd;
+background-color: #8a0804;
+border: 1px solid #050705;
+}
+#agregar:active{
+background-color: #8a0804;
 }
 thead tr{
-  color: #fffffd;
-  background-color:#8a0804;
+color: #fffffd;
+background-color:#8a0804;
 }
 
 td a ion-icon {
-    color: #8a0804;
-  }
+  color: #8a0804;
+}
+button#borrarId{
+  color: #8a0804;
+  border: 1px solid #8a0804;
+  background-color: #fffffd;
+}
 
-  
 
-  
+

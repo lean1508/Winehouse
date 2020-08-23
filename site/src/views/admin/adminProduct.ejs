@@ -12,29 +12,198 @@
         <article class="col-12">
           <h2 class="display-4 text-center pt-4">Administrador de Productos</h2>
         </article>
+        <div class="container-fluid">
+         <div class="d-flex"> 
         <article class="col-12">
           <a href="/admin/productos/agregar1" id="agregar" class="btn btn-primary mt-2">Agregar Nuevo Producto</a>
+        <!-- Boton modal Categoria -->
+        <button type="button" id="agregar" class="btn btn-primary mt-2" data-toggle="modal" data-target="#categoryModal">
+          Agregar nueva categoria
+        </button>
+        <!-- Boton modal Varietal -->
+        <button type="button" id="agregar" class="btn btn-primary mt-2" data-toggle="modal" data-target="#varietalModal">
+          Agregar nuevo varietal
+        </button>
+        <!-- Boton modal Productor -->
+        <button type="button" id="agregar" class="btn btn-primary mt-2" data-toggle="modal" data-target="#producerModal">
+          Agregar nuevo productor
+        </button>
         </article>
-        <article class="col-12">
-        <table class="table my-5">
-            <thead>
-              <tr class="text-center">
-                <th scope="col">Id</th>
-                <th scope="col">Nombre Producto</th>
-                <th scope="col">Ver Detalle</th>
-              </tr>
-            </thead>
-            <tbody>
-              <% productos.forEach(p => { %> 
-              <tr class="text-center">
-                <td><%= p.id %></td>
-                <td><%= p.name %></td>
-                <td><a href="/admin/productos/detalle/<%=p.id%>"> <ion-icon name="eye-outline"></ion-icon></a></td>
-              </tr>
-              <% }) %>   
-            </tbody>
-          </table> 
-        </article>       
+          </div>
+        </div>
+
+        <!-- Modal Categoria -->
+<div class="modal fade" id="categoryModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Agregar Categoria</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="/admin/categoria/agregar" method="POST">
+        <input type="text" name="categoryName" class="form-control form-control-lg" placeholder="Ingrese el nombre de la nueva categoría">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" id="cerrar" data-dismiss="modal">Cerrar</button>
+        <button type="submit" id="confirmar" class="btn btn-primary">Confirmar</button>
+      </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Varietal -->
+<div class="modal fade" id="varietalModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Agregar Varietal</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="/admin/varietal/agregar" method="POST">
+        <input type="text" name="varietalName" class="form-control form-control-lg" placeholder="Ingrese el nombre del nuevo varietal">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" id="cerrar" data-dismiss="modal">Cerrar</button>
+        <button type="submit" id="confirmar" class="btn btn-primary">Confirmar</button>
+      </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Productor -->
+<div class="modal fade" id="producerModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Agregar Productor</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="/admin/productor/agregar" method="POST">
+        <input type="text" name="producerName" class="form-control form-control-lg" placeholder="Ingrese el nombre del nuevo productor">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" id="cerrar" data-dismiss="modal">Cerrar</button>
+        <button type="submit" id="confirmar" class="btn btn-primary">Confirmar</button>
+      </form>
+      </div>
+    </div>
+  </div>
+</div>
+        <ul class="nav nav-tabs my-2" id="myTab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <a class="nav-link active" id="productos-tab" data-toggle="tab" href="#productos" role="tab" aria-controls="productos" aria-selected="true">Productos</a>
+          </li>
+          <li class="nav-item" role="presentation">
+            <a class="nav-link" id="categoria-tab" data-toggle="tab" href="#categoria" role="tab" aria-controls="profile" aria-selected="false">Categorias</a>
+          </li>
+          <li class="nav-item" role="presentation">
+            <a class="nav-link" id="varietal-tab" data-toggle="tab" href="#varietal" role="tab" aria-controls="varietal" aria-selected="false">Varietales</a>
+          </li>
+          <li class="nav-item" role="presentation">
+            <a class="nav-link" id="productor-tab" data-toggle="tab" href="#productor" role="tab" aria-controls="productor" aria-selected="false">Productores</a>
+          </li>
+        </ul>
+        <div class="tab-content container-fluid" id="myTabContent">
+          <div class="tab-pane fade show active" id="productos" role="tabpanel" aria-labelledby="productos-tab">
+            <article class="col-12">
+              <table class="table my-3">
+                  <thead>
+                    <tr class="text-center">
+                      <th scope="col">Id</th>
+                      <th scope="col">Producto</th>
+                      <th scope="col">Ver Detalle</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% productos.forEach(p => { %> 
+                    <tr class="text-center">
+                      <td><%= p.id %></td>
+                      <td><%= p.name %></td>
+                      <td><a href="/admin/productos/detalle/<%=p.id%>"> <ion-icon name="eye-outline"></ion-icon></a></td>
+                    </tr>
+                    <% }) %>   
+                  </tbody>
+                </table> 
+              </article> 
+          </div>
+          <div class="tab-pane fade" id="categoria" role="tabpanel" aria-labelledby="categoria-tab">
+            <article class="col-12">
+              <table class="table my-3">
+                  <thead>
+                    <tr class="text-center">
+                      <th scope="col">Id</th>
+                      <th scope="col">Categoria</th>
+                      <th scope="col">Eliminar</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% categorias.forEach(cat => { %> 
+                    <tr class="text-center">
+                      <td><%= cat.id %></td>
+                      <td><%= cat.name %></td>
+                      <td><form action="/admin/categoria/<%= cat.id %>/borrar?_method=DELETE" method="POST"><button type="submit" id="borrarId"><ion-icon name="trash-outline"></ion-icon></button></form></td>
+                    </tr>
+                    <% }) %>   
+                  </tbody>
+                </table> 
+              </article> 
+          </div>
+          <div class="tab-pane fade" id="varietal" role="tabpanel" aria-labelledby="varietal-tab">
+            <article class="col-12">
+              <table class="table my-3">
+                  <thead>
+                    <tr class="text-center">
+                      <th scope="col">Id</th>
+                      <th scope="col">Varietal</th>
+                      <th scope="col">Eliminar</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% varietales.forEach(varietal => { %> 
+                    <tr class="text-center">
+                      <td><%= varietal.id %></td>
+                      <td><%= varietal.name %></td>
+                      <td><form action="/admin/varietal/<%= varietal.id %>/borrar?_method=DELETE" method="POST"><button type="submit" id="borrarId"><ion-icon name="trash-outline"></ion-icon></button></form></td>
+                    </tr>
+                    <% }) %>   
+                  </tbody>
+                </table> 
+              </article>
+          </div>
+          <div class="tab-pane fade show" id="productor" role="tabpanel" aria-labelledby="productor-tab">
+            <article class="col-12">
+              <table class="table my-3">
+                  <thead>
+                    <tr class="text-center">
+                      <th scope="col">Id</th>
+                      <th scope="col">Productor</th>
+                      <th scope="col">Eliminar</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% productores.forEach(producer => { %> 
+                    <tr class="text-center">
+                      <td><%= producer.id %></td>
+                      <td><%= producer.name %></td>
+                      <td><form action="/admin/productor/<%= producer.id %>/borrar?_method=DELETE" method="POST"><button type="submit" id="borrarId"><ion-icon name="trash-outline"></ion-icon></button></form></td>
+                    </tr>
+                    <% }) %>   
+                  </tbody>
+                </table> 
+              </article>
+          </div>
+        </div>     
       </section>
     </main>
     <%-include('../partials/footer.ejs')%>

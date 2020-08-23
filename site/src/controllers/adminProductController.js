@@ -3,12 +3,25 @@ const fs = require('fs');
 const db = require('../database/models');
 const { rawListeners } = require('process');
 const Product = db.Product;
+const Category = db.Category;
+const Varietal = db.Varietal;
+const Producer = db.Producer;
 
 module.exports = {
     index: (req,res)=>{
         //let productos = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'productos.json')))
-        Product.findAll()
-        .then(productos => res.render(path.resolve(__dirname, '..', 'views', 'admin', 'adminProduct'), {productos}))
+        let productos = Product.findAll();
+        let categorias = Category.findAll({
+            order:[['id', 'ASC']]
+        });
+        let varietales = Varietal.findAll({
+            order:[['id', 'ASC']]
+        });
+        let productores = Producer.findAll({
+            order:[['id', 'ASC']]
+        });
+        Promise.all([productos, categorias, varietales, productores])
+        .then(([productos, categorias, varietales, productores]) => res.render(path.resolve(__dirname, '..', 'views', 'admin', 'adminProduct'), {productos, categorias, varietales, productores}))
         .catch(error => res.send(error));
     },
     productAdd1: async (req,res)=>{
@@ -210,6 +223,48 @@ module.exports = {
                 id: req.params.id
             }
         });
+        res.redirect('/admin/productos');
+    },
+    createCategory: async (req,res) => {
+        await Category.create({
+            name: req.body.categoryName
+        })
+        res.redirect('/admin/productos');
+    },
+    destroyCategory: async (req,res) =>{
+        await Category.destroy({
+            where: {
+                id: req.params.id
+            }
+        })
+        res.redirect('/admin/productos');
+    },
+    createVarietal: async (req,res) => {
+        await Varietal.create({
+            name: req.body.varietalName
+        })
+        res.redirect('/admin/productos');
+    },
+    destroyVarietal: async (req,res) =>{
+        await Varietal.destroy({
+            where: {
+                id: req.params.id
+            }
+        })
+        res.redirect('/admin/productos');
+    },
+    createProducer: async (req,res) => {
+        await Producer.create({
+            name: req.body.producerName
+        })
+        res.redirect('/admin/productos');
+    },
+    destroyProducer: async (req,res) => {
+        await Producer.destroy({
+            where: {
+                id: req.params.id
+            }
+        })
         res.redirect('/admin/productos');
     }
 };

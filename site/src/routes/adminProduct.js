@@ -29,5 +29,12 @@ router.get('/admin/productos/detalle/:id', access, adminProductController.detail
 router.get('/admin/productos/imagenes/:archivo', access, adminProductController.images);
 router.put('/admin/productos/detalle/:id/editar/:propiedad', upload.any(), access, adminProductController.edit);
 router.delete('/admin/productos/detalle/:id/borrar', access, adminProductController.delete);
+router.post('/admin/categoria/agregar', access, adminProductController.createCategory);
+router.delete('/admin/categoria/:id/borrar',access, adminProductController.destroyCategory);
+router.post('/admin/varietal/agregar', access, adminProductController.createVarietal);
+router.delete('/admin/varietal/:id/borrar',access, adminProductController.destroyVarietal);
+router.post('/admin/productor/agregar', access, adminProductController.createProducer);
+router.delete('/admin/productor/:id/borrar',access, adminProductController.destroyProducer);
+
 
 module.exports = router;
