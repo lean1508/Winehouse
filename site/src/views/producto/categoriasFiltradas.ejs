@@ -13,7 +13,7 @@
         <h1 class="font-weight-bolder w-100 text-center my-5" id="titulo"><%= titulo.name %> </h1>
     </article>
 
-    <!--Formulario Filtro-->
+      <!--Formulario Filtro-->
 
     <form class="formulario_filtro" method="POST" action="/categoria/filtrar">
         <div class="form-row">
@@ -106,11 +106,16 @@
                 <button type="submit" class="btn btn-primary" id="filtrar">FILTRAR</button>
             </div>
         </div>
+        <% if (vinos.length == 0) {%>
+            <h4>NO SE ENCONTRARON PRODUCTOS COINCIDENTES CON LA BÚSQUEDA</h4>
+        <%} else {%>
+            <h4>SE ENCONTRARON <%= vinos.length %> PRODUCTOS COINCIDENTES CON LA BÚSQUEDA</h4>
+        <% } %>    
     </form>
 
     <!--Formulario Filtro FIN-->
 
-    <section class="d-flex" id="vinos">
+        <section class="d-flex" id="vinos">
         <% vinos.forEach(vino => { %>
     <article class="col-12 col-md-6 col-lg-3">
         <div id="articulo"> 

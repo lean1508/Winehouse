@@ -127,7 +127,7 @@ div.iconos-nav form button.btn {
     margin: 0px;
 }
 
-div.iconos-nav form.form-inline {
+form.form-inline {
     flex-flow: nowrap;
 }
 

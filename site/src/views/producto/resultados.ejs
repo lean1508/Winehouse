@@ -14,7 +14,9 @@
     </article>
     <% if (vinos.length == 0) {%>
         <h4>NO SE ENCONTRARON PRODUCTOS COINCIDENTES CON LA BÚSQUEDA</h4>
-    <%}%>
+    <%} else {%>
+        <h4>SE ENCONTRARON <%= vinos.length %> PRODUCTOS COINCIDENTES CON LA BÚSQUEDA</h4>
+    <% } %>
     <section class="d-flex" id="vinos">
         <% vinos.forEach(vino => { %>
     <article class="col-12 col-md-6 col-lg-3" >

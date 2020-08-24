@@ -45,6 +45,18 @@
             <!--Carrito-->
             <a href="/cart"><img id="barrica" src="/img/barrica.png" alt="Carrito de Compras"></a>
         </div>
+        
+        <!--Formulario Busqueda alternativo para pantallas con width < 768px-->
+        <form method="POST" id="busqueda-alt" action="/busqueda" class="form-inline ocultar">
+            <input class="form-control" type="search" name="search" placeholder="Buscar...">
+            <button class="btn" type="submit">
+                <img id="lupa" src="/img/585e4ad1cb11b227491c3391.png" alt="busqueda">
+            </button>
+            <button class="btn" type="button" id="close-form">
+                <img src="/img/close.png" alt="Cerrar">
+            </button>
+        </form>
+
     </nav>
 </div>
  

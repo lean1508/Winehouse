@@ -127,9 +127,7 @@ module.exports = {
         console.log(req.body.search);
         Product.findAll({
             where:{
-                name: {
-                    [Op.like]: `%${req.body.search}%`
-                }
+                [Op.or]: [{name: {[Op.like]: `%${req.body.search}%`}},{'$producer.name$': {[Op.like]: `%${req.body.search}%`}}]
             },
             include:[
                 {association:"producer"}
