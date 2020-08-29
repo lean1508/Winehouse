@@ -17,13 +17,18 @@
             <div class="form-row">
                 <div class="form-group col-md-8">
                     <label for="sku">SKU</label>
-                    <input type="text" class="form-control" name="sku" required>
+                    <% if(typeof(errors) != 'undefined' && errors.sku){%>
+                        <span class="text-danger font-weight-bold">
+                          <%= errors.sku.msg %>
+                        </span>
+                     <%}%>
+                    <input type="text" class="form-control" name="sku" value='<%= typeof old != 'undefined' ? old.sku : '' %>' required>
                 </div>
                 <div class="form-group col-md-4">
                     <label for="categoria_id">CATEGORIA</label>
                     <select class="form-control" name="categoria_id" id="" required>
                         <% categorias.forEach(cat=>{ %> 
-                        <option value=<%=cat.id%> ><%=cat.name%></option>
+                        <option value=<%=cat.id%> <%= typeof old != 'undefined' && old.categoria_id == cat.id ? 'selected' : null %>><%=cat.name%></option>
                    <%})%>    
                     </select>
                 </div>
@@ -31,36 +36,66 @@
             <div class="form-row">
                 <div class="form-group col-md-8">
                     <label for="nombre">PRODUCTO / MARCA / NOMBRE</label>
-                    <input type="text" class="form-control" name="nombre" required>
+                    <% if(typeof(errors) != 'undefined' && errors.nombre){%>
+                        <span class="text-danger font-weight-bold">
+                          <%= errors.nombre.msg %>
+                        </span>
+                     <%}%>
+                    <input type="text" class="form-control" name="nombre" value='<%= typeof old != 'undefined' ? old.nombre : '' %>' required>
                 </div>
                 <div class="form-group col-md-4">
                     <label for="precio">PRECIO UNITARIO</label>
+                    <% if(typeof(errors) != 'undefined' && errors.precio){%>
+                        <span class="text-danger font-weight-bold">
+                          <%= errors.precio.msg %>
+                        </span>
+                     <%}%>
                     <div class="input-group-prepend">
                         <span class="input-group-text">$</span>
-                        <input type="number" class="form-control" name="precio" required>
+                        <input type="number" class="form-control" name="precio" value='<%= typeof old != 'undefined' ? old.precio : '' %>' required>
                     </div>
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-4">
                     <label for="img_sm">IMAGEN CHICA</label>
+                    <% if(typeof(errors) != 'undefined' && errors.img_sm){%>
+                        <span class="text-danger font-weight-bold">
+                          <%= errors.img_sm.msg %>
+                        </span>
+                     <%}%>
                     <input type="file" class="form-control-file" name="img_sm">
                 </div>
                 <div class="form-group col-md-4">
                     <label for="img_lg">IMAGEN GRANDE</label>
+                    <% if(typeof(errors) != 'undefined' && errors.img_lg){%>
+                        <span class="text-danger font-weight-bold">
+                          <%= errors.img_lg.msg %>
+                        </span>
+                     <%}%>
                     <input type="file" class="form-control-file" name="img_lg">
                 </div>
                 <div class="form-group col-md-4">
                     <label for="volumen">VOLUMEN</label>
+                    <% if(typeof(errors) != 'undefined' && errors.volumen){%>
+                        <span class="text-danger font-weight-bold">
+                          <%= errors.volumen.msg %>
+                        </span>
+                     <%}%>
                     <div class="input-group-append">
-                        <input type="number" class="form-control" name="volumen" required>
+                        <input type="number" class="form-control" name="volumen" value='<%= typeof old != 'undefined' ? old.volumen : '' %>' required>
                         <span class="input-group-text">ml</span>
                     </div>
                 </div>
             </div>
             <div class="form-group">
                 <label for="descripcion">DESCRIPCIÓN</label>
-                <textarea name="descripcion" rows="3" class="form-control"></textarea>
+                <% if(typeof(errors) != 'undefined' && errors.descripcion){%>
+                    <span class="text-danger font-weight-bold">
+                      <%= errors.descripcion.msg %>
+                    </span>
+                 <%}%>
+                <textarea name="descripcion" rows="3" class="form-control"><%= typeof old != 'undefined' ? old.descripcion : '' %></textarea>
             </div>
             <div class="btn-siguiente">
                 <button type="submit" class="btn btn-primary" id="siguiente">SIGUIENTE >></button>

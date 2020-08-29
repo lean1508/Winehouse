@@ -1,11 +1,13 @@
 const path = require('path');
 const fs = require('fs');
 const db = require('../database/models');
-const { rawListeners } = require('process');
+//const { rawListeners } = require('process');
 const Product = db.Product;
 const Category = db.Category;
 const Varietal = db.Varietal;
 const Producer = db.Producer;
+const {check, validationResult, body} = require('express-validator');
+
 
 module.exports = {
     index: (req,res)=>{
@@ -37,18 +39,31 @@ module.exports = {
     },
     productAdd3: (req,res)=>{res.render(path.resolve(__dirname, '..', 'views', 'admin', 'productAdd3'))
     },
-    create1: (req,res,next)=>{
-        req.session.form1 = {
-            sku: req.body.sku,
-            nombre: req.body.nombre,
-            categoria_id: req.body.categoria_id,
-            precio: req.body.precio,
-            img_sm: req.files[0].filename,
-            img_lg: req.files[1].filename,
-            volumen: req.body.volumen,
-            descripcion: req.body.descripcion
-        };
-        res.redirect('/admin/productos/agregar2');
+    create1: async (req,res,next)=>{
+        let errors = validationResult(req);
+        if (!errors.isEmpty()){
+            let categorias = await db.Category.findAll({order:[['id', 'ASC']]});
+            let old = req.body
+            if(req.files!=undefined && req.files.length>0){
+                fs.unlink(path.resolve(__dirname, '../../public/images/productos/'+ req.files[0].filename),(err) => {
+                    if (err){console.log(err)}});
+                fs.unlink(path.resolve(__dirname, '../../public/images/productos/'+ req.files[1].filename),(err) => {
+                    if (err){console.log(err)}});
+            }
+            res.render(path.resolve(__dirname, '..', 'views', 'admin', 'productAdd1'),{categorias, errors: errors.mapped(), old})
+        } else {
+            req.session.form1 = {
+                sku: req.body.sku,
+                nombre: req.body.nombre,
+                categoria_id: req.body.categoria_id,
+                precio: req.body.precio,
+                img_sm: req.files[0].filename,
+                img_lg: req.files[1].filename,
+                volumen: req.body.volumen,
+                descripcion: req.body.descripcion
+            };
+            res.redirect('/admin/productos/agregar2');
+        }    
     },
     create2: (req,res)=>{
         req.session.form2 = req.body;

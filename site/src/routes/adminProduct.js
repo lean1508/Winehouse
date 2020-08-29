@@ -16,11 +16,13 @@ const upload = multer({ storage })
 
 const access = require('../middlewares/adminProductAccess');
 
+const productCreateCheck = require('../middlewares/productCreateCheck');
+
 const adminProductController = require(path.resolve(__dirname, '..', 'controllers', 'adminProductController'));
 
 router.get('/admin/productos', access,adminProductController.index);
 router.get('/admin/productos/agregar1', access, adminProductController.productAdd1);
-router.post('/admin/productos/agregar1', upload.any(), access, adminProductController.create1);
+router.post('/admin/productos/agregar1', upload.any(), access, productCreateCheck, adminProductController.create1);
 router.get('/admin/productos/agregar2', access, adminProductController.productAdd2);
 router.post('/admin/productos/agregar2', access, adminProductController.create2);
 router.get('/admin/productos/agregar3', access, adminProductController.productAdd3);
