@@ -18,6 +18,8 @@ const access = require('../middlewares/adminProductAccess');
 
 const productCreateCheck = require('../middlewares/productCreateCheck');
 
+const productEditCheck = require('../middlewares/productEditCheck');
+
 const adminProductController = require(path.resolve(__dirname, '..', 'controllers', 'adminProductController'));
 
 router.get('/admin/productos', access,adminProductController.index);
@@ -29,7 +31,7 @@ router.get('/admin/productos/agregar3', access, adminProductController.productAd
 router.post('/admin/productos/agregar3', access, adminProductController.create3);
 router.get('/admin/productos/detalle/:id', access, adminProductController.detail);
 router.get('/admin/productos/imagenes/:archivo', access, adminProductController.images);
-router.put('/admin/productos/detalle/:id/editar/:propiedad', upload.any(), access, adminProductController.edit);
+router.put('/admin/productos/detalle/:id/editar/:propiedad', upload.any(), access, productEditCheck, adminProductController.edit);
 router.delete('/admin/productos/detalle/:id/borrar', access, adminProductController.delete);
 router.post('/admin/categoria/agregar', access, adminProductController.createCategory);
 router.delete('/admin/categoria/:id/borrar',access, adminProductController.destroyCategory);

@@ -163,6 +163,30 @@ module.exports = {
         res.sendFile(path.resolve(__dirname, '..','..', 'public', 'images','productos', req.params.archivo));
     },
     edit: async (req,res,next)=>{
+        let errors = validationResult(req);
+        let errores = errors.errors.filter(e=>e.param == req.params.propiedad);
+        if (errores.length>0){
+            let producto = Product.findOne({
+                where: {
+                    id: req.params.id
+                },
+                include: [
+                    {association:"category"},
+                    {association:"producer"},
+                    {association:"varietal"}
+                ]
+            });
+            let categorias = db.Category.findAll({order:[['id', 'ASC']]});
+            let productores = db.Producer.findAll();
+            let varietales = db.Varietal.findAll();
+            if(req.files!=undefined && req.files.length>0){
+                fs.unlink(path.resolve(__dirname, '../../public/images/productos/'+ req.files[0].filename),(err) => {
+                    if (err){console.log(err)}});
+            }
+            Promise.all([producto, categorias, productores, varietales])
+            .then(([producto, categorias, productores, varietales])=> {
+                res.render(path.resolve(__dirname, '..', 'views', 'admin', 'adminProductDetail'), {producto, categorias, productores, varietales, errors: errores})});
+        } else {
         //let productos = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'productos.json')));
         //let producto = productos.find(p=> req.params.id == p.id);
         //let id = req.params.id;
@@ -192,42 +216,43 @@ module.exports = {
             producto[propiedad] = req.body[propiedad];
         };
 
-        if(producto.selection == undefined) {
-            producto.selection = null;
-        };
+            if(producto.selection == undefined) {
+                producto.selection = null;
+            };
 
-        if(producto.sale == undefined) {
-            producto.sale = null;
-        };
+            if(producto.sale == undefined) {
+                producto.sale = null;
+            };
 
-        await Product.update({
-            sku: producto.sku,
-            name: producto.name,
-            categoryId: producto.categoryId,
-            price: producto.price,
-            imageSm: producto.imageSm,
-            imageLg: producto.imageLg,
-            volume: producto.volume,
-            description: producto.description,
-            producerId: producto.producerId,
-            varietalId: producto.varietalId,
-            blend: producto.blend,
-            vintage: producto.vintage,
-            region: producto.region,
-            alcohol: producto.alcohol,
-            elaboration: producto.elaboration,
-            aging: producto.aging,
-            selection: producto.selection,
-            sale: producto.sale,
-            stock: producto.stock
-        },
-        {
-            where:{
-                id: req.params.id
-            }
-        });
-                
-        res.redirect('/admin/productos/detalle/'+req.params.id);
+            await Product.update({
+                sku: producto.sku,
+                name: producto.name,
+                categoryId: producto.categoryId,
+                price: producto.price,
+                imageSm: producto.imageSm,
+                imageLg: producto.imageLg,
+                volume: producto.volume,
+                description: producto.description,
+                producerId: producto.producerId,
+                varietalId: producto.varietalId,
+                blend: producto.blend,
+                vintage: producto.vintage,
+                region: producto.region,
+                alcohol: producto.alcohol,
+                elaboration: producto.elaboration,
+                aging: producto.aging,
+                selection: producto.selection,
+                sale: producto.sale,
+                stock: producto.stock
+            },
+            {
+                where:{
+                    id: req.params.id
+                }
+            });
+                    
+            res.redirect('/admin/productos/detalle/'+req.params.id);
+        }
     },
     delete: async (req,res)=>{
         /*let productos = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'productos.json')));
