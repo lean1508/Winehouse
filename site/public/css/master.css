@@ -152,8 +152,12 @@ div.modal-footer{
     border-top: 1px solid #8a0804;
 }
 div form#login div label{
-    color: #8a0804;
+    color: #8a0804;  
 }
+div form#login label{
+    color: #8a0804;  
+}
+
 div#pieModal{
     justify-content: space-between;
 }
