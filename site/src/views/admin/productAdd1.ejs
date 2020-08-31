@@ -12,8 +12,11 @@
     <!--Formulario Carga Producto Parte 1-->
     
     <main class="container">
+        <div class="errores">
+            <ul></ul>
+        </div>
         <h2 class="titulo">Nuevo Producto<span class="badge badge-primary">Paso 1 de 3</span> </h2>
-        <form method="POST" action="/admin/productos/agregar1" enctype="multipart/form-data">
+        <form class="formulario" method="POST" action="/admin/productos/agregar1" enctype="multipart/form-data">
             <div class="form-row">
                 <div class="form-group col-md-8">
                     <label for="sku">SKU</label>
@@ -33,7 +36,7 @@
                     </select>
                 </div>
             </div>
-            <div class="form-row">
+            <div class="form-row productos" >
                 <div class="form-group col-md-8">
                     <label for="nombre">PRODUCTO / MARCA / NOMBRE</label>
                     <% if(typeof(errors) != 'undefined' && errors.nombre){%>
@@ -43,7 +46,7 @@
                      <%}%>
                     <input type="text" class="form-control" name="nombre" value='<%= typeof old != 'undefined' ? old.nombre : '' %>' required>
                 </div>
-                <div class="form-group col-md-4">
+                <div class="form-group col-md-4" name="precio_id">
                     <label for="precio">PRECIO UNITARIO</label>
                     <% if(typeof(errors) != 'undefined' && errors.precio){%>
                         <span class="text-danger font-weight-bold">
@@ -58,7 +61,7 @@
             </div>
             <div class="form-row">
                 <div class="form-group col-md-4">
-                    <label for="img_sm">IMAGEN CHICA</label>
+                    <label for="img_sm" class="imgsm" onchange="imagenchica">IMAGEN CHICA</label>
                     <% if(typeof(errors) != 'undefined' && errors.img_sm){%>
                         <span class="text-danger font-weight-bold">
                           <%= errors.img_sm.msg %>
@@ -67,7 +70,7 @@
                     <input type="file" class="form-control-file" name="img_sm">
                 </div>
                 <div class="form-group col-md-4">
-                    <label for="img_lg">IMAGEN GRANDE</label>
+                    <label for="img_lg" class="imglg" onchange="imagengrande">IMAGEN GRANDE</label>
                     <% if(typeof(errors) != 'undefined' && errors.img_lg){%>
                         <span class="text-danger font-weight-bold">
                           <%= errors.img_lg.msg %>
@@ -113,5 +116,6 @@ integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfoo
 integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
 </script>
 <script src="https://unpkg.com/ionicons@5.1.0/dist/ionicons.js"></script>
+<script src="/js/productRegister.js"></script>
 </body>
 </html>
