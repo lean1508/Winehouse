@@ -12,13 +12,13 @@
     <!--Formulario Carga Producto Parte 1-->
     
     <main class="container">
-        <div class="errores">
-            <ul>
-                //listado de errores
+        <div>
+            <ul id="erroresProductos">
+                
             </ul>
         </div>
         <h2 class="titulo">Nuevo Producto<span class="badge badge-primary">Paso 1 de 3</span> </h2>
-        <form class="formulario" method="POST" action="/admin/productos/agregar1" enctype="multipart/form-data">
+        <form class="formulario" id="formulario" method="POST" action="/admin/productos/agregar1" enctype="multipart/form-data">
             <div class="form-row">
                 <div class="form-group col-md-8">
                     <label for="sku">SKU</label>
@@ -48,7 +48,7 @@
                      <%}%>
                     <input type="text" class="form-control productos" name="nombre" value='<%= typeof old != 'undefined' ? old.nombre : '' %>' required>
                 </div>
-                <div class="form-group col-md-4" name="precio_id">
+                <div class="form-group col-md-4">
                     <label for="precio">PRECIO UNITARIO</label>
                     <% if(typeof(errors) != 'undefined' && errors.precio){%>
                         <span class="text-danger font-weight-bold">
