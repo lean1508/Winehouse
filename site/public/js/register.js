@@ -94,8 +94,9 @@ window.addEventListener('load', function(){
           password.classList.add('is-valid');
           password.classList.remove('is-invalid');
         }
-        if(password.value.length < 8){
-          errores.push('El password debe tener al menos 8 carácteres.');
+        let regexPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})/
+        if(!regexPassword.test(password.value)){
+          errores.push('El password debe tener un mínimo de 8 carácteres incluyendo al menos una letraminúscula, una letra mayúscula, un número y un caracter especial.');
           password.classList.add('is-invalid');
           password.classList.remove('is-valid');
         }else{

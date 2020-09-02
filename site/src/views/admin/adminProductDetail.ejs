@@ -50,7 +50,7 @@
             </div>
             <div class="col-12 col-md-8 info">
                 <h1><%= producto.name %></h1>
-                <h4><%= producto.varietal.name %></h6>
+                <h4><%= producto.varietal.name %></h4>
                 <% if(typeof(errors) != 'undefined'){ errors.forEach(error => { %>
                     <span class="text-danger font-weight-bold"><%= error.msg %></span>
                     <br>
@@ -92,7 +92,10 @@
                                                                 </button>
                                                             </div>
                                                             <div class="modal-body">
-                                                                <form method="POST" action="/admin/productos/detalle/<%= producto.id %>/editar/sku?_method=PUT">
+                                                                <div>
+                                                                    <ul id="errores-sku"></ul>
+                                                                </div>
+                                                                <form id="form-sku" method="POST" action="/admin/productos/detalle/<%= producto.id %>/editar/sku?_method=PUT">
                                                                     <div class="form-group">
                                                                         <label for="sku">SKU</label>
                                                                         <input type="text" class="form-control" name="sku" value="<%= producto.sku %>">
@@ -123,7 +126,10 @@
                                                                 </button>
                                                             </div>
                                                             <div class="modal-body">
-                                                                <form method="POST" action="/admin/productos/detalle/<%= producto.id %>/editar/name?_method=PUT">
+                                                                <div>
+                                                                    <ul id="errores-name"></ul>
+                                                                </div>
+                                                                <form id="form-name" method="POST" action="/admin/productos/detalle/<%= producto.id %>/editar/name?_method=PUT">
                                                                     <div class="form-group">
                                                                         <label for="name">NOMBRE</label>
                                                                         <input type="text" class="form-control" name="name" value="<%= producto.name %>">
@@ -188,7 +194,10 @@
                                                                     </button>
                                                                 </div>
                                                                 <div class="modal-body">
-                                                                    <form method="POST" action="/admin/productos/detalle/<%= producto.id %>/editar/price?_method=PUT">
+                                                                    <div>
+                                                                        <ul id="errores-price"></ul>
+                                                                    </div>
+                                                                    <form id="form-price" method="POST" action="/admin/productos/detalle/<%= producto.id %>/editar/price?_method=PUT">
                                                                         <div class="form-group">
                                                                             <label for="price">PRECIO UNITARIO</label>
                                                                             <div class="input-group-prepend">
@@ -222,7 +231,10 @@
                                                                     </button>
                                                                 </div>
                                                                 <div class="modal-body">
-                                                                    <form method="POST" action="/admin/productos/detalle/<%= producto.id %>/editar/volume?_method=PUT">
+                                                                    <div>
+                                                                        <ul id="errores-volume"></ul>
+                                                                    </div>
+                                                                    <form id="form-volume" method="POST" action="/admin/productos/detalle/<%= producto.id %>/editar/volume?_method=PUT">
                                                                         <div class="form-group">
                                                                             <label for="volume">VOLUMEN</label>
                                                                             <div class="input-group-append">
@@ -256,7 +268,10 @@
                                                                     </button>
                                                                 </div>
                                                                 <div class="modal-body">
-                                                                    <form method="POST" action="/admin/productos/detalle/<%= producto.id %>/editar/description?_method=PUT">
+                                                                    <div>
+                                                                        <ul id="errores-description"></ul>
+                                                                    </div>
+                                                                    <form id="form-description" method="POST" action="/admin/productos/detalle/<%= producto.id %>/editar/description?_method=PUT">
                                                                         <div class="form-group">
                                                                             <label for="description">DESCRIPCIÓN</label>
                                                                             <textarea name="description" rows="3" class="form-control"><%=producto.description%> </textarea>
@@ -594,7 +609,10 @@
                                                                 </button>
                                                             </div>
                                                             <div class="modal-body">
-                                                                <form method="POST" action="/admin/productos/detalle/<%= producto.id %>/editar/imageSm?_method=PUT" enctype="multipart/form-data">
+                                                                <div>
+                                                                    <ul id="errores-img-sm"></ul>
+                                                                </div>
+                                                                <form id="form-img-sm" method="POST" action="/admin/productos/detalle/<%= producto.id %>/editar/imageSm?_method=PUT" enctype="multipart/form-data">
                                                                     <div class="form-group">
                                                                         <label for="imageSm">IMAGEN CHICA</label>
                                                                         <input type="file" class="form-control-file" name="imageSm">
@@ -624,7 +642,10 @@
                                                                 </button>
                                                             </div>
                                                             <div class="modal-body">
-                                                                <form method="POST" action="/admin/productos/detalle/<%= producto.id %>/editar/imageLg?_method=PUT" enctype="multipart/form-data">
+                                                                <div>
+                                                                    <ul id="errores-img-lg"></ul>
+                                                                </div>
+                                                                <form id="form-img-lg" method="POST" action="/admin/productos/detalle/<%= producto.id %>/editar/imageLg?_method=PUT" enctype="multipart/form-data">
                                                                     <div class="form-group">
                                                                         <label for="imageLg">IMAGEN GRANDE</label>
                                                                         <input type="file" class="form-control-file" name="imageLg">
@@ -665,5 +686,6 @@
             <!--Fin Detalle de Producto-->
             
             <%- include('../partials/footer.ejs') %>
+            <script src="/js/productEditor.js"></script>
         </body>
         </html>
