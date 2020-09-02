@@ -1,6 +1,4 @@
 // Validaciones del registro de productos
-
-
 window.addEventListener('load', function () {
 
     let formulario = document.getElementById('formulario');
@@ -88,8 +86,8 @@ window.addEventListener('load', function () {
             volumen.classList.remove('is-invalid');
         }
 
-        if (descripcion.value == '') {
-            errores.push("El campo descripción no puede estar vacío");
+        if (descripcion.value < 20) {
+            errores.push("El campo descripción debe estar completo");
             descripcion.classList.add('is-invalid');
             descripcion.classList.remove('is-valid');
         } else {
