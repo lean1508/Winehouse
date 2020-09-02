@@ -86,8 +86,8 @@ window.addEventListener('load', function () {
             volumen.classList.remove('is-invalid');
         }
 
-        if (descripcion.value < 20) {
-            errores.push("El campo descripción debe estar completo");
+        if (descripcion.value.length < 20) {
+            errores.push("El campo descripción debe tener un mínimo de 20 caracteres");
             descripcion.classList.add('is-invalid');
             descripcion.classList.remove('is-valid');
         } else {

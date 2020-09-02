@@ -176,8 +176,8 @@ window.onload = function() {
         let errores = []
         ulErroresDescription.classList.add('alert-danger');
 
-        if (descripcion.value == '') {
-            errores.push("El campo descripción no puede estar vacío");
+        if (descripcion.value.length < 20) {
+            errores.push("El campo descripción debe tener un mínimo de 20 caracteres");
             descripcion.classList.add('is-invalid');
             descripcion.classList.remove('is-valid');
         } else {
