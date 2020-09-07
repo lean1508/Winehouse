@@ -27,7 +27,7 @@
             <h4>$<%= vino.price %></h4>
             <h6>3 cuotas de $<%= Math.round(vino.price/3) %></h6>
             <a href="/cart" class="btn btn-primary" id="comprar">Comprar</a>
-            <a href="/producto/detalle" class="btn btn-primary" id="verMas">Ver Más</a>
+            <a href="/producto/detalle/<%= vino.id %>" class="btn btn-primary" id="verMas">Ver Más</a>
         </div>
     </article>
     <% }) %>
