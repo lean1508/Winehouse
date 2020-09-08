@@ -50,7 +50,7 @@ module.exports = [
                 })
                 //console.log(user);
                 if (user !== null){
-                    return Promise.reject('Ese alias ya está siendo usado.')
+                    return Promise.reject('Ya existe una cuenta para este correo electrónico')
                 } 
                 return true
             }),

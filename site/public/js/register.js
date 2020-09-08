@@ -94,7 +94,7 @@ window.addEventListener('load', function(){
           password.classList.add('is-valid');
           password.classList.remove('is-invalid');
         }
-        let regexPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})/
+        let regexPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[¡!¿?@#$%^&*+-_])(?=.{8,})/
         if(!regexPassword.test(password.value)){
           errores.push('El password debe tener un mínimo de 8 carácteres incluyendo al menos una letraminúscula, una letra mayúscula, un número y un caracter especial.');
           password.classList.add('is-invalid');
@@ -135,5 +135,28 @@ window.addEventListener('load', function(){
 
     }
     
+  let password = document.getElementById('frontPassword');
+  let confirm_password = document.getElementById('confirm_password');
+
+  password.onkeyup = ()=>{
+    let regexPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[¡!¿?@#$%^&*+-_])(?=.{8,})/
+    if(!regexPassword.test(password.value)){
+      password.classList.add('is-invalid');
+      password.classList.remove('is-valid');
+    }else{
+      password.classList.add('is-valid');
+      password.classList.remove('is-invalid');
+    }
+  };
+
+  confirm_password.onkeyup = ()=>{
+    if(confirm_password.value != password.value){
+      confirm_password.classList.add('is-invalid');
+      confirm_password.classList.remove('is-valid');
+   }else{
+      confirm_password.classList.add('is-valid');
+      confirm_password.classList.remove('is-invalid');
+   }
+  };
 
 })
