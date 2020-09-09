@@ -60,3 +60,16 @@ h2 button.btn-link {
     font-size: 2rem;
     border-radius: 20px;
 }
+
+.review article {
+    padding: 8px;
+    margin: 5px 0px;
+    background-color: lightgrey;
+    border-radius: 5px;
+}
+
+.review article div {
+    display: flex;
+    justify-content: space-between;
+    margin: 0px;
+}
