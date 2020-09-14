@@ -96,7 +96,7 @@ window.addEventListener('load', function(){
         }
         let regexPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[¡!¿?@#$%^&*+-_])(?=.{8,})/
         if(!regexPassword.test(password.value)){
-          errores.push('El password debe tener un mínimo de 8 carácteres incluyendo al menos una letraminúscula, una letra mayúscula, un número y un caracter especial.');
+          errores.push('El password debe tener un mínimo de 8 carácteres incluyendo al menos una letra minúscula, una letra mayúscula, un número y un caracter especial.');
           password.classList.add('is-invalid');
           password.classList.remove('is-valid');
         }else{

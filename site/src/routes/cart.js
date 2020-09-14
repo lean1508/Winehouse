@@ -4,6 +4,7 @@ const path = require('path');
 
 const cartController = require(path.resolve(__dirname, '..', 'controllers', 'cartController'));
 
-router.get('/cart', cartController.index)
+router.get('/cart', cartController.index);
+router.post('/cart/addProduct', cartController.add);
 
 module.exports = router;

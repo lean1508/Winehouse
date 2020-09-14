@@ -121,9 +121,11 @@
                         <h6><%= recomendados[i].producer.name %></h6>
                         <h4>$ <%= recomendados[i].price %></h4>
                         <h6>3 cuotas de $<%= Math.round(recomendados[i].price/3) %></h6>
-                        <a href="/cart" class="btn btn-primary" id="comprar">Comprar</a>
-                        <a href="/producto/detalle/<%= recomendados[i].id %>" class="btn btn-primary" id="verMas">Ver
-                            Más</a>
+                        <form action="/cart/addProduct" method="POST">
+                            <input type="hidden" name="productId" value="<%= recomendados[i].id %>">
+                        <button type="submit" class="btn btn-primary" id="comprar">Comprar</button>
+                        <a href="/producto/detalle/<%= recomendados[i].id %>" class="btn btn-primary" id="verMas">Ver Más</a>
+                        </form>
                     </div>
                 </article>
                 <% }; %>
@@ -137,9 +139,11 @@
                         <h6><%= productos[i].producer.name %></h6>
                         <h4>$ <%= productos[i].price %></h4>
                         <h6>3 cuotas de $<%= Math.round(productos[i].price/3) %></h6>
-                        <a href="/cart" class="btn btn-primary" id="comprar">Comprar</a>
-                        <a href="/producto/detalle/<%= productos[i].id %>" class="btn btn-primary" id="verMas">Ver
-                            Más</a>
+                        <form action="/cart/addProduct" method="POST">
+                            <input type="hidden" name="productId" value="<%= productos[i].id %>">
+                        <button type="submit" class="btn btn-primary" id="comprar">Comprar</button>
+                        <a href="/producto/detalle/<%= productos[i].id %>" class="btn btn-primary" id="verMas">Ver Más</a>
+                        </form>
                     </div>
                 </article>
                 <% }; %>
@@ -154,9 +158,11 @@
                         <h6><%= productos[i].producer.name %></h6>
                         <h4>$ <%= productos[i].price %></h4>
                         <h6>3 cuotas de $<%= Math.round(productos[i].price/3) %></h6>
-                        <a href="/cart" class="btn btn-primary" id="comprar">Comprar</a>
-                        <a href="/producto/detalle/<%= productos[i].id %>" class="btn btn-primary" id="verMas">Ver
-                            Más</a>
+                        <form action="/cart/addProduct" method="POST">
+                            <input type="hidden" name="productId" value="<%= productos[i].id %>">
+                        <button type="submit" class="btn btn-primary" id="comprar">Comprar</button>
+                        <a href="/producto/detalle/<%= productos[i].id %>" class="btn btn-primary" id="verMas">Ver Más</a>
+                        </form>
                     </div>
                 </article>
                 <% }; %>
@@ -171,9 +177,11 @@
                         <h6><%= ofertas[i].producer.name %></h6>
                         <h4>$ <%= ofertas[i].price %></h4>
                         <h6>3 cuotas de $<%= Math.round(ofertas[i].price/3) %></h6>
-                        <a href="/cart" class="btn btn-primary" id="comprar">Comprar</a>
-                        <a href="/producto/detalle/<%= ofertas[i].id %>" class="btn btn-primary" id="verMas">Ver
-                            Más</a>
+                        <form action="/cart/addProduct" method="POST">
+                            <input type="hidden" name="productId" value="<%= ofertas[i].id %>">
+                        <button type="submit" class="btn btn-primary" id="comprar">Comprar</button>
+                        <a href="/producto/detalle/<%= ofertas[i].id %>" class="btn btn-primary" id="verMas">Ver Más</a>
+                        </form>
                     </div>
                 </article>
                 <% }; %> 

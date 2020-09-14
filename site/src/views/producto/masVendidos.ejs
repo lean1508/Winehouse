@@ -21,8 +21,11 @@
             <h6><%= vino.producer.name %></h6>
             <h4>$<%= vino.price %></h4>
             <h6>3 cuotas de $<%= Math.round(vino.price/3) %></h6>
-            <a href="/cart" class="btn btn-primary" id="comprar">Comprar</a>
-            <a href="/producto/detalle" class="btn btn-primary" id="verMas">Ver Más</a>
+            <form action="/cart/addProduct" method="POST">
+                <input type="hidden" name="productId" value="<%= vino.id %>">
+            <button type="submit" class="btn btn-primary" id="comprar">Comprar</button>
+            <a href="/producto/detalle/<%= vino.id %>" class="btn btn-primary" id="verMas">Ver Más</a>
+            </form>
         </div>
     </article>
     <% }) %>

@@ -24,8 +24,9 @@
                 <% } %>  
                 </h6>
                 <h6 id="titulo_valor">Contenido:<%= producto.volume %>ml</h6>
-                <form id="comprar" action="" method="POST">
+                <form id="comprar" action="/cart/addProduct" method="POST">
                     <label for="cantidad">Cantidad:</label>
+                    <input type="hidden" name="productId" value="<%= producto.id %>">
                     <input id="cantidad" type="text" name="cantidad" value="1">
                     <br>
                     <button type="submit" class="btn btn-primary" id="comprar">AGREGAR AL CARRITO</button>
@@ -186,9 +187,11 @@
                         <h6><%= vinos.producer.name %></h6>
                         <h4>$<%= vinos.price %></h4>
                         <h6>3 cuotas de $<%= Math.round(vinos.price/3) %></h6>
-                        <a href="/cart" class="btn btn-primary" id="comprar">Comprar</a>
-                        <a href="/producto/detalle/<%= vinos.id %>" class="btn btn-primary" id="verMas">Ver
-                            Más</a>
+                        <form action="/cart/addProduct" method="POST">
+                            <input type="hidden" name="productId" value="<%= vinos.id %>">
+                        <button type="submit" class="btn btn-primary" id="comprar">Comprar</button>
+                        <a href="/producto/detalle/<%= vinos.id %>" class="btn btn-primary" id="verMas">Ver Más</a>
+                        </form>
                     </div>
                 </article>
                 <% }); %>
