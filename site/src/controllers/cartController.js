@@ -3,34 +3,40 @@ const {Product, cartProduct, User} = require('../database/models');
 
 module.exports = {
     index: async(req,res)=>{
-        //res.send(req.session.cart)
-         await Product.findAll()
-        .then((productos)=>{
-            let compras = [];
-            req.session.cart.forEach(compra => {
-                compras.push(productos.find((producto)=> producto.id == compra.productId))});
-                res.send(compras)
-                //res.render(path.resolve(__dirname, '..', 'views', 'carrito', 'productCart'))
-        })        
-        .catch(error => res.send(error));          
+        let ids = [];
+        if (req.session.cart) {
+            req.session.cart.forEach(item => ids.push(item.productId))
+        };
+        let productos = await Product.findAll({
+            where: {id: ids}
+        });
+
+        let cartProducts =[];
+
+        productos.forEach(producto=>{
+            let item = {};
+            item.id = producto.id;
+            item.nombre = producto.name;
+            item.precio = producto.price;
+            item.cantidad = req.session.cart.find(e => e.productId == producto.id).quantity;
+            item.subtotal = item.precio*item.cantidad;
+            cartProducts.push(item);
+        });
+
+        res.send(cartProducts);
     },
     add: (req,res)=>{
-        Product.findByPk(req.body.productId)
-        .then((producto)=> {
-            //console.log(producto.price);
-            //return res.send(producto)
-            let cantidad = req.body.cantidad? Number(req.body.cantidad): 1;
-            //console.log('afvevervrvefv33333333333'+ cantidad);
-            if(req.session.cart){ 
-                req.session.cart.push({quantity: cantidad, productId: producto.id});
-                //return res.send(req.session.cart)
-                res.redirect('/');   
-            } else {
-                req.session.cart = [];
-                req.session.cart.push({quantity: cantidad, productId: producto.id});
-                res.redirect('/');
-            }
-        })
-        .catch(error => res.send(error));
+        let cantidad = req.body.cantidad? Number(req.body.cantidad): 1;
+
+        if(req.session.cart){ 
+            req.session.cart.push({quantity: cantidad, productId: req.body.productId});  
+        } else {
+            req.session.cart = [];
+            req.session.cart.push({quantity: cantidad, productId: req.body.productId});
+        }
+
+        //res.redirect('back');
+
+        res.send(req.session.cart);
     }
 }
