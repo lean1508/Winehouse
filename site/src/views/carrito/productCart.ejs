@@ -10,21 +10,26 @@
 
     <%- include('../partials/header.ejs') %>
     <!--Carrito-->
-    <main class="container-fluid my-4">
+    <main class="container-fluid" id="cartProduct">
+      <% if (cartProducts.length == 0 ) { %>
+        <h2 class="text-center font-weight-bolder my-4">Su carrito está vacío.</h2>
+        <div class="mb-5"></div>
+      <% } else { %>  
+      <% cartProducts.forEach(item => { %> 
         <form action="/cart" method="POST">
-        <div class=" d-md-inline-flex col-12 rounded" id="carrito">
+        <div class=" d-md-inline-flex col-12 rounded my-2" id="carrito">
         <div class="flex-column text-center my-4">
             <h6 class="font-weight-bolder" id="titulo">PRODUCTO</h6>
             <div class="card mb-3" style="max-width: 540px;">
                 <div class="row no-gutters">
                   <div class="col-md-4">
-                    <img src="/img/1_small.jpeg" class="card-img" alt="Imagen Producto">
+                    <img src="/images/productos/<%= item.imagen %>" class="card-img" alt="Imagen Producto">
                   </div>
                   <div class="col-md-8">
                     <div class="card-body">
-                      <h5 class="card-title">NICASIA VINEYARDS RED BLEND</h5>
-                      <h6 class="card-title">Catena Zapata</h6>
-                      <h5 class="card-title">$480</h5>
+                      <h5 class="card-title"><%= item.nombre %></h5>
+                      <h6 class="card-title"><%= item.productor %></h6>
+                      <h5 class="card-title" id="itemPrecio">$<%= item.precio %></h5>
                     </div>
                   </div>
                 </div>
@@ -33,23 +38,24 @@
         <div class="flex-column text-center my-4">
           <h6 class="font-weight-bolder" id="titulo">CANTIDAD</h6>
           <div id="columna">
-           <span><input type="number" value="1"></span>
+           <span><input type="number" id="valor" value="<%= item.cantidad %>"></span>
           </div>
         </div>
         <div class="flex-column text-center my-4">
             <h6 class="font-weight-bolder" id="titulo">SUBTOTAL</h6>
             <div id="columna">
-              <h5 class="card-title">$480</h5>
+              <h5 class="card-title">$<%= item.subtotal %></h5>
             </div>
           </div>
         </div>
+      <% }); %> 
         <div class="table-responsive">
         <table class="table w-50 m-auto">
             <tbody>
               <tr>
                 <th scope="row" id="total">SUBTOTAL</th>
                 <td></td>
-                <td colspan="2">$480</td>
+                <td colspan="2">$</td>
               </tr>
               <tr>
                 <th scope="row" id="total">ENVIO</th>
@@ -83,7 +89,7 @@
               <tr>
                 <th scope="row" class="font-weight-bolder" id="total">TOTAL</th>
                 <td></td>
-                <td>$580</td>
+                <td>$</td>
               </tr>
             </tbody>
           </table>
@@ -93,6 +99,7 @@
             <button type="submit" class="btn btn-primary btn-lg" id="confirmar">FINALIZAR COMPRA</button>
             </div>
     </form>
+  <% } %> 
     </main>
 
     <%- include('../partials/footer.ejs') %>
