@@ -27,9 +27,17 @@ module.exports = {
     },
     add: (req,res)=>{
         let cantidad = req.body.cantidad? Number(req.body.cantidad): 1;
-
-        if(req.session.cart){ 
-            req.session.cart.push({quantity: cantidad, productId: req.body.productId});  
+        let existe = false;
+        if(req.session.cart){
+            for (var item of req.session.cart) {
+                if (item.productId == req.body.productId) {
+                    item.quantity += cantidad
+                    existe = true;
+                }
+            }
+            if (existe == false){ 
+            req.session.cart.push({quantity: cantidad, productId: req.body.productId});
+            }  
         } else {
             req.session.cart = [];
             req.session.cart.push({quantity: cantidad, productId: req.body.productId});
