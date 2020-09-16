@@ -1,6 +1,7 @@
-#carrito{
+main#cartProduct{
     margin-top: 6rem;
-    margin-bottom: 2rem;
+}
+#carrito{
     justify-content: space-around;
     border: 5px double #401233;
 }
