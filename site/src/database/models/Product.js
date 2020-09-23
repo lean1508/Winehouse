@@ -114,6 +114,13 @@ module.exports = (sequelize, DataTypes) => {
                 foreingKey: 'varietalId'
             }
         )
+        Product.hasMany(
+            models.Rating,
+            {
+                as: 'rating',
+                foreingKey: 'productId'
+            }
+        )
     };
 
     return Product;

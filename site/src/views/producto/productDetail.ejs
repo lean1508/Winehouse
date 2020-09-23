@@ -7,6 +7,9 @@
     </head>
 <body>
     <%- include('../partials/header.ejs') %>
+
+    <!--Paso variable id para usar en productDetail.js-->
+    <script>var id = "<%=producto.id%>"</script>
     
     <!--Detalle de Producto-->
     
@@ -133,7 +136,7 @@
                         <div class="card">
                             <div class="card-header" id="headingThree">
                                 <h2 class="mb-0">
-                                    <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" id="calificaciones">
                                         CALIFICACIONES >>
                                     </button>
                                 </h2>
@@ -141,35 +144,7 @@
                             <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
                                 <div class="card-body">
                                     <div class="review">
-                                        <h4> Puntaje Promedio: <span class="Stars" style="--rating: 3.5;" aria-label="Rating of this product is 3.5 out of 5.">3.5 de 5</span></h4>
-                                        <article>
-                                            <div>
-                                                <h6><b> Eze </b><span class="Stars" style="--rating: 3.0;" aria-label="Rating of this product is 3.0 out of 5."></span></h6>
-                                                <p>28/06/2020</p>
-                                            </div>
-                                            <p>Muy rico vino!</p>
-                                        </article>
-                                        <article>
-                                            <div>
-                                                <h6><b> Lea </b><span class="Stars" style="--rating: 4.0;" aria-label="Rating of this product is 4.0 out of 5."></span></h6>
-                                                <p>09/07/2020</p>
-                                            </div>
-                                            <p>Excelente vino para tomar en una ocasión especial</p>
-                                        </article>
-                                        <article>
-                                            <div>
-                                                <h6><b> mmmmmm </b><span class="Stars" style="--rating: 3.0;" aria-label="Rating of this product is 3.0 out of 5."></span></h6>
-                                                <p>10/07/2020</p>
-                                            </div>
-                                            <p>Lo probé anoche y me gustó. Con un final un poco picante para mi.</p>
-                                        </article>
-                                        <article>
-                                            <div>
-                                                <h6><b> Pepe </b><span class="Stars" style="--rating: 4.0;" aria-label="Rating of this product is 4.0 out of 5."></span></h6>
-                                                <p>31/08/2020</p>
-                                            </div>
-                                            <p>Me encantó. No le pongo cinco estrellas por el precio.</p>
-                                        </article>
+                                        <!--El contenido de este div lo provee productDetail.js-->
                                     </div>
                                 </div>
                             </div>
@@ -201,5 +176,7 @@
         <!--Fin Detalle de Producto-->
         
         <%- include('../partials/footer.ejs') %>
+
+        <script src="/js/productDetail.js"></script>
 </body>
 </html>
