@@ -53,32 +53,37 @@ module.exports = {
         .then(([titulo, vinos, varietales, productores]) => {res.render(path.resolve(__dirname, '..', 'views', 'producto', 'categorias'), {titulo, vinos, varietales, productores})})
         .catch(error => res.send(error))
     },
+    getFiltro: (req,res)=>{
+        res.redirect('/productos/filtrar?name='+req.body.name+'&category='+req.body.category+'&varietal='+req.body.varietal+'&producer='+req.body.producer+'&min='+req.body.min+'&max='+req.body.max+'&order='+req.body.order+'&selection='+req.body.selection+'&sale='+req.body.sale);
+    },
     verCategoriaFiltro: (req,res) => {
-        req.body.varietal=req.body.varietal.split(',');
-        req.body.producer=req.body.producer.split(',');
+        
+        req.query.varietal=req.query.varietal.split(',');
+        req.query.producer=req.query.producer.split(',');
+        req.query.order=req.query.order.split(',');
 
-        if (req.body.selection == undefined){
-            req.body.selection=["on",null]; 
+        if (req.query.selection != "on"){
+            req.query.selection=["on",null]; 
         } else{
-            req.body.selection=req.body.selection.split(' ');
+            req.query.selection=req.query.selection.split(' ');
         };
         
-        if (req.body.sale == undefined){
-            req.body.sale=["on",null]; 
+        if (req.query.sale != "on"){
+            req.query.sale=["on",null]; 
         } else{
-            req.body.sale=req.body.sale.split(' ');
+            req.query.sale=req.query.sale.split(' ');
         };
-
-        let productosFiltrados = filter.products(req.body);
+        
+        let productosFiltrados = filter.products(req.query);
 
         let titulo = Category.findOne({
-            where: {id: req.body.category}
+            where: {id: req.query.category}
         });
 
-        let varietales = filter.varietal(req.body.category);
-        let productores = filter.producer(req.body.category);
-        let filtro = req.body;
-        console.log(filtro.varietal.length);
+        let varietales = filter.varietal(req.query.category);
+        let productores = filter.producer(req.query.category);
+        let filtro = req.query;
+        console.log(filtro);
 
         Promise.all([productosFiltrados, titulo, varietales, productores, filtro])
         .then(([productosFiltrados, titulo, varietales, productores, filtro]) => {res.render(path.resolve(__dirname, '..', 'views', 'producto', 'categoriasFiltradas'), {vinos: productosFiltrados, titulo, varietales, productores, filtro})})
@@ -123,11 +128,13 @@ module.exports = {
         .then((vinos)=> res.render(path.resolve(__dirname, '..', 'views', 'producto', 'ofertas'), {vinos}))
         .catch((error)=> res.send(error))
     },
+    getSearch: (req,res)=>{
+        res.redirect('/busqueda?search='+req.body.search);
+    },
     search: (req,res)=>{
-        console.log(req.body.search);
         Product.findAll({
             where:{
-                [Op.or]: [{name: {[Op.like]: `%${req.body.search}%`}},{'$producer.name$': {[Op.like]: `%${req.body.search}%`}}]
+                [Op.or]: [{name: {[Op.like]: `%${req.query.search}%`}},{'$producer.name$': {[Op.like]: `%${req.query.search}%`}}]
             },
             include:[
                 {association:"producer"}

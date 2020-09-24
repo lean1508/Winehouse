@@ -48,8 +48,8 @@ module.exports = {
             req.session.cart.push({quantity: cantidad, productId: req.body.productId});
         }
 
-        //res.redirect('back');
+        res.redirect('back');
 
-        res.send(req.session.cart);
+        //res.send(req.session.cart);
     }
 }

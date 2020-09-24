@@ -9,7 +9,9 @@ router.get('/categoria/:id', productoController.verCategoria);
 router.get('/masVendidos', productoController.verMasVendidos);
 router.get('/recomendados', productoController.verRecomendados);
 router.get('/ofertas', productoController.verOfertas);
-router.post('/busqueda', productoController.search);
-router.post('/categoria/filtrar', productoController.verCategoriaFiltro);
+router.post('/busqueda', productoController.getSearch);
+router.get('/busqueda', productoController.search);
+router.post('/categoria/filtrar', productoController.getFiltro);
+router.get('/productos/filtrar', productoController.verCategoriaFiltro);
 
 module.exports = router;
