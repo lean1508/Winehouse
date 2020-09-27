@@ -15,7 +15,7 @@ module.exports = {
         let cartProducts =[];
 
         
-
+        let total = 0;
         productos.forEach(producto=>{
             let item = {};
             item.id = producto.id;
@@ -26,9 +26,10 @@ module.exports = {
             item.cantidad = req.session.cart.find(e => e.productId == producto.id).quantity;
             item.subtotal = item.precio*item.cantidad;
             cartProducts.push(item);
+            total += item.subtotal;
         });
 
-        res.render(path.resolve(__dirname, '..', 'views', 'carrito', 'productCart'), {cartProducts})
+        res.render(path.resolve(__dirname, '..', 'views', 'carrito', 'productCart'), {cartProducts, total})
     },
     add: (req,res)=>{
         let cantidad = req.body.cantidad? Number(req.body.cantidad): 1;
