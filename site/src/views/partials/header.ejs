@@ -43,7 +43,7 @@
             </button>
             <% } %>
             <!--Carrito-->
-            <% if (cartItems) { %>
+            <% if (cartItems && cartItems >0) { %>
                 <a href="/cart" id="cart-link">    
                     <img id="barrica" src="/img/barrica.png" alt="Carrito de Compras">
                     <div id="cart-content-quantity"><p><%=cartItems%></p></div>

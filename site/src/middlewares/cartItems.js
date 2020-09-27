@@ -7,7 +7,7 @@ module.exports = (req,res,next) => {
         res.locals.cartItems = totalItems;
         return next();
     } else {
-        res.locals.usuario = false;   
+        res.locals.cartItems = false;   
         next();
     }
 };

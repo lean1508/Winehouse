@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `winehouse` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `winehouse`;
 -- MySQL dump 10.13  Distrib 5.7.12, for Win32 (AMD64)
 --
 -- Host: localhost    Database: winehouse
@@ -403,4 +405,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-09-23 20:27:38
+-- Dump completed on 2020-09-27 16:14:04
