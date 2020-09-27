@@ -7,6 +7,7 @@ const cookies = require('cookie-parser');
 
 const userMiddleware = require('./middlewares/user');
 const categoriasMiddleware = require('./middlewares/categorias');
+const cartItemsMiddleware = require('./middlewares/cartItems');
 
 app.set('view engine','ejs');
 
@@ -20,6 +21,7 @@ app.use(cookies());
 
 app.use(userMiddleware);
 app.use(categoriasMiddleware);
+app.use(cartItemsMiddleware);
 
 //Rutas
 const webRoutes = require('./routes/web');

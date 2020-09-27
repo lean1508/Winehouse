@@ -138,6 +138,30 @@ img#usuario{
 div.iconos-nav a img#barrica{
     max-height: 6vh;
 }
+
+#cart-link{
+    position: relative;
+}
+
+div#cart-content-quantity{
+    position: absolute;
+    top: 25px;
+    background-color: #401233;
+    height: 24px;
+    width: 24px;
+    border-radius: 12px;
+    z-index: 1000;
+}
+
+div#cart-content-quantity p{
+    font-size: 16px;
+    font-weight: 400;
+    text-align: center;
+    vertical-align: middle;
+    color: #fffffd;
+    margin: 0px;
+}
+
 /*clases para menu login*/
 div#menu-login {
     margin-right: 0px;

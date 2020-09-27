@@ -43,7 +43,16 @@
             </button>
             <% } %>
             <!--Carrito-->
-            <a href="/cart"><img id="barrica" src="/img/barrica.png" alt="Carrito de Compras"></a>
+            <% if (cartItems) { %>
+                <a href="/cart" id="cart-link">    
+                    <img id="barrica" src="/img/barrica.png" alt="Carrito de Compras">
+                    <div id="cart-content-quantity"><p><%=cartItems%></p></div>
+                </a>
+            <% } else { %>
+                <a href="/cart" id="cart-link">
+                    <img id="barrica" src="/img/barrica.png" alt="Carrito de Compras">
+                </a>
+            <% } %>  
         </div>
         
         <!--Formulario Busqueda alternativo para pantallas con width < 768px-->
