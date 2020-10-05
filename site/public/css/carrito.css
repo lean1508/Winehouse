@@ -24,6 +24,10 @@ div span input{
 table.table{
     width: 50%;
 }
+#botonEliminar:hover{
+    color: #050705;
+    background-color: #401233;
+}
 #total{
     color: #401233;
 }

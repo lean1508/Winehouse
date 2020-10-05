@@ -16,7 +16,6 @@
         <div class="mb-5"></div>
       <% } else { %>  
       <% cartProducts.forEach(item => { %> 
-        <form action="/cart" method="POST">
         <div class=" d-md-inline-flex col-12 rounded my-2" id="carrito">
         <div class="flex-column text-center my-4">
             <h6 class="font-weight-bolder" id="titulo">PRODUCTO</h6>
@@ -47,6 +46,14 @@
               <h5 class="card-title">$<%= item.subtotal %></h5>
             </div>
           </div>
+          <div class="align-self-center">
+          <form action="/cart/deleteProduct" method="POST">
+            <input type="hidden" name="productId" value="<%= item.id %>">
+          <button type="submit" class="close" aria-label="Close" id="botonEliminar">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          </form>
+        </div>
         </div>
       <% }); %> 
         <div class="table-responsive">
@@ -61,10 +68,12 @@
           </table>
           </div>
           <div class="d-inline-flex justify-content-center w-100 my-2">
+            <form action="/cart/comprar" method="POST">
             <button type="button" class="btn btn-primary btn-lg" id="verMas"><a href="/" class="text-decoration-none  text-dark"> SEGUIR COMPRANDO</a></button> 
             <button type="submit" class="btn btn-primary btn-lg" id="confirmar">FINALIZAR COMPRA</button>
+            </form>
             </div>
-    </form>
+    
   <% } %> 
     </main>
 
