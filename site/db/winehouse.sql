@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `winehouse` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `winehouse`;
 -- MySQL dump 10.13  Distrib 5.7.12, for Win32 (AMD64)
 --
 -- Host: localhost    Database: winehouse

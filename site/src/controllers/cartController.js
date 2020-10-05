@@ -43,14 +43,29 @@ module.exports = {
             }
             if (existe == false){ 
             req.session.cart.push({quantity: cantidad, productId: req.body.productId});
+            cart = req.cookies.cart;
+            res.cookie('cart',null,{maxAge: -1});
+            cart.push({quantity: cantidad, productId: req.body.productId});
+            res.cookie('cart', cart , {maxAge: 1000*60*60*1200} );
             }  
         } else {
             req.session.cart = [];
             req.session.cart.push({quantity: cantidad, productId: req.body.productId});
+            res.cookie('cart', [{quantity: cantidad, productId: req.body.productId}] , {maxAge: 1000*60*60*1200} );
         }
-
+        
         res.redirect('back');
 
         //res.send(req.session.cart);
+    },
+    delete: (req,res)=>{
+        req.session.cart = req.session.cart.filter(item => item.productId != req.body.productId);
+        carroEliminar = req.cookies.cart;
+        res.cookie('cart',null,{maxAge: -1});
+        let cart = carroEliminar.filter(item => item.productId != req.body.productId);
+        res.cookie('cart', cart , {maxAge: 1000*60*60*1200} );
+
+        //return res.send(req.session.cart);
+        res.redirect('/cart')
     }
 }
