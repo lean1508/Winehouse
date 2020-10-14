@@ -16,7 +16,16 @@ div.card-body{
     margin-top: 4rem;
 }
 div#columna{
+    display: flex;
     margin-top: 6.5rem;
+}
+#sumar-restar-item{
+    font-weight: 1000;
+    border-radius: .5rem;
+    padding: .05rem .75rem;
+    color: #401233;
+    background-color: #fffffd;
+    border: 2px solid #401233;
 }
 div span input{
     max-width: 2rem;
@@ -33,6 +42,13 @@ table.table{
 }
 #totalCompra{
     font-size: 1.2rem;
+}
+
+.btn-primary#empty-cart{
+    font-family: 'Noto Sans', sans-serif;
+    color: #050705;
+    background-color: #b3b5af;
+    border-color: #b3b5af;
 }
 
 @media screen and (max-width: 576px){

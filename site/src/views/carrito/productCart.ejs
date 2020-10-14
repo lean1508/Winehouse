@@ -37,7 +37,15 @@
         <div class="flex-column text-center my-4">
           <h6 class="font-weight-bolder" id="titulo">CANTIDAD</h6>
           <div id="columna">
-           <span><%= item.cantidad %></span>
+            <form action="/cart/minusItem" method="POST">
+              <input type="hidden" name="productId" value="<%= item.id %>">
+              <button type="submit" class="btn btn-secondary" id="sumar-restar-item">-</button>
+            </form>
+            <span><%= item.cantidad %></span>
+            <form action="/cart/plusItem" method="POST">
+              <input type="hidden" name="productId" value="<%= item.id %>">
+              <button type="submit" class="btn btn-secondary" id="sumar-restar-item">+</button>
+            </form>
           </div>
         </div>
         <div class="flex-column text-center my-4">
@@ -68,10 +76,11 @@
           </table>
           </div>
           <div class="d-inline-flex justify-content-center w-100 my-2">
-            <form action="/cart/comprar" method="POST">
-            <button type="button" class="btn btn-primary btn-lg" id="verMas"><a href="/" class="text-decoration-none  text-dark"> SEGUIR COMPRANDO</a></button> 
-            <button type="submit" class="btn btn-primary btn-lg" id="confirmar">FINALIZAR COMPRA</button>
+            <form action="/cart/empty" method="POST">
+              <button type="submit" class="btn btn-primary btn-lg text-dark" id="empty-cart"><ion-icon name="trash-outline"></ion-icon>  VACIAR CARRITO</button>
             </form>
+            <button type="button" class="btn btn-primary btn-lg" id="verMas"><a href="/" class="text-decoration-none  text-dark"> SEGUIR COMPRANDO</a></button>
+            <button type="submit" class="btn btn-primary btn-lg" id="confirmar">FINALIZAR COMPRA</button>
             </div>
     
   <% } %> 

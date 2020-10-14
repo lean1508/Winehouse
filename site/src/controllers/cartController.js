@@ -43,16 +43,18 @@ module.exports = {
             }
             if (existe == false){ 
             req.session.cart.push({quantity: cantidad, productId: req.body.productId});
-            cart = req.cookies.cart;
+            /*cart = req.cookies.cart;
             res.cookie('cart',null,{maxAge: -1});
             cart.push({quantity: cantidad, productId: req.body.productId});
-            res.cookie('cart', cart , {maxAge: 1000*60*60*1200} );
+            res.cookie('cart', cart , {maxAge: 1000*60*60*1200} );*/
             }  
         } else {
             req.session.cart = [];
             req.session.cart.push({quantity: cantidad, productId: req.body.productId});
-            res.cookie('cart', [{quantity: cantidad, productId: req.body.productId}] , {maxAge: 1000*60*60*1200} );
+            //res.cookie('cart', [{quantity: cantidad, productId: req.body.productId}] , {maxAge: 1000*60*60*1200} );
         }
+        
+        res.cookie('cart', req.session.cart , {maxAge: 1000*60*60*1200} ); 
         
         res.redirect('back');
 
@@ -60,12 +62,50 @@ module.exports = {
     },
     delete: (req,res)=>{
         req.session.cart = req.session.cart.filter(item => item.productId != req.body.productId);
-        carroEliminar = req.cookies.cart;
+        /*carroEliminar = req.cookies.cart;
         res.cookie('cart',null,{maxAge: -1});
         let cart = carroEliminar.filter(item => item.productId != req.body.productId);
-        res.cookie('cart', cart , {maxAge: 1000*60*60*1200} );
+        res.cookie('cart', cart , {maxAge: 1000*60*60*1200} );*/
+
+        if (req.session.cart.length == 0){
+            res.cookie('cart',null,{maxAge: -1});
+        } else {
+            res.cookie('cart', req.session.cart , {maxAge: 1000*60*60*1200} );
+        };
 
         //return res.send(req.session.cart);
         res.redirect('/cart')
+    },
+    minusItem: (req,res)=>{
+        for (let i=0; i<req.session.cart.length; i++){
+            if (req.session.cart[i].productId == req.body.productId) {
+                req.session.cart[i].quantity = req.session.cart[i].quantity-1;
+            };
+        };
+        req.session.cart = req.session.cart.filter(item => item.quantity >= 1);
+
+        if (req.session.cart.length == 0){
+            res.cookie('cart',null,{maxAge: -1});
+        } else {
+            res.cookie('cart', req.session.cart , {maxAge: 1000*60*60*1200} );
+        };
+        
+        res.redirect('/cart');
+    },
+    plusItem: (req,res)=>{
+        for (let i=0; i<req.session.cart.length; i++){
+            if (req.session.cart[i].productId == req.body.productId) {
+                req.session.cart[i].quantity += 1;
+            };
+        };
+
+        res.cookie('cart', req.session.cart , {maxAge: 1000*60*60*1200} );
+
+        res.redirect('/cart');
+    },
+    emptyCart: (req,res)=>{
+        delete req.session.cart;
+        res.cookie('cart',null,{maxAge: -1});
+        res.redirect('/cart');
     }
 }
