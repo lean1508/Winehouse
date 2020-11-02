@@ -107,5 +107,8 @@ module.exports = {
         delete req.session.cart;
         res.cookie('cart',null,{maxAge: -1});
         res.redirect('/cart');
+    },
+    delivery: (req,res)=>{
+        res.send('Opciones de Envío');
     }
 }

@@ -31,6 +31,7 @@ const cartRoutes = require('./routes/cart')
 const adminProductRoutes = require('./routes/adminProduct');
 const adminUserRoutes = require('./routes/adminUser');
 const apiRatingRoutes = require('./routes/api/rating');
+const apiCartRoutes = require('./routes/api/apiCart');
 
 
 
@@ -42,5 +43,6 @@ app.use(cartRoutes);
 app.use(adminProductRoutes);
 app.use(adminUserRoutes);
 app.use(apiRatingRoutes);
+app.use(apiCartRoutes);
 
 app.listen(3000, 'localhost', ()=> console.log('Servidor corriendo en el puerto 3000'));

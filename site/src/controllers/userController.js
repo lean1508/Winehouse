@@ -74,7 +74,7 @@ module.exports = {
             if(req.body.recordarme){
                 res.cookie('email', usuarioLogueado.email, {maxAge: 1000 * 60 * 60 * 48})
             }
-            res.redirect('/');
+            res.redirect('back');
         }
     },
     logout: (req,res)=>{

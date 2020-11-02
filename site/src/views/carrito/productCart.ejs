@@ -1,25 +1,29 @@
 <!DOCTYPE html>
 <html lang="es">
 
-  <head>
-    <%- include('../partials/head.ejs') %>
-    <link rel="stylesheet" href="/css/carrito.css">
-    </head>
+<head>
+  <%- include('../partials/head.ejs') %>
+  <link rel="stylesheet" href="/css/carrito.css">
+</head>
 
 <body>
+  
+  <%- include('../partials/header.ejs') %>
 
-    <%- include('../partials/header.ejs') %>
-    <!--Carrito-->
-    <main class="container-fluid" id="cartProduct">
-      <% if (cartProducts.length == 0 ) { %>
-        <h2 class="text-center font-weight-bolder my-4">Su carrito está vacío.</h2>
-        <div class="mb-5"></div>
+  <script>
+    var loggedUser = '<%=usuario%>';
+  </script>
+  <!--Carrito-->
+  <main class="container-fluid" id="cartProduct">
+    <% if (cartProducts.length == 0 ) { %>
+      <h2 class="text-center font-weight-bolder my-4">Su carrito está vacío.</h2>
+      <div class="mb-5"></div>
       <% } else { %>  
-      <% cartProducts.forEach(item => { %> 
-        <div class=" d-md-inline-flex col-12 rounded my-2" id="carrito">
-        <div class="flex-column text-center my-4">
-            <h6 class="font-weight-bolder" id="titulo">PRODUCTO</h6>
-            <div class="card mb-3" style="max-width: 540px;">
+        <% cartProducts.forEach(item => { %> 
+          <div class=" d-md-inline-flex col-12 rounded my-2" id="carrito">
+            <div class="flex-column text-center my-4">
+              <h6 class="font-weight-bolder" id="titulo">PRODUCTO</h6>
+              <div class="card mb-3" style="max-width: 540px;">
                 <div class="row no-gutters">
                   <div class="col-md-4">
                     <img src="/images/productos/<%= item.imagen %>" class="card-img" alt="Imagen Producto">
@@ -33,59 +37,81 @@
                   </div>
                 </div>
               </div>
-        </div>
-        <div class="flex-column text-center my-4">
-          <h6 class="font-weight-bolder" id="titulo">CANTIDAD</h6>
-          <div id="columna">
-            <form action="/cart/minusItem" method="POST">
-              <input type="hidden" name="productId" value="<%= item.id %>">
-              <button type="submit" class="btn btn-secondary" id="sumar-restar-item">-</button>
-            </form>
-            <span><%= item.cantidad %></span>
-            <form action="/cart/plusItem" method="POST">
-              <input type="hidden" name="productId" value="<%= item.id %>">
-              <button type="submit" class="btn btn-secondary" id="sumar-restar-item">+</button>
-            </form>
-          </div>
-        </div>
-        <div class="flex-column text-center my-4">
-            <h6 class="font-weight-bolder" id="titulo">SUBTOTAL</h6>
-            <div id="columna">
-              <h5 class="card-title">$<%= item.subtotal %></h5>
+            </div>
+            <div class="flex-column text-center my-4">
+              <h6 class="font-weight-bolder" id="titulo">CANTIDAD</h6>
+              <div id="columna">
+                <form action="/cart/minusItem" method="POST">
+                  <input type="hidden" name="productId" value="<%= item.id %>">
+                  <button type="submit" class="btn btn-secondary" id="sumar-restar-item">-</button>
+                </form>
+                <span><%= item.cantidad %></span>
+                <form action="/cart/plusItem" method="POST">
+                  <input type="hidden" name="productId" value="<%= item.id %>">
+                  <button type="submit" class="btn btn-secondary" id="sumar-restar-item">+</button>
+                </form>
+              </div>
+            </div>
+            <div class="flex-column text-center my-4">
+              <h6 class="font-weight-bolder" id="titulo">SUBTOTAL</h6>
+              <div id="columna">
+                <h5 class="card-title">$<%= item.subtotal %></h5>
+              </div>
+            </div>
+            <div class="align-self-center">
+              <form action="/cart/deleteProduct" method="POST">
+                <input type="hidden" name="productId" value="<%= item.id %>">
+                <button type="submit" class="close" aria-label="Close" id="botonEliminar">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </form>
             </div>
           </div>
-          <div class="align-self-center">
-          <form action="/cart/deleteProduct" method="POST">
-            <input type="hidden" name="productId" value="<%= item.id %>">
-          <button type="submit" class="close" aria-label="Close" id="botonEliminar">
-            <span aria-hidden="true">&times;</span>
-          </button>
-          </form>
-        </div>
-        </div>
-      <% }); %> 
-        <div class="table-responsive">
-        <table class="table w-50 m-auto">
-            <tbody>
-              <tr>
-                <th scope="row" class="font-weight-bolder" id="total">TOTAL</th>
-                <td></td>
-                <td id="totalCompra">$<%= total %> </td>
-              </tr>
-            </tbody>
-          </table>
+          <% }); %> 
+          <div class="table-responsive">
+            <table class="table w-50 m-auto">
+              <tbody>
+                <tr>
+                  <th scope="row" class="font-weight-bolder" id="total">TOTAL</th>
+                  <td></td>
+                  <td id="totalCompra">$<%= total %> </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
           <div class="d-inline-flex justify-content-center w-100 my-2">
             <form action="/cart/empty" method="POST">
-              <button type="submit" class="btn btn-primary btn-lg text-dark" id="empty-cart"><ion-icon name="trash-outline"></ion-icon>  VACIAR CARRITO</button>
+              <button type="submit" class="btn btn-primary btn-lg" id="empty-cart"><ion-icon name="trash-outline"></ion-icon>  VACIAR CARRITO</button>
             </form>
-            <button type="button" class="btn btn-primary btn-lg" id="verMas"><a href="/" class="text-decoration-none  text-dark"> SEGUIR COMPRANDO</a></button>
-            <button type="submit" class="btn btn-primary btn-lg" id="confirmar">FINALIZAR COMPRA</button>
+            <a href="/" class="text-decoration-none  text-dark"><button type="button" class="btn btn-primary btn-lg" id="verMas">SEGUIR COMPRANDO</button></a>
+            <a href="/cart/delivery" style="color: #fffffd"><button type="button" class="btn btn-primary btn-lg checkout" id="confirmar">FINALIZAR COMPRA</button></a>
+          </div>
+          
+          <% } %>
+         
+          <div class="modal fade" id="alert-modal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Error al finalizar compra</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">  
+                  <p id="contenido-alert-modal"></p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-primary" id="verMas" data-dismiss="modal">ACEPTAR</button>
+                </div>
+              </div>
             </div>
-    
-  <% } %> 
-    </main>
+          </div>
+        
+        </main>
+        
+        <%- include('../partials/footer.ejs') %>
 
-    <%- include('../partials/footer.ejs') %>
-</body>
-</html>
+        <script src="/js/carrito.js"></script>
+      </body>
+      </html>

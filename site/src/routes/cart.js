@@ -11,5 +11,6 @@ router.post('/cart/deleteProduct', cartController.delete);
 router.post('/cart/minusItem', cartController.minusItem);
 router.post('/cart/plusItem', controlStock, cartController.plusItem);
 router.post('/cart/empty', cartController.emptyCart);
+router.get('/cart/delivery', cartController.delivery);
 
 module.exports = router;
