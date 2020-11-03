@@ -1,7 +1,8 @@
 window.onload = function() {
 
     let checkout = document.querySelector('.checkout');
-    let contenidoAlertModal = document.getElementById('contenido-alert-modal'); 
+    let contenidoAlertModal = document.getElementById('contenido-alert-modal');
+    let hiddenSubmitButton = document.getElementById('hidden-submit-button'); 
 
     loggedUser == 'false' ? loggedUser=false : loggedUser=true;
 
@@ -21,7 +22,8 @@ window.onload = function() {
                 contenidoAlertModal.innerText += "Debe iniciar sesión para finalizar la compra"
                 $('#alert-modal').modal()
             } else {
-                window.location.href = '/cart/delivery';
+                hiddenSubmitButton.click();
+                //window.location.href = '/cart/delivery';
             }
         })
         .catch(e => console.log(e));

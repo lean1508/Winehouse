@@ -85,6 +85,9 @@
             </form>
             <a href="/" class="text-decoration-none  text-dark"><button type="button" class="btn btn-primary btn-lg" id="verMas">SEGUIR COMPRANDO</button></a>
             <a href="/cart/delivery" style="color: #fffffd"><button type="button" class="btn btn-primary btn-lg checkout" id="confirmar">FINALIZAR COMPRA</button></a>
+            <form action="/cart/delivery" method="POST" style="display: none">
+              <button type="submit" id="hidden-submit-button"></button>
+            </form>
           </div>
           
           <% } %>
